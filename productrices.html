@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toutes nos productrices - CuisineFacile.africa</title>
+    <meta name="description" content="Découvrez toutes les coopératives féminines partenaires de CuisineFacile.africa.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+
+<body class="page-producers page-productrices-list">
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <img src="img/logo.png" alt="CuisineFacile Logo" class="header-logo">
+                </a>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="shop.html" class="nav-link">Boutique</a></li>
+                    <li><a href="producers.html" class="nav-link active">Nos Productrices</a></li>
+                    <li><a href="engagement.html" class="nav-link">Notre engagement</a></li>
+                    <li><a href="#" class="nav-link">Recettes</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <div class="search-box">
+                        <input type="text" class="search-input" placeholder="Rechercher un produit...">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <button class="user-btn">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <a href="cart.html" class="cart-btn" aria-label="Voir le panier">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- En-tête page -->
+    <section class="productrices-page-intro">
+        <div class="container">
+            <a href="producers.html" class="productrices-back-link">← Retour</a>
+            <h1 class="productrices-page-title">Nos productrices</h1>
+            <p class="productrices-page-lead">Rencontrez les femmes et les coopératives qui transforment nos produits avec passion.</p>
+        </div>
+    </section>
+
+    <!-- Toutes les productrices -->
+    <section class="producers-list-section" id="productrices">
+        <div class="container">
+            <h2 class="producers-section-title visually-hidden">Liste des coopératives</h2>
+            <div class="producers-list-container">
+
+            <div class="coop-row coop-row--left">
+                <article class="producer-profile-card">
+                    <div class="producer-profile-avatar">
+                        <img src="img/femme1.png" alt="Coopérative de Bouaké">
+                    </div>
+                    <div class="producer-profile-body">
+                        <span class="producer-profile-coop-tag">Coop. de Bouaké</span>
+                        <h3 class="producer-profile-name">Coopérative de Bouaké <span>— Bouaké</span></h3>
+                        <blockquote class="producer-profile-quote">« Notre aventure a commencé il y a 8 ans lorsque quelques femmes du quartier ont décidé de mettre en commun leurs savoir-faire pour créer une activité génératrice de revenus pour nos familles. »</blockquote>
+                        <div class="producer-fair-box">
+                            <p>Sur chaque produit à <strong>5 000 F</strong>, <strong class="producer-fair-highlight">2 500 F</strong> reviennent à la coopérative et à ses membres.</p>
+                            <div class="producer-fair-bar"><span style="width:50%"></span></div>
+                            <div class="producer-fair-labels">
+                                <span>Productrice 50%</span>
+                                <span>Logistique &amp; marque 50%</span>
+                            </div>
+                        </div>
+                        <div class="producer-profile-products">
+                            <span>Sauce Graine Premium</span>
+                            <span>Sauce Arachide</span>
+                            <span>Sauce Gombo</span>
+                        </div>
+                        <a href="shop.html?cooperative=bouake" class="producer-profile-link">Découvrir leurs produits →</a>
+                    </div>
+                </article>
+                <span class="coop-city-label" aria-hidden="true">Bouaké</span>
+            </div>
+
+            <div class="coop-row coop-row--right">
+                <span class="coop-city-label" aria-hidden="true">Abidjan</span>
+                <article class="producer-profile-card">
+                    <div class="producer-profile-avatar">
+                        <img src="img/femme2.png" alt="Coopérative d'Abidjan">
+                    </div>
+                    <div class="producer-profile-body">
+                        <span class="producer-profile-coop-tag">Coop. d'Abidjan</span>
+                        <h3 class="producer-profile-name">Coopérative d'Abidjan <span>— Abidjan</span></h3>
+                        <blockquote class="producer-profile-quote">« Le manioc est au cœur de notre culture alimentaire. Notre coopérative s'engage à produire un attiéké de qualité supérieure tout en créant des emplois durables pour les femmes de notre communauté. »</blockquote>
+                        <div class="producer-fair-box">
+                            <p>Sur chaque produit à <strong>4 500 F</strong>, <strong class="producer-fair-highlight">2 250 F</strong> reviennent à la coopérative et à ses membres.</p>
+                            <div class="producer-fair-bar"><span style="width:50%"></span></div>
+                            <div class="producer-fair-labels">
+                                <span>Productrice 50%</span>
+                                <span>Logistique &amp; marque 50%</span>
+                            </div>
+                        </div>
+                        <div class="producer-profile-products">
+                            <span>Attiéké Traditionnel</span>
+                            <span>Farine de Manioc</span>
+                            <span>Gari</span>
+                        </div>
+                        <a href="shop.html?cooperative=abidjan" class="producer-profile-link">Découvrir leurs produits →</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="coop-row coop-row--left">
+                <article class="producer-profile-card">
+                    <div class="producer-profile-avatar">
+                        <img src="img/femme3.png" alt="Coopérative de Korhogo">
+                    </div>
+                    <div class="producer-profile-body">
+                        <span class="producer-profile-coop-tag">Coop. de Korhogo</span>
+                        <h3 class="producer-profile-name">Coopérative de Korhogo <span>— Korhogo</span></h3>
+                        <blockquote class="producer-profile-quote">« Les épices sont notre fierté. Nous cultivons nos propres plants et maîtrisons chaque étape de la transformation pour vous offrir des produits d'exception. »</blockquote>
+                        <div class="producer-fair-box">
+                            <p>Sur chaque produit à <strong>2 500 F</strong>, <strong class="producer-fair-highlight">1 250 F</strong> reviennent à la coopérative et à ses membres.</p>
+                            <div class="producer-fair-bar"><span style="width:50%"></span></div>
+                            <div class="producer-fair-labels">
+                                <span>Productrice 50%</span>
+                                <span>Logistique &amp; marque 50%</span>
+                            </div>
+                        </div>
+                        <div class="producer-profile-products">
+                            <span>Piment Artisanal</span>
+                            <span>Gingembre Moulu</span>
+                            <span>Poivre de Sélim</span>
+                        </div>
+                        <a href="shop.html?cooperative=korhogo" class="producer-profile-link">Découvrir leurs produits →</a>
+                    </div>
+                </article>
+                <span class="coop-city-label" aria-hidden="true">Korhogo</span>
+            </div>
+
+            <div class="coop-row coop-row--right">
+                <span class="coop-city-label coop-city-label--long" aria-hidden="true">Yamoussoukro</span>
+                <article class="producer-profile-card">
+                    <div class="producer-profile-avatar">
+                        <img src="img/femme4.png" alt="Coopérative de Yamoussoukro">
+                    </div>
+                    <div class="producer-profile-body">
+                        <span class="producer-profile-coop-tag">Coop. de Yamoussoukro</span>
+                        <h3 class="producer-profile-name">Coopérative de Yamoussoukro <span>— Yamoussoukro</span></h3>
+                        <blockquote class="producer-profile-quote">« Les boissons traditionnelles font partie de notre identité. Nous les préparons avec amour et passion pour partager un morceau de notre culture avec le monde. »</blockquote>
+                        <div class="producer-fair-box">
+                            <p>Sur chaque produit à <strong>2 000 F</strong>, <strong class="producer-fair-highlight">1 000 F</strong> reviennent à la coopérative et à ses membres.</p>
+                            <div class="producer-fair-bar"><span style="width:50%"></span></div>
+                            <div class="producer-fair-labels">
+                                <span>Productrice 50%</span>
+                                <span>Logistique &amp; marque 50%</span>
+                            </div>
+                        </div>
+                        <div class="producer-profile-products">
+                            <span>Bissap Naturel</span>
+                            <span>Jus de Gingembre</span>
+                            <span>Jus de Tamarin</span>
+                        </div>
+                        <a href="shop.html?cooperative=yamoussoukro" class="producer-profile-link">Découvrir leurs produits →</a>
+                    </div>
+                </article>
+            </div>
+
+            <div class="coop-row coop-row--left">
+                <article class="producer-profile-card">
+                    <div class="producer-profile-avatar">
+                        <img src="img/img2.jpg" alt="Coopérative de San-Pédro">
+                    </div>
+                    <div class="producer-profile-body">
+                        <span class="producer-profile-coop-tag">Coop. de San-Pédro</span>
+                        <h3 class="producer-profile-name">Coopérative de San-Pédro <span>— San-Pédro</span></h3>
+                        <blockquote class="producer-profile-quote">« Le cacao est l'or brun de notre région. Nous le transformons avec respect et créativité pour créer des produits qui célèbrent notre patrimoine agricole. »</blockquote>
+                        <div class="producer-fair-box">
+                            <p>Sur chaque produit à <strong>6 500 F</strong>, <strong class="producer-fair-highlight">3 250 F</strong> reviennent à la coopérative et à ses membres.</p>
+                            <div class="producer-fair-bar"><span style="width:50%"></span></div>
+                            <div class="producer-fair-labels">
+                                <span>Productrice 50%</span>
+                                <span>Logistique &amp; marque 50%</span>
+                            </div>
+                        </div>
+                        <div class="producer-profile-products">
+                            <span>Chocolat artisanal</span>
+                            <span>Beurre de cacao</span>
+                            <span>Poudre de cacao</span>
+                        </div>
+                        <a href="shop.html?cooperative=san-pedro" class="producer-profile-link">Découvrir leurs produits →</a>
+                    </div>
+                </article>
+                <span class="coop-city-label" aria-hidden="true">San-Pédro</span>
+            </div>
+
+            <div class="coop-row coop-row--right">
+                <span class="coop-city-label" aria-hidden="true">Daloa</span>
+                <article class="producer-profile-card">
+                    <div class="producer-profile-avatar">
+                        <img src="img/img10.jpg" alt="Coopérative de Daloa">
+                    </div>
+                    <div class="producer-profile-body">
+                        <span class="producer-profile-coop-tag">Coop. de Daloa</span>
+                        <h3 class="producer-profile-name">Coopérative de Daloa <span>— Daloa</span></h3>
+                        <blockquote class="producer-profile-quote">« Notre région regorge de fruits délicieux. Nous les transformons pour qu'ils puissent être dégustés toute l'année, tout en préservant leurs qualités nutritionnelles. »</blockquote>
+                        <div class="producer-fair-box">
+                            <p>Sur chaque produit à <strong>3 800 F</strong>, <strong class="producer-fair-highlight">1 900 F</strong> reviennent à la coopérative et à ses membres.</p>
+                            <div class="producer-fair-bar"><span style="width:50%"></span></div>
+                            <div class="producer-fair-labels">
+                                <span>Productrice 50%</span>
+                                <span>Logistique &amp; marque 50%</span>
+                            </div>
+                        </div>
+                        <div class="producer-profile-products">
+                            <span>Mangues séchées</span>
+                            <span>Confiture d'ananas</span>
+                            <span>Sirop de papaye</span>
+                        </div>
+                        <a href="shop.html?cooperative=daloa" class="producer-profile-link">Découvrir leurs produits →</a>
+                    </div>
+                </article>
+            </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="img/logo.png" alt="CuisineFacile Logo" class="footer-logo">
+                    </div>
+                    <p class="footer-description">Manger bien et sainement sans effort. Nous livrons des ingrédients de qualité supérieure directement chez vous.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Liens Rapides</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Nos Recettes</a></li>
+                        <li><a href="#" class="footer-link">Abonnement</a></li>
+                        <li><a href="#" class="footer-link">Espace Client</a></li>
+                        <li><a href="#" class="footer-link">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Légal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">CGV</a></li>
+                        <li><a href="#" class="footer-link">Politique de confidentialité</a></li>
+                        <li><a href="#" class="footer-link">Mentions Légales</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+2250709302481" class="footer-link"><i class="fas fa-phone"></i> +225 07 09 30 24 81</a></li>
+                        <li><a href="mailto:admin@cuisinefacile.africa" class="footer-link"><i class="fas fa-envelope"></i> admin@cuisinefacile.africa</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-map-marker-alt"></i> Abidjan, Côte d'Ivoire</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 CuisineFacile Africa. Tous droits réservés.</p>
+                    <div class="payment-methods">
+                        <img src="img/visa.png" alt="Visa" class="payment-img">
+                        <img src="img/moov-money.png" alt="Moov Money" class="payment-img">
+                        <img src="img/mtn-money.png" alt="MTN Mobile Money" class="payment-img">
+                        <img src="img/orange-money.jpg" alt="Orange Money" class="payment-img">
+                        <img src="img/wave.webp" alt="Wave" class="payment-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2>Connexion</h2>
+                <p>Bienvenue sur CuisineFacile</p>
+            </div>
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="remember">
+                        <span>Se souvenir de moi</span>
+                    </label>
+                    <a href="#" class="forgot-password">Mot de passe oublié ?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Se connecter</button>
+                <div class="modal-divider">
+                    <span>ou</span>
+                </div>
+                <button type="button" class="btn btn-social btn-google">
+                    <i class="fab fa-google"></i>
+                    Continuer avec Google
+                </button>
+                <button type="button" class="btn btn-social btn-facebook">
+                    <i class="fab fa-facebook-f"></i>
+                    Continuer avec Facebook
+                </button>
+                <p class="modal-footer-text">
+                    Pas encore de compte ? <a href="register.html" class="register-link">S'inscrire</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

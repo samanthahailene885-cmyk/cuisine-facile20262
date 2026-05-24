@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CuisineFacile.africa - Marketplace de Produits Alimentaires Ivoiriens</title>
+    <meta name="description" content="Découvrez nos produits artisanaux transformés par des coopératives féminines locales en Côte d'Ivoire.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product-flagship.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <img src="img/logo.png" alt="CuisineFacile Logo" class="header-logo">
+                </a>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="nav-link active">Accueil</a></li>
+                    <li><a href="shop.html" class="nav-link">Boutique</a></li>
+                    <li><a href="producers.html" class="nav-link">Nos Productrices</a></li>
+                    <li><a href="engagement.html" class="nav-link">Notre engagement</a></li>
+                    <li><a href="#" class="nav-link">Recettes</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <div class="search-box">
+                        <input type="text" class="search-input" placeholder="Rechercher un produit...">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <button class="user-btn">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <a href="cart.html" class="cart-btn" aria-label="Voir le panier">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-slider" aria-hidden="true">
+            <div class="hero-slide active" style="background-image: url('img/img1.png');"></div>
+            <div class="hero-slide" style="background-image: url('img/image.png');"></div>
+            <div class="hero-slide" style="background-image: url('img/image1.png');"></div>
+        </div>
+        <div class="hero-content">
+            <span class="hero-badge">Produits 100% Locaux</span>
+            <h1 class="hero-title">cuisiner ivoirien avec des produits dont on sait d'où ils viennent et qui les fabrique</h1>
+            <p class="hero-subtitle">Mangez bien et sainement </p>
+            <div class="hero-buttons">
+                <a href="shop.html" class="btn btn-primary">Découvrir la Boutique</a>
+                <a href="producers.html" class="btn btn-secondary">Nos Productrices</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Produits Populaires -->
+    <section class="section products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Produits Populaires</h2>
+                <p class="section-subtitle">Découvrez nos meilleures ventes</p>
+                <a href="shop.html" class="section-link">Voir tout</a>
+            </div>
+            
+            <div class="products-grid products-grid--flagship">
+                <article class="product-card" data-product-link="product.html">
+                    <div class="product-image">
+                        <img src="img/Sauce graine pure.png" alt="Sauce graine pure 350g">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Sauce graine pure 350g</h3>
+                        <p class="product-coop">Coopérative de Bouaké</p>
+                        <div class="product-rating"><span class="stars">★★★★☆</span></div>
+                        <div class="product-footer">
+                            <span class="product-price">3 500 FCFA</span>
+                            <button type="button" class="btn-view-product">Voir le produit</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card" data-product-link="product.html">
+                    <div class="product-image">
+                        <img src="img/attieke.png" alt="Attiéké premium Agbodjama 500g">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Attiéké premium Agbodjama 500g</h3>
+                        <p class="product-coop">Coopérative d'Abidjan</p>
+                        <div class="product-rating"><span class="stars">★★★★☆</span></div>
+                        <div class="product-footer">
+                            <span class="product-price">2 500 FCFA</span>
+                            <button type="button" class="btn-view-product">Voir le produit</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card" data-product-link="product.html">
+                    <div class="product-image">
+                        <img src="img/patte.png" alt="Pâte d'arachide pure 350g">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Pâte d'arachide pure 350g</h3>
+                        <p class="product-coop">Coopérative de Bouaké</p>
+                        <div class="product-rating"><span class="stars">★★★★☆</span></div>
+                        <div class="product-footer">
+                            <span class="product-price">3 000 FCFA</span>
+                            <button type="button" class="btn-view-product">Voir le produit</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card" data-product-link="product.html">
+                    <div class="product-image">
+                        <img src="img/poudre.png" alt="Soumbara en poudre 80g">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Soumbara en poudre 80g</h3>
+                        <p class="product-coop">Coopérative de Korhogo</p>
+                        <div class="product-rating"><span class="stars">★★★★☆</span></div>
+                        <div class="product-footer">
+                            <span class="product-price">1 800 FCFA</span>
+                            <button type="button" class="btn-view-product">Voir le produit</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card" data-product-link="product.html">
+                    <div class="product-image">
+                        <img src="img/img4.jpg" alt="Kankankan premium 100g">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Kankankan premium 100g</h3>
+                        <p class="product-coop">Coopérative de Korhogo</p>
+                        <div class="product-rating"><span class="stars">★★★★☆</span></div>
+                        <div class="product-footer">
+                            <span class="product-price">2 200 FCFA</span>
+                            <button type="button" class="btn-view-product">Voir le produit</button>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="product-card" data-product-link="product.html">
+                    <div class="product-image">
+                        <img src="img/Beurre de karité.png" alt="Beurre de karité alimentaire 250g">
+                    </div>
+                    <div class="product-info">
+                        <h3 class="product-name">Beurre de karité alimentaire 250g</h3>
+                        <p class="product-coop">Coopérative de Daloa</p>
+                        <div class="product-rating"><span class="stars">★★★★☆</span></div>
+                        <div class="product-footer">
+                            <span class="product-price">4 500 FCFA</span>
+                            <button type="button" class="btn-view-product">Voir le produit</button>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <!-- Catégories -->
+    <section class="section categories-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nos Catégories</h2>
+                <p class="section-subtitle">Explorez notre gamme de produits</p>
+            </div>
+            
+            <div class="categories-grid">
+                <a href="shop.html?category=sauces" class="category-card" data-category="sauces">
+                    <div class="category-icon">
+                        <img src="img/Sauce graine pure.png" alt="Sauces">
+                    </div>
+                    <h3 class="category-name">Sauces</h3>
+                    <p class="category-count">3 produits</p>
+                </a>
+                
+                <a href="shop.html?category=epices" class="category-card" data-category="epices">
+                    <div class="category-icon">
+                        <img src="img/poudre.png" alt="Épices">
+                    </div>
+                    <h3 class="category-name">Épices</h3>
+                    <p class="category-count">5 produits</p>
+                </a>
+                
+                <a href="shop.html?category=boissons" class="category-card" data-category="boissons">
+                    <div class="category-icon">
+                        <img src="img/huile.png" alt="Boissons">
+                    </div>
+                    <h3 class="category-name">Boissons</h3>
+                    <p class="category-count">5 produits</p>
+                </a>
+                
+                <a href="shop.html?category=karite-arachide" class="category-card" data-category="karite-arachide">
+                    <div class="category-icon">
+                        <img src="img/Beurre de karité.png" alt="Karité-arachide">
+                    </div>
+                    <h3 class="category-name">Karité-arachide</h3>
+                    <p class="category-count">5 produits</p>
+                </a>
+                
+                <a href="shop.html?category=feculents" class="category-card" data-category="feculents">
+                    <div class="category-icon">
+                        <img src="img/attieke.png" alt="Féculents">
+                    </div>
+                    <h3 class="category-name">Féculents</h3>
+                    <p class="category-count">1 produit</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Nos Productrices -->
+    <section class="section producers-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nos Productrices</h2>
+                <p class="section-subtitle">Rencontrez les femmes talentueuses qui transforment nos produits avec passion et savoir-faire</p>
+            </div>
+
+            <div class="producers-grid">
+                <div class="producer-card">
+                    <div class="producer-image">
+                        <img src="img/img6.jpg" alt="Coopérative de Bouaké">
+                    </div>
+                    <div class="producer-info">
+                        <h3 class="producer-name">Coopérative Femmes de Bouaké</h3>
+                        <p class="producer-region">Région du Centre</p>
+                        <p class="producer-description">Depuis 2015, notre coopérative de 45 femmes produit des sauces traditionnelles ivoiriennes avec amour et passion.</p>
+                        <div class="producer-meta">
+                            <div class="producer-meta-item">
+                                <i class="fas fa-users"></i>
+                                <span>45 membres</span>
+                            </div>
+                            <div class="producer-meta-item">
+                                <i class="fas fa-utensils"></i>
+                                <span>Sauces, Condiments</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="producer-card">
+                    <div class="producer-image">
+                        <img src="img/img7.jpg" alt="Coopérative de Korhogo">
+                    </div>
+                    <div class="producer-info">
+                        <h3 class="producer-name">Coopérative Riz du Nord</h3>
+                        <p class="producer-region">Région du Nord</p>
+                        <p class="producer-description">Nos 60 agricultrices cultivent le riz local selon des méthodes traditionnelles transmises de génération en génération.</p>
+                        <div class="producer-meta">
+                            <div class="producer-meta-item">
+                                <i class="fas fa-users"></i>
+                                <span>60 membres</span>
+                            </div>
+                            <div class="producer-meta-item">
+                                <i class="fas fa-seedling"></i>
+                                <span>Céréales, Riz</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="producer-card">
+                    <div class="producer-image">
+                        <img src="img/img8.jpg" alt="Coopérative de San-Pédro">
+                    </div>
+                    <div class="producer-info">
+                        <h3 class="producer-name">Coopérative Épices du Sud</h3>
+                        <p class="producer-region">Région du Sud</p>
+                        <p class="producer-description">30 femmes productrices spécialisées dans les épices et aromates locaux, cultivés en agriculture biologique.</p>
+                        <div class="producer-meta">
+                            <div class="producer-meta-item">
+                                <i class="fas fa-users"></i>
+                                <span>30 membres</span>
+                            </div>
+                            <div class="producer-meta-item">
+                                <i class="fas fa-pepper-hot"></i>
+                                <span>Épices, Aromates</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="section-link-container">
+                <a href="producers.html" class="section-link">Découvrir toutes nos productrices</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recettes Africaines -->
+    <section class="section recipes-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Recettes Africaines</h2>
+                <p class="section-subtitle">Inspirez-vous de nos recettes authentiques</p>
+                <a href="#" class="section-link">Voir toutes les recettes <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="recipes-grid">
+                <div class="recipe-card">
+                    <div class="recipe-image">
+                        <img src="img/img9.jpg" alt="Poulet Kedjenou">
+                    </div>
+                    <div class="recipe-info">
+                        <h3 class="recipe-title">Poulet Kedjenou</h3>
+                        <div class="recipe-meta">
+                            <span class="recipe-meta-item"><i class="far fa-clock"></i> Temps: 45 min</span>
+                            <span class="recipe-meta-item">Difficulté: <span class="difficulty-badge">Moyen</span></span>
+                        </div>
+                        <a href="#" class="recipe-link">Voir la recette <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+                
+                <div class="recipe-card">
+                    <div class="recipe-image">
+                        <img src="img/img10.jpg" alt="Alloco au Poisson">
+                    </div>
+                    <div class="recipe-info">
+                        <h3 class="recipe-title">Alloco au Poisson</h3>
+                        <div class="recipe-meta">
+                            <span class="recipe-meta-item"><i class="far fa-clock"></i> Temps: 30 min</span>
+                            <span class="recipe-meta-item">Difficulté: <span class="difficulty-badge">Facile</span></span>
+                        </div>
+                        <a href="#" class="recipe-link">Voir la recette <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Engagement Qualité -->
+    <section class="section quality-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Notre Engagement Qualité</h2>
+                <a href="engagement.html" class="section-link">En savoir plus</a>
+            </div>
+
+            <div class="quality-grid">
+                <div class="quality-card">
+                    <div class="quality-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="quality-title">Produits Locaux</h3>
+                    <p class="quality-description">100% de nos produits sont cultivés et transformés en Côte d'Ivoire par des coopératives locales</p>
+                </div>
+
+                <div class="quality-card">
+                    <div class="quality-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="quality-title">Commerce Équitable</h3>
+                    <p class="quality-description">Nous garantissons une rémunération juste pour toutes les productrices de nos coopératives partenaires</p>
+                </div>
+
+                <div class="quality-card">
+                    <div class="quality-icon">
+                        <i class="fas fa-award"></i>
+                    </div>
+                    <h3 class="quality-title">Production Artisanale</h3>
+                    <p class="quality-description">Nos produits sont fabriqués selon des méthodes traditionnelles transmises de génération en génération</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Témoignages -->
+    <section class="section testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Ils Nous Font Confiance</h2>
+                <p class="section-subtitle">Ce que nos clients disent de nous</p>
+            </div>
+            
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">"Des produits d'une qualité exceptionnelle ! J'ai retrouvé les saveurs authentiques de mon enfance. La sauce gombo est divine."</p>
+                    <p class="testimonial-author">Aminata K.</p>
+                    <p class="testimonial-location">Abidjan, Côte d'Ivoire</p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <div class="testimonial-rating">★★★★★</div>
+                    <p class="testimonial-text">"Livraison rapide et emballage soigné. Je recommande vivement cette plateforme pour découvrir les trésors culinaires ivoiriens."</p>
+                    <p class="testimonial-author">Jean-Marc D.</p>
+                    <p class="testimonial-location">Paris, France</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Logo et Description -->
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="img/logo.png" alt="CuisineFacile Logo" class="footer-logo">
+                    </div>
+                    <p class="footer-description">Manger bien et sainement sans effort. Nous livrons des ingrédients de qualité supérieure directement chez vous.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Liens Rapides -->
+                <div>
+                    <h4 class="footer-title">Liens Rapides</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Nos Recettes</a></li>
+                        <li><a href="#" class="footer-link">Abonnement</a></li>
+                        <li><a href="#" class="footer-link">Espace Client</a></li>
+                        <li><a href="#" class="footer-link">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Légal -->
+                <div>
+                    <h4 class="footer-title">Légal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">CGV</a></li>
+                        <li><a href="#" class="footer-link">Politique de confidentialité</a></li>
+                        <li><a href="#" class="footer-link">Mentions Légales</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+2250709302481" class="footer-link"><i class="fas fa-phone"></i> +225 07 09 30 24 81</a></li>
+                        <li><a href="mailto:admin@cuisinefacile.africa" class="footer-link"><i class="fas fa-envelope"></i> admin@cuisinefacile.africa</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-map-marker-alt"></i> Abidjan, Côte d'Ivoire</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 CuisineFacile Africa. Tous droits réservés.</p>
+                    <div class="payment-methods">
+                        <img src="img/visa.png" alt="Visa" class="payment-img">
+                        <img src="img/moov-money.png" alt="Moov Money" class="payment-img">
+                        <img src="img/mtn-money.png" alt="MTN Mobile Money" class="payment-img">
+                        <img src="img/orange-money.jpg" alt="Orange Money" class="payment-img">
+                        <img src="img/wave.webp" alt="Wave" class="payment-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2>Connexion</h2>
+                <p>Bienvenue sur CuisineFacile</p>
+            </div>
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="remember">
+                        <span>Se souvenir de moi</span>
+                    </label>
+                    <a href="#" class="forgot-password">Mot de passe oublié ?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Se connecter</button>
+                <div class="modal-divider">
+                    <span>ou</span>
+                </div>
+                <button type="button" class="btn btn-social btn-google">
+                    <i class="fab fa-google"></i>
+                    Continuer avec Google
+                </button>
+                <button type="button" class="btn btn-social btn-facebook">
+                    <i class="fab fa-facebook-f"></i>
+                    Continuer avec Facebook
+                </button>
+                <p class="modal-footer-text">
+                    Pas encore de compte ? <a href="register.html" class="register-link">S'inscrire</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

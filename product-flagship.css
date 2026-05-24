@@ -1,0 +1,210 @@
+/* Cartes produit style « phares » — accueil, boutique, engagement */
+
+:root {
+    --producer-green: #1a4d3e;
+    --producer-green-mid: #2d6a4f;
+    --producer-green-light: #e8f3ef;
+}
+
+/* Grille */
+.products-grid--flagship,
+.producers-flagship-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* Carte (structure product-card OU flagship-product-card) */
+.products-grid--flagship .product-card,
+.flagship-product-card {
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid #e8e4df;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+    color: inherit;
+    cursor: pointer;
+}
+
+.products-grid--flagship .product-card:hover,
+.flagship-product-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.08);
+}
+
+/* Zone image */
+.products-grid--flagship .product-image,
+.flagship-product-visual {
+    position: relative;
+    background: #f5f2ee;
+    min-height: 200px;
+    height: auto !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 24px;
+    border-radius: 0;
+}
+
+.products-grid--flagship .product-image img,
+.flagship-product-visual img {
+    width: auto;
+    max-width: 100%;
+    max-height: 160px;
+    height: auto;
+    object-fit: contain;
+    object-position: center;
+}
+
+.products-grid--flagship .product-category,
+.products-grid--flagship .product-favorite {
+    display: none !important;
+}
+
+.flagship-coop-badge {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    z-index: 2;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--producer-green);
+    background: #fff;
+    border: 1px solid #e8e4df;
+    padding: 5px 12px;
+    border-radius: 50px;
+}
+
+/* Corps carte */
+.products-grid--flagship .product-info,
+.flagship-product-body {
+    padding: 20px 20px 22px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.products-grid--flagship .product-name,
+.flagship-product-name {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 4px;
+    font-family: inherit;
+}
+
+.products-grid--flagship .product-coop,
+.flagship-product-size {
+    font-size: 0.875rem;
+    color: #6b6b6b;
+    margin-bottom: 14px;
+}
+
+.products-grid--flagship .product-info > .product-coop {
+    display: none;
+}
+
+.flagship-fair-box {
+    background: #f5f2ee;
+    border-radius: 10px;
+    padding: 12px 14px;
+    margin-bottom: 16px;
+}
+
+.flagship-fair-box p {
+    font-size: 0.8125rem;
+    color: #4a4a4a;
+    margin: 0 0 8px;
+}
+
+.flagship-fair-pct {
+    color: var(--producer-green);
+    font-weight: 700;
+}
+
+.flagship-fair-bar {
+    height: 6px;
+    background: #e0e8e4;
+    border-radius: 3px;
+    overflow: hidden;
+}
+
+.flagship-fair-bar span {
+    display: block;
+    height: 100%;
+    background: var(--producer-green);
+    border-radius: 3px;
+}
+
+/* Pied de carte */
+.products-grid--flagship .product-footer,
+.flagship-product-footer {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: auto;
+}
+
+.products-grid--flagship .product-price,
+.flagship-price {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.products-grid--flagship .btn-view-product,
+.products-grid--flagship .btn-view-more,
+.btn-flagship-add,
+.btn-flagship-view,
+a.btn-view-product {
+    padding: 8px 18px;
+    background: var(--producer-green);
+    color: #fff;
+    font-size: 0.875rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: background 0.2s ease;
+    white-space: nowrap;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+}
+
+.products-grid--flagship .btn-view-product:hover,
+.btn-flagship-add:hover,
+.btn-flagship-view:hover,
+a.btn-view-product:hover {
+    background: var(--producer-green-mid);
+}
+
+/* Boutique : 2 colonnes dans la zone principale (sidebar à gauche) */
+.page-shop .shop-main .products-grid--flagship {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 1280px) {
+    .page-shop .shop-main .products-grid--flagship {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    .products-grid--flagship,
+    .producers-flagship-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .products-grid--flagship,
+    .producers-flagship-grid {
+        grid-template-columns: 1fr;
+    }
+}

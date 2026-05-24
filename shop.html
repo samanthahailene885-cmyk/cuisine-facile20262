@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boutique - CuisineFacile.africa</title>
+    <meta name="description" content="Découvrez tous nos produits alimentaires ivoiriens transformés par des coopératives féminines locales.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product-flagship.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-shop">
+    <!-- Header / Navigation -->
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <img src="img/logo.png" alt="CuisineFacile Logo" class="header-logo">
+                </a>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="shop.html" class="nav-link active">Boutique</a></li>
+                    <li><a href="producers.html" class="nav-link">Nos Productrices</a></li>
+                    <li><a href="engagement.html" class="nav-link">Notre engagement</a></li>
+                    <li><a href="#" class="nav-link">Recettes</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <div class="search-box">
+                        <input type="text" class="search-input" placeholder="Rechercher un produit...">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <button class="user-btn">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <a href="cart.html" class="cart-btn" aria-label="Voir le panier">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Header -->
+    <section class="section products-section">
+        <div class="container">
+            <div class="section-header">
+                <h1 class="section-title">Boutique</h1>
+                <p class="section-subtitle">Découvrez notre sélection de produits ivoiriens authentiques</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop Content -->
+    <section class="section products-section">
+        <div class="container">
+            <div class="shop-layout">
+                <!-- Filters Sidebar -->
+                <aside class="filters-sidebar">
+                    <div class="filter-section">
+                        <h3 class="filter-title">Filtres</h3>
+                        
+                        <div class="filter-section">
+                            <h4 class="filter-subtitle">Catégories</h4>
+                            <ul class="filter-list">
+                                <li><label class="filter-label"><input type="checkbox" data-category="sauces"> Sauces</label></li>
+                                <li><label class="filter-label"><input type="checkbox" data-category="epices"> Épices</label></li>
+                                <li><label class="filter-label"><input type="checkbox" data-category="boissons"> Boissons</label></li>
+                                <li><label class="filter-label"><input type="checkbox" data-category="karite-arachide"> Karité-arachide</label></li>
+                                <li><label class="filter-label"><input type="checkbox" data-category="feculents"> Féculents</label></li>
+                            </ul>
+                        </div>
+
+                        <div class="filter-section">
+                            <h4 class="filter-subtitle">Prix</h4>
+                            <div class="price-range">
+                                <input type="range" min="0" max="12000" value="12000" class="price-slider">
+                                <div class="price-labels">
+                                    <span>0 FCFA</span>
+                                    <span>12 000 FCFA</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="filter-section">
+                            <h4 class="filter-subtitle">Disponibilité</h4>
+                            <ul class="filter-list">
+                                <li><label class="filter-label"><input type="checkbox"> En stock uniquement</label></li>
+                            </ul>
+                        </div>
+
+                        <button type="button" class="btn btn-secondary" id="resetFiltersBtn" style="width: 100%;">Réinitialiser les filtres</button>
+                    </div>
+                </aside>
+
+                <!-- Products Grid -->
+                <div class="shop-main">
+                    <div id="shopCoopBanner" class="shop-coop-banner" hidden>
+                        <div class="shop-coop-banner-text">
+                            <p class="shop-coop-banner-label">Produits de</p>
+                            <h2 id="shopCoopBannerTitle" class="shop-coop-banner-title"></h2>
+                            <p id="shopCoopBannerProducts" class="shop-coop-banner-products"></p>
+                        </div>
+                        <a href="shop.html" class="shop-coop-banner-clear">Voir toute la boutique</a>
+                    </div>
+
+                    <!-- Sort Bar -->
+                    <div class="sort-bar">
+                        <p class="results-count" id="resultsCount">20 produits</p>
+                        <div class="sort-options">
+                            <label for="sort-select">Trier par:</label>
+                            <select id="sort-select" class="sort-select">
+                                <option value="popularity">Popularité</option>
+                                <option value="price-low">Prix: croissant</option>
+                                <option value="price-high">Prix: décroissant</option>
+                                <option value="newest">Nouveautés</option>
+                                <option value="rating">Note</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Products Grid -->
+                    <div class="products-grid products-grid--flagship" id="shopProductsGrid">
+                        <!-- Coopérative de Bouaké -->
+                        <div class="product-card" data-product-link="product.html" data-cooperative="bouake">
+                            <div class="product-image">
+                                <button class="product-favorite"><i class="far fa-heart"></i></button>
+                                <img src="img/Sauce graine pure.png" alt="Sauce graine pure 350g">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Sauce graine pure 350g</h3>
+                                <p class="product-coop">Coopérative de Bouaké</p>
+                                <div class="product-rating"><span class="stars">★★★★☆</span><span class="rating-count">4.7</span></div>
+                                <div class="product-footer"><span class="product-price">3 500 FCFA</span><button type="button" class="btn-view-product">Voir le produit</button></div>
+                            </div>
+                        </div>
+                        <div class="product-card" data-product-link="product.html" data-cooperative="bouake">
+                            <div class="product-image">
+                                <button class="product-favorite"><i class="far fa-heart"></i></button>
+                                <img src="img/patte.png" alt="Pâte d'arachide pure 350g">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Pâte d'arachide pure 350g</h3>
+                                <p class="product-coop">Coopérative de Bouaké</p>
+                                <div class="product-rating"><span class="stars">★★★★☆</span><span class="rating-count">4.6</span></div>
+                                <div class="product-footer"><span class="product-price">3 000 FCFA</span><button type="button" class="btn-view-product">Voir le produit</button></div>
+                            </div>
+                        </div>
+                        <div class="product-card" data-product-link="product.html" data-cooperative="bouake">
+                            <div class="product-image">
+                                <button class="product-favorite"><i class="far fa-heart"></i></button>
+                                <img src="img/Sauce graine pure.png" alt="Sauce arachide prête 350g">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Sauce arachide prête 350g</h3>
+                                <p class="product-coop">Coopérative de Bouaké</p>
+                                <div class="product-rating"><span class="stars">★★★★☆</span><span class="rating-count">4.7</span></div>
+                                <div class="product-footer"><span class="product-price">3 200 FCFA</span><button type="button" class="btn-view-product">Voir le produit</button></div>
+                            </div>
+                        </div>
+
+                        <!-- Coopérative d'Abidjan -->
+                        <div class="product-card" data-product-link="product.html" data-cooperative="abidjan">
+                            <div class="product-image">
+                                <button class="product-favorite"><i class="far fa-heart"></i></button>
+                                <img src="img/attieke.png" alt="Attiéké premium Agbodjama 500g">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Attiéké premium Agbodjama 500g</h3>
+                                <p class="product-coop">Coopérative d'Abidjan</p>
+                                <div class="product-rating"><span class="stars">★★★★☆</span><span class="rating-count">4.8</span></div>
+                                <div class="product-footer"><span class="product-price">2 500 FCFA</span><button type="button" class="btn-view-product">Voir le produit</button></div>
+                            </div>
+                        </div>
+
+                        <!-- Coopérative de Korhogo -->
+                        <div class="product-card" data-product-link="product.html" data-cooperative="korhogo">
+                            <div class="product-image">
+                                <button class="product-favorite"><i class="far fa-heart"></i></button>
+                                <img src="img/poudre.png" alt="Soumbara en poudre 80g">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Soumbara en poudre 80g</h3>
+                                <p class="product-coop">Coopérative de Korhogo</p>
+                                <div class="product-rating"><span class="stars">★★★★☆</span><span class="rating-count">4.6</span></div>
+                                <div class="product-footer"><span class="product-price">1 800 FCFA</span><button type="button" class="btn-view-product">Voir le produit</button></div>
+                            </div>
+                        </div>
+                        <div class="product-card" data-product-link="product.html" data-cooperative="korhogo">
+                            <div class="product-image">
+                                <button class="product-favorite"><i class="far fa-heart"></i></button>
+                                <img src="img/img4.jpg" alt="Kankankan premium 100g">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Kankankan premium 100g</h3>
+                                <p class="product-coop">Coopérative de Korhogo</p>
+                                <div class="product-rating"><span class="stars">★★★★☆</span><span class="rating-count">4.7</span></div>
+                                <div class="product-footer"><span class="product-price">2 200 FCFA</span><button type="button" class="btn-view-product">Voir le produit</button></div>
+                            </div>
+                        </div>
+                        <div class="product-card" data-product-link="product.html" data-cooperative="korhogo">
+                            <div class="product-image">
+                                <button class="product-favorite"><i class="far fa-heart"></i></button>
+                                <img src="img/poudre.png" alt="Sauce pistache déshydratée 80g">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Sauce pistache déshydratée 80g</h3>
+                                <p class="product-coop">Coopérative de Korhogo</p>
+                                <div class="product-rating"><span class="stars">★★★★☆</span><span class="rating-count">4.7</span></div>
+                                <div class="product-footer"><span class="product-price">1 500 FCFA</span><button type="button" class="btn-view-product">Voir le produit</button></div>
+                            </div>
+                        </div>
+                        <div class="product-card" data-product-link="product.html" data-cooperative="korhogo">
+                            <div class="product-image">
+                                <button class="product-favorite"><i class="far fa-heart"></i></button>
+                                <img src="img/img4.jpg" alt="Mélange kedjenou 80g">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Mélange kedjenou 80g</h3>
+                                <p class="product-coop">Coopérative de Korhogo</p>
+                                <div class="product-rating"><span class="stars">★★★★☆</span><span class="rating-count">4.7</span></div>
+                                <div class="product-footer"><span class="product-price">1 800 FCFA</span><button type="button" class="btn-view-product">Voir le produit</button></div>
+                            </div>
+                        </div>
+                        <div class="product-card" data-product-link="product.html" data-cooperative="korhogo">
+                            <div class="product-image">
+                                <button class="product-favorite"><i class="far fa-heart"></i></button>
+                                <img src="img/img4.jpg" alt="Mélange poisson braisé 80g">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Mélange poisson braisé 80g</h3>
+                                <p class="product-coop">Coopérative de Korhogo</p>
+                                <div class="product-rating"><span class="stars">★★★★☆</span><span class="rating-count">4.7</span></div>
+                                <div class="product-footer"><span class="product-price">1 800 FCFA</span><button type="button" class="btn-view-product">Voir le produit</button></div>
+                            </div>
+                        </div>
+                        <div class="product-card" data-product-link="product.html" data-cooperative="korhogo">
+                            <div class="product-image">
+                                <button class="product-favorite"><i class="far fa-heart"></i></button>
+                                <img src="img/poudre.png" alt="Akpi moulu 60g">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Akpi moulu 60g</h3>
+                                <p class="product-coop">Coopérative de Korhogo</p>
+                                <div class="product-rating"><span class="stars">★★★★☆</span><span class="rating-count">4.7</span></div>
+                                <div class="product-footer"><span class="product-price">1 500 FCFA</span><button type="button" class="btn-view-product">Voir le produit</button></div>
+                            </div>
+                        </div>
+
+                        <!-- Coopérative de Yamoussoukro -->
+                        <div class="product-card" data-product-link="product.html" data-cooperative="yamoussoukro">
+                            <div class="product-image">
+                                <button class="product-favorite"><i class="far fa-heart"></i></button>
+                                <img src="img/patte.png" alt="Préparation bissap pur 80g">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Préparation bissap pur 80g</h3>
+                                <p class="product-coop">Coopérative de Yamoussoukro</p>
+                                <div class="product-rating"><span class="stars">★★★★☆</span><span class="rating-count">4.6</span></div>
+                                <div class="product-footer"><span class="product-price">1 800 FCFA</span><button type="button" class="btn-view-product">Voir le produit</button></div>
+                            </div>
+                        </div>
+                        <div class="product-card" data-product-link="product.html" data-cooperative="yamoussoukro">
+                            <div class="product-image">
+                                <button class="product-favorite"><i class="far fa-heart"></i></button>
+                                <img src="img/patte.png" alt="Infusion gingembre-citron 60g">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Infusion gingembre-citron 60g</h3>
+                                <p class="product-coop">Coopérative de Yamoussoukro</p>
+                                <div class="product-rating"><span class="stars">★★★★☆</span><span class="rating-count">4.6</span></div>
+                                <div class="product-footer"><span class="product-price">1 800 FCFA</span><button type="button" class="btn-view-product">Voir le produit</button></div>
+                            </div>
+                        </div>
+                        <div class="product-card" data-product-link="product.html" data-cooperative="yamoussoukro">
+                            <div class="product-image">
+                                <button class="product-favorite"><i class="far fa-heart"></i></button>
+                                <img src="img/patte.png" alt="Infusion kinkéliba 50g">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Infusion kinkéliba 50g</h3>
+                                <p class="product-coop">Coopérative de Yamoussoukro</p>
+                                <div class="product-rating"><span class="stars">★★★★☆</span><span class="rating-count">4.7</span></div>
+                                <div class="product-footer"><span class="product-price">2 000 FCFA</span><button type="button" class="btn-view-product">Voir le produit</button></div>
+                            </div>
+                        </div>
+                        <div class="product-card" data-product-link="product.html" data-cooperative="yamoussoukro">
+                            <div class="product-image">
+                                <button class="product-favorite"><i class="far fa-heart"></i></button>
+                                <img src="img/huile.png" alt="Tamarin instantané 100g">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Tamarin instantané 100g</h3>
+                                <p class="product-coop">Coopérative de Yamoussoukro</p>
+                                <div class="product-rating"><span class="stars">★★★★☆</span><span class="rating-count">4.7</span></div>
+                                <div class="product-footer"><span class="product-price">1 500 FCFA</span><button type="button" class="btn-view-product">Voir le produit</button></div>
+                            </div>
+                        </div>
+                        <div class="product-card" data-product-link="product.html" data-cooperative="yamoussoukro">
+                            <div class="product-image">
+                                <button class="product-favorite"><i class="far fa-heart"></i></button>
+                                <img src="img/poudre.png" alt="Bouye/baobab en poudre 100g">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Bouye/baobab en poudre 100g</h3>
+                                <p class="product-coop">Coopérative de Yamoussoukro</p>
+                                <div class="product-rating"><span class="stars">★★★★☆</span><span class="rating-count">4.8</span></div>
+                                <div class="product-footer"><span class="product-price">2 200 FCFA</span><button type="button" class="btn-view-product">Voir le produit</button></div>
+                            </div>
+                        </div>
+
+                        <!-- Coopérative de San-Pédro -->
+                        <div class="product-card" data-product-link="product.html" data-cooperative="san-pedro">
+                            <div class="product-image">
+                                <button class="product-favorite"><i class="far fa-heart"></i></button>
+                                <img src="img/img2.jpg" alt="Tablette chocolat single-origin 70g">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Tablette chocolat single-origin 70g</h3>
+                                <p class="product-coop">Coopérative de San-Pédro</p>
+                                <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">4.9</span></div>
+                                <div class="product-footer"><span class="product-price">3 800 FCFA</span><button type="button" class="btn-view-product">Voir le produit</button></div>
+                            </div>
+                        </div>
+
+                        <!-- Coopérative de Daloa -->
+                        <div class="product-card" data-product-link="product.html" data-cooperative="daloa">
+                            <div class="product-image">
+                                <button class="product-favorite"><i class="far fa-heart"></i></button>
+                                <img src="img/Beurre de karité.png" alt="Beurre de karité alimentaire 250g">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Beurre de karité alimentaire 250g</h3>
+                                <p class="product-coop">Coopérative de Daloa</p>
+                                <div class="product-rating"><span class="stars">★★★★☆</span><span class="rating-count">4.8</span></div>
+                                <div class="product-footer"><span class="product-price">4 500 FCFA</span><button type="button" class="btn-view-product">Voir le produit</button></div>
+                            </div>
+                        </div>
+                        <div class="product-card" data-product-link="product.html" data-cooperative="daloa">
+                            <div class="product-image">
+                                <button class="product-favorite"><i class="far fa-heart"></i></button>
+                                <img src="img/img9.jpg" alt="Miel de campagne 250g">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Miel de campagne 250g</h3>
+                                <p class="product-coop">Coopérative de Daloa</p>
+                                <div class="product-rating"><span class="stars">★★★★☆</span><span class="rating-count">4.8</span></div>
+                                <div class="product-footer"><span class="product-price">3 500 FCFA</span><button type="button" class="btn-view-product">Voir le produit</button></div>
+                            </div>
+                        </div>
+                        <div class="product-card" data-product-link="product.html" data-cooperative="daloa">
+                            <div class="product-image">
+                                <button class="product-favorite"><i class="far fa-heart"></i></button>
+                                <img src="img/img10.jpg" alt="Confiture bissap-gingembre 220g">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Confiture bissap-gingembre 220g</h3>
+                                <p class="product-coop">Coopérative de Daloa</p>
+                                <div class="product-rating"><span class="stars">★★★★★</span><span class="rating-count">4.9</span></div>
+                                <div class="product-footer"><span class="product-price">3 200 FCFA</span><button type="button" class="btn-view-product">Voir le produit</button></div>
+                            </div>
+                        </div>
+                        <div class="product-card" data-product-link="product.html" data-cooperative="daloa">
+                            <div class="product-image">
+                                <button class="product-favorite"><i class="far fa-heart"></i></button>
+                                <img src="img/img8.jpg" alt="Coffret découverte">
+                            </div>
+                            <div class="product-info">
+                                <h3 class="product-name">Coffret découverte (3 produits + livret)</h3>
+                                <p class="product-coop">Coopérative de Daloa</p>
+                                <div class="product-rating"><span class="stars">★★★★☆</span><span class="rating-count">4.8</span></div>
+                                <div class="product-footer"><span class="product-price">12 000 FCFA</span><button type="button" class="btn-view-product">Voir le produit</button></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <p id="shopEmptyMessage" class="shop-empty-message" hidden>Aucun produit trouvé pour cette coopérative.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <!-- Logo et Description -->
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="img/logo.png" alt="CuisineFacile Logo" class="footer-logo">
+                    </div>
+                    <p class="footer-description">Manger bien et sainement sans effort. Nous livrons des ingrédients de qualité supérieure directement chez vous.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                
+                <!-- Liens Rapides -->
+                <div>
+                    <h4 class="footer-title">Liens Rapides</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Nos Recettes</a></li>
+                        <li><a href="#" class="footer-link">Abonnement</a></li>
+                        <li><a href="#" class="footer-link">Espace Client</a></li>
+                        <li><a href="#" class="footer-link">FAQ</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Légal -->
+                <div>
+                    <h4 class="footer-title">Légal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">CGV</a></li>
+                        <li><a href="#" class="footer-link">Politique de confidentialité</a></li>
+                        <li><a href="#" class="footer-link">Mentions Légales</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Contact -->
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+2250709302481" class="footer-link"><i class="fas fa-phone"></i> +225 07 09 30 24 81</a></li>
+                        <li><a href="mailto:admin@cuisinefacile.africa" class="footer-link"><i class="fas fa-envelope"></i> admin@cuisinefacile.africa</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-map-marker-alt"></i> Abidjan, Côte d'Ivoire</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 CuisineFacile Africa. Tous droits réservés.</p>
+                    <div class="payment-methods">
+                        <img src="img/visa.png" alt="Visa" class="payment-img">
+                        <img src="img/moov-money.png" alt="Moov Money" class="payment-img">
+                        <img src="img/mtn-money.png" alt="MTN Mobile Money" class="payment-img">
+                        <img src="img/orange-money.jpg" alt="Orange Money" class="payment-img">
+                        <img src="img/wave.webp" alt="Wave" class="payment-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Login Modal -->
+    <div class="modal" id="loginModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2>Connexion</h2>
+                <p>Bienvenue sur CuisineFacile</p>
+            </div>
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="remember">
+                        <span>Se souvenir de moi</span>
+                    </label>
+                    <a href="#" class="forgot-password">Mot de passe oublié ?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Se connecter</button>
+                <div class="modal-divider">
+                    <span>ou</span>
+                </div>
+                <button type="button" class="btn btn-social btn-google">
+                    <i class="fab fa-google"></i>
+                    Continuer avec Google
+                </button>
+                <button type="button" class="btn btn-social btn-facebook">
+                    <i class="fab fa-facebook-f"></i>
+                    Continuer avec Facebook
+                </button>
+                <p class="modal-footer-text">
+                    Pas encore de compte ? <a href="register.html" class="register-link">S'inscrire</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

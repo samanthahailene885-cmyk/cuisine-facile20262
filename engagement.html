@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notre engagement - CuisineFacile.africa</title>
+    <meta name="description" content="Derrière chaque produit, une femme que vous pouvez nommer. Découvrez nos coopératives partenaires et nos engagements pour un commerce équitable en Côte d'Ivoire.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="product-flagship.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="page-engagement">
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <img src="img/logo.png" alt="CuisineFacile Logo" class="header-logo">
+                </a>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="shop.html" class="nav-link">Boutique</a></li>
+                    <li><a href="producers.html" class="nav-link">Nos Productrices</a></li>
+                    <li><a href="engagement.html" class="nav-link active">Notre engagement</a></li>
+                    <li><a href="#" class="nav-link">Recettes</a></li>
+                </ul>
+
+                <div class="nav-actions">
+                    <div class="search-box">
+                        <input type="text" class="search-input" placeholder="Rechercher un produit...">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <button class="user-btn" type="button" aria-label="Mon compte">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <a href="cart.html" class="cart-btn" aria-label="Voir le panier">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="engagement-hero">
+            <div class="container engagement-hero-inner">
+                <p class="engagement-eyebrow">Notre engagement</p>
+                <h1 class="engagement-title">Derrière chaque produit, une femme que vous pouvez nommer</h1>
+                <p class="engagement-lead">Nous ne vendons pas seulement des produits. Nous rendons visibles, et nous rémunérons justement, celles qui les fabriquent — partout en Côte d'Ivoire.</p>
+
+                <div class="engagement-stats">
+                    <div class="engagement-stat-card">
+                        <span class="engagement-stat-value">13</span>
+                        <span class="engagement-stat-label">coopératives partenaires</span>
+                    </div>
+                    <div class="engagement-stat-card">
+                        <span class="engagement-stat-value">156</span>
+                        <span class="engagement-stat-label">femmes rémunérées</span>
+                    </div>
+                    <div class="engagement-stat-card">
+                        <span class="engagement-stat-value">10</span>
+                        <span class="engagement-stat-label">régions de Côte d'Ivoire</span>
+                    </div>
+                    <div class="engagement-stat-card">
+                        <span class="engagement-stat-value engagement-stat-highlight">+40%</span>
+                        <span class="engagement-stat-label">de revenu en moyenne</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Carte -->
+        <section class="engagement-map-section">
+            <div class="container">
+                <div class="engagement-map-wrap">
+                    <svg class="engagement-map-svg" viewBox="0 0 400 480" role="img" aria-label="Carte des coopératives en Côte d'Ivoire">
+                        <path class="engagement-map-country" d="M120 40 L280 35 L320 90 L340 160 L330 240 L300 320 L260 400 L200 440 L140 420 L90 360 L70 280 L75 200 L90 120 Z" fill="#c8e6d4" stroke="#9bc4ad" stroke-width="2"/>
+                        <g class="engagement-map-marker" data-city="Séguéla">
+                            <circle cx="95" cy="130" r="7" fill="#1a4d3e"/>
+                            <text x="95" y="115" text-anchor="middle" class="engagement-map-label">Séguéla</text>
+                        </g>
+                        <g class="engagement-map-marker" data-city="Kasséré">
+                            <circle cx="200" cy="75" r="7" fill="#1a4d3e"/>
+                            <text x="200" y="60" text-anchor="middle" class="engagement-map-label">Kasséré</text>
+                        </g>
+                        <g class="engagement-map-marker" data-city="Bouna">
+                            <circle cx="310" cy="100" r="7" fill="#1a4d3e"/>
+                            <text x="310" y="85" text-anchor="middle" class="engagement-map-label">Bouna</text>
+                        </g>
+                        <g class="engagement-map-marker" data-city="M'Batto">
+                            <circle cx="250" cy="220" r="7" fill="#1a4d3e"/>
+                            <text x="250" y="205" text-anchor="middle" class="engagement-map-label">M'Batto</text>
+                        </g>
+                        <g class="engagement-map-marker" data-city="Divo">
+                            <circle cx="160" cy="340" r="7" fill="#1a4d3e"/>
+                            <text x="160" y="325" text-anchor="middle" class="engagement-map-label">Divo</text>
+                        </g>
+                    </svg>
+                </div>
+                <p class="engagement-map-caption"><em>Carte interactive — chaque point ouvre la coopérative</em></p>
+            </div>
+        </section>
+
+        <!-- Coopératives partenaires -->
+        <section class="engagement-coops-section" id="cooperatives">
+            <div class="container">
+                <h2 class="engagement-section-title">Nos coopératives partenaires</h2>
+                <div class="engagement-coops-grid">
+                    <article class="engagement-coop-card" id="coop-seguela">
+                        <div class="engagement-coop-visual" aria-hidden="true">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="engagement-coop-body">
+                            <h3 class="engagement-coop-name">Scoops Béné wende</h3>
+                            <p class="engagement-coop-meta"><i class="fas fa-map-marker-alt"></i> Séguéla</p>
+                            <div class="engagement-coop-tags">
+                                <span>Poudre de baobab</span>
+                                <span>Miel</span>
+                                <span>Poudre de soumbara</span>
+                                <span>Bissap</span>
+                                <span>Kinkéliba</span>
+                            </div>
+                            <a href="tel:+2250708231986" class="engagement-coop-contact"><i class="fas fa-phone"></i> 07 08 23 19 86</a>
+                        </div>
+                    </article>
+
+                    <article class="engagement-coop-card" id="coop-divo">
+                        <div class="engagement-coop-visual" aria-hidden="true">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="engagement-coop-body">
+                            <h3 class="engagement-coop-name">Femmes Entreprenantes du Lôh-Djiboua</h3>
+                            <p class="engagement-coop-meta"><i class="fas fa-map-marker-alt"></i> Divo</p>
+                            <div class="engagement-coop-tags">
+                                <span>Akpi</span>
+                                <span>Graine</span>
+                                <span>Pistache</span>
+                            </div>
+                            <a href="tel:+2250707053224" class="engagement-coop-contact"><i class="fas fa-phone"></i> 07 07 05 32 24</a>
+                        </div>
+                    </article>
+
+                    <article class="engagement-coop-card" id="coop-mbatto">
+                        <div class="engagement-coop-visual" aria-hidden="true">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="engagement-coop-body">
+                            <h3 class="engagement-coop-name">Coop CA Scoopan-MBA</h3>
+                            <p class="engagement-coop-meta"><i class="fas fa-map-marker-alt"></i> M'Batto</p>
+                            <div class="engagement-coop-tags">
+                                <span>Kankankan</span>
+                                <span>Pistache</span>
+                                <span>Akpi</span>
+                                <span>Citron</span>
+                                <span>Gingembre</span>
+                            </div>
+                            <a href="tel:+2250707045290" class="engagement-coop-contact"><i class="fas fa-phone"></i> 07 07 04 52 90</a>
+                        </div>
+                    </article>
+
+                    <article class="engagement-coop-card" id="coop-bouna">
+                        <div class="engagement-coop-visual" aria-hidden="true">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="engagement-coop-body">
+                            <h3 class="engagement-coop-name">Scoop Prokab</h3>
+                            <p class="engagement-coop-meta"><i class="fas fa-map-marker-alt"></i> Bouna</p>
+                            <div class="engagement-coop-tags">
+                                <span>Soumbara</span>
+                                <span>Sauce arachide</span>
+                                <span>Bissap</span>
+                            </div>
+                            <a href="tel:+2250747199239" class="engagement-coop-contact"><i class="fas fa-phone"></i> 07 47 19 92 39</a>
+                        </div>
+                    </article>
+
+                    <article class="engagement-coop-card" id="coop-kassere">
+                        <div class="engagement-coop-visual" aria-hidden="true">
+                            <i class="fas fa-handshake"></i>
+                        </div>
+                        <div class="engagement-coop-body">
+                            <h3 class="engagement-coop-name">Gbinmin</h3>
+                            <p class="engagement-coop-meta"><i class="fas fa-map-marker-alt"></i> Kasséré</p>
+                            <div class="engagement-coop-tags">
+                                <span>Beurre de karité alimentaire</span>
+                            </div>
+                            <a href="tel:+2250708686330" class="engagement-coop-contact"><i class="fas fa-phone"></i> 07 08 68 63 30</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Liste complète des coopératives -->
+        <section class="engagement-directory-section" id="liste-cooperatives">
+            <div class="container">
+                <div class="engagement-directory-header">
+                    <h2 class="engagement-section-title">Liste des coopératives existantes</h2>
+                    <p class="engagement-directory-lead">Toutes nos coopératives partenaires, leurs localités, produits et contacts.</p>
+                </div>
+
+                <div class="engagement-directory-table-wrap" role="region" aria-label="Tableau des coopératives">
+                    <table class="engagement-directory-table">
+                        <thead>
+                            <tr>
+                                <th class="col-num">N°</th>
+                                <th class="col-coop">Coopératives</th>
+                                <th class="col-loc">Localités</th>
+                                <th class="col-prod">Produits</th>
+                                <th class="col-contact">Contacts</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="engagement-directory-row engagement-directory-row--featured">
+                                <td class="col-num" data-label="N°"><span class="coop-badge">1V1</span></td>
+                                <td class="col-coop" data-label="Coopérative">Scoops Béné wende</td>
+                                <td class="col-loc" data-label="Localité">Séguéla</td>
+                                <td class="col-prod" data-label="Produits">Poudre de baobab, miel, poudre de soumbara, bissap, kinkéliba</td>
+                                <td class="col-contact" data-label="Contact"><a href="tel:+2250708231986">07 08 23 19 86</a></td>
+                            </tr>
+                            <tr class="engagement-directory-row">
+                                <td class="col-num" data-label="N°">2</td>
+                                <td class="col-coop" data-label="Coopérative">Scoops CAEG</td>
+                                <td class="col-loc" data-label="Localité">Guéssabo</td>
+                                <td class="col-prod" data-label="Produits">Akpi, gingembre</td>
+                                <td class="col-contact" data-label="Contact"><a href="tel:+2250749047437">07 49 04 74 37</a></td>
+                            </tr>
+                            <tr class="engagement-directory-row engagement-directory-row--featured">
+                                <td class="col-num" data-label="N°"><span class="coop-badge">3V2</span></td>
+                                <td class="col-coop" data-label="Coopérative">Femmes Entreprenantes du Lôh-Djiboua</td>
+                                <td class="col-loc" data-label="Localité">Divo</td>
+                                <td class="col-prod" data-label="Produits">Akpi, graine, pistache</td>
+                                <td class="col-contact" data-label="Contact"><a href="tel:+2250707053224">07 07 05 32 24</a></td>
+                            </tr>
+                            <tr class="engagement-directory-row">
+                                <td class="col-num" data-label="N°">4</td>
+                                <td class="col-coop" data-label="Coopérative">Société Coopérative Simplifiée des pêcheurs artisanaux du Sud</td>
+                                <td class="col-loc" data-label="Localité">Abidjan</td>
+                                <td class="col-prod" data-label="Produits">Poisson</td>
+                                <td class="col-contact" data-label="Contact"><a href="tel:+2250789971156">07 89 97 11 56</a></td>
+                            </tr>
+                            <tr class="engagement-directory-row">
+                                <td class="col-num" data-label="N°">5</td>
+                                <td class="col-coop" data-label="Coopérative">Al bari</td>
+                                <td class="col-loc" data-label="Localité">Divo</td>
+                                <td class="col-prod" data-label="Produits">Graine, gingembre</td>
+                                <td class="col-contact" data-label="Contact"><a href="tel:+2250708906205">07 08 90 62 05</a></td>
+                            </tr>
+                            <tr class="engagement-directory-row engagement-directory-row--featured">
+                                <td class="col-num" data-label="N°"><span class="coop-badge">6V3</span></td>
+                                <td class="col-coop" data-label="Coopérative">Coop CA Scoopan-MBA</td>
+                                <td class="col-loc" data-label="Localité">M'Batto</td>
+                                <td class="col-prod" data-label="Produits">Kankankan, pistache, akpi, citron, gingembre</td>
+                                <td class="col-contact" data-label="Contact"><a href="tel:+2250707045290">07 07 04 52 90</a></td>
+                            </tr>
+                            <tr class="engagement-directory-row">
+                                <td class="col-num" data-label="N°">7</td>
+                                <td class="col-coop" data-label="Coopérative">CMATPHACI Femmes Unies</td>
+                                <td class="col-loc" data-label="Localité">Abidjan</td>
+                                <td class="col-prod" data-label="Produits">Poisson</td>
+                                <td class="col-contact" data-label="Contact"><a href="tel:+2250709970649">07 09 97 06 49</a></td>
+                            </tr>
+                            <tr class="engagement-directory-row">
+                                <td class="col-num" data-label="N°">8</td>
+                                <td class="col-coop" data-label="Coopérative">Mamatchiva</td>
+                                <td class="col-loc" data-label="Localité">Daloa</td>
+                                <td class="col-prod" data-label="Produits">Pistache, gingembre</td>
+                                <td class="col-contact" data-label="Contact"><a href="tel:+2250709871746">07 09 87 17 46</a></td>
+                            </tr>
+                            <tr class="engagement-directory-row engagement-directory-row--featured">
+                                <td class="col-num" data-label="N°"><span class="coop-badge">9V4</span></td>
+                                <td class="col-coop" data-label="Coopérative">Scoop Prokab</td>
+                                <td class="col-loc" data-label="Localité">Bouna</td>
+                                <td class="col-prod" data-label="Produits">Soumbara, sauce arachide, bissap</td>
+                                <td class="col-contact" data-label="Contact"><a href="tel:+2250747199239">07 47 19 92 39</a></td>
+                            </tr>
+                            <tr class="engagement-directory-row">
+                                <td class="col-num" data-label="N°">10</td>
+                                <td class="col-coop" data-label="Coopérative">Société Coopérative des Vivriers de San Pedro</td>
+                                <td class="col-loc" data-label="Localité">San Pedro</td>
+                                <td class="col-prod" data-label="Produits">Sauce graine, akpi, etc.</td>
+                                <td class="col-contact" data-label="Contact"><a href="tel:+2250709720033">07 09 72 00 33</a></td>
+                            </tr>
+                            <tr class="engagement-directory-row">
+                                <td class="col-num" data-label="N°">11</td>
+                                <td class="col-coop" data-label="Coopérative">Coop CA-Ecapar</td>
+                                <td class="col-loc" data-label="Localité">Soubré-Méagui</td>
+                                <td class="col-prod" data-label="Produits">Gingembre</td>
+                                <td class="col-contact" data-label="Contact"><a href="tel:+2250708452864">07 08 45 28 64</a></td>
+                            </tr>
+                            <tr class="engagement-directory-row">
+                                <td class="col-num" data-label="N°">12</td>
+                                <td class="col-coop" data-label="Coopérative">Union des Coopératives du Vivrier des Savanes (UCOVISA)</td>
+                                <td class="col-loc" data-label="Localité">Korhogo</td>
+                                <td class="col-prod" data-label="Produits"><span class="engagement-directory-empty">—</span></td>
+                                <td class="col-contact" data-label="Contact"><a href="tel:+2250708683330">07 08 68 33 30</a></td>
+                            </tr>
+                            <tr class="engagement-directory-row engagement-directory-row--featured">
+                                <td class="col-num" data-label="N°"><span class="coop-badge">13V5</span></td>
+                                <td class="col-coop" data-label="Coopérative">Gbinmin</td>
+                                <td class="col-loc" data-label="Localité">Kasséré</td>
+                                <td class="col-prod" data-label="Produits">Beurre de karité alimentaire</td>
+                                <td class="col-contact" data-label="Contact"><a href="tel:+2250708686330">07 08 68 63 30</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <p class="engagement-directory-legend">
+                    <span class="coop-badge coop-badge--inline">V</span>
+                    Coopératives mises en avant sur la boutique CuisineFacile Africa
+                </p>
+            </div>
+        </section>
+
+        <!-- Trois engagements -->
+        <section class="engagement-pillars-section">
+            <div class="container">
+                <h2 class="engagement-section-title">Nos trois engagements, sans exception</h2>
+                <div class="engagement-pillars-grid">
+                    <article class="engagement-pillar-card">
+                        <div class="engagement-pillar-icon"><i class="fas fa-coins"></i></div>
+                        <h3 class="engagement-pillar-title">Prix supérieur au marché</h3>
+                        <p class="engagement-pillar-text">30 à 50&nbsp;% au-dessus du prix des intermédiaires habituels</p>
+                    </article>
+                    <article class="engagement-pillar-card">
+                        <div class="engagement-pillar-icon"><i class="fas fa-money-bill-wave"></i></div>
+                        <h3 class="engagement-pillar-title">Avance sur commande</h3>
+                        <p class="engagement-pillar-text">50&nbsp;% payés dès la commande, jamais après la livraison</p>
+                    </article>
+                    <article class="engagement-pillar-card">
+                        <div class="engagement-pillar-icon"><i class="fas fa-eye"></i></div>
+                        <h3 class="engagement-pillar-title">Transparence totale</h3>
+                        <p class="engagement-pillar-text">La part qui revient à la productrice est affichée sur chaque produit</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <div class="engagement-brand-strip">
+            <div class="container">
+                <p><i class="fas fa-bowl-food" aria-hidden="true"></i> CuisineFacile · cuisinez ivoirien, soutenez nos productrices</p>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="img/logo.png" alt="CuisineFacile Logo" class="footer-logo">
+                    </div>
+                    <p class="footer-description">Manger bien et sainement sans effort. Nous livrons des ingrédients de qualité supérieure directement chez vous.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Liens Rapides</h4>
+                    <ul class="footer-links">
+                        <li><a href="engagement.html" class="footer-link">Notre engagement</a></li>
+                        <li><a href="shop.html" class="footer-link">Boutique</a></li>
+                        <li><a href="producers.html" class="footer-link">Nos Productrices</a></li>
+                        <li><a href="#" class="footer-link">FAQ</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Légal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">CGV</a></li>
+                        <li><a href="#" class="footer-link">Politique de confidentialité</a></li>
+                        <li><a href="#" class="footer-link">Mentions Légales</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+2250709302481" class="footer-link"><i class="fas fa-phone"></i> +225 07 09 30 24 81</a></li>
+                        <li><a href="mailto:admin@cuisinefacile.africa" class="footer-link"><i class="fas fa-envelope"></i> admin@cuisinefacile.africa</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-map-marker-alt"></i> Abidjan, Côte d'Ivoire</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 CuisineFacile Africa. Tous droits réservés.</p>
+                    <div class="payment-methods">
+                        <img src="img/visa.png" alt="Visa" class="payment-img">
+                        <img src="img/moov-money.png" alt="Moov Money" class="payment-img">
+                        <img src="img/mtn-money.png" alt="MTN Mobile Money" class="payment-img">
+                        <img src="img/orange-money.jpg" alt="Orange Money" class="payment-img">
+                        <img src="img/wave.webp" alt="Wave" class="payment-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="loginModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose" type="button"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2>Connexion</h2>
+                <p>Bienvenue sur CuisineFacile</p>
+            </div>
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+                <div class="form-options">
+                    <label class="checkbox-label">
+                        <input type="checkbox" name="remember">
+                        <span>Se souvenir de moi</span>
+                    </label>
+                    <a href="#" class="forgot-password">Mot de passe oublié ?</a>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Se connecter</button>
+                <p class="modal-footer-text">
+                    Pas encore de compte ? <a href="register.html" class="register-link">S'inscrire</a>
+                </p>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

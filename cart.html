@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panier - CuisineFacile.africa</title>
+    <meta name="description" content="Consultez votre panier et finalisez votre commande sur CuisineFacile.africa">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body class="page-cart">
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <img src="img/logo.png" alt="CuisineFacile Logo" class="header-logo">
+                </a>
+                
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="shop.html" class="nav-link">Boutique</a></li>
+                    <li><a href="producers.html" class="nav-link">Nos Productrices</a></li>
+                    <li><a href="engagement.html" class="nav-link">Notre engagement</a></li>
+                    <li><a href="#" class="nav-link">Recettes</a></li>
+                </ul>
+                
+                <div class="nav-actions">
+                    <div class="search-box">
+                        <input type="text" class="search-input" placeholder="Rechercher un produit...">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <button class="user-btn" type="button" aria-label="Compte">
+                        <i class="fas fa-user"></i>
+                    </button>
+                    <a href="cart.html" class="cart-btn" aria-label="Voir le panier">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">3</span>
+                    </a>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Menu">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="cart-section">
+        <div class="container">
+            <div class="cart-page">
+                <div class="cart-main">
+                    <h1 class="cart-page-title">Panier</h1>
+
+                    <div class="cart-items-list" id="cartItemsList">
+                        <article class="cart-item-card" data-unit-price="3500">
+                            <button type="button" class="cart-item-remove" aria-label="Supprimer"><i class="fas fa-times"></i></button>
+                            <div class="cart-item-image">
+                                <img src="img/Sauce graine pure.png" alt="Sauce Graine Premium">
+                            </div>
+                            <div class="cart-item-info">
+                                <h2 class="cart-item-name">Sauce Graine Premium</h2>
+                                <p class="cart-item-coop">Coopérative de Bouaké</p>
+                                <p class="cart-item-unit-price">3 500 FCFA</p>
+                            </div>
+                            <div class="cart-item-qty">
+                                <div class="cart-qty-control">
+                                    <button type="button" class="cart-qty-btn cart-qty-minus" aria-label="Diminuer">−</button>
+                                    <span class="cart-qty-value">2</span>
+                                    <button type="button" class="cart-qty-btn cart-qty-plus" aria-label="Augmenter">+</button>
+                                </div>
+                            </div>
+                            <p class="cart-item-line-total">7 000 FCFA</p>
+                        </article>
+
+                        <article class="cart-item-card" data-unit-price="2000">
+                            <button type="button" class="cart-item-remove" aria-label="Supprimer"><i class="fas fa-times"></i></button>
+                            <div class="cart-item-image">
+                                <img src="img/attieke.png" alt="Attiéké Traditionnel">
+                            </div>
+                            <div class="cart-item-info">
+                                <h2 class="cart-item-name">Attiéké Traditionnel</h2>
+                                <p class="cart-item-coop">Coopérative d'Abidjan</p>
+                                <p class="cart-item-unit-price">2 000 FCFA</p>
+                            </div>
+                            <div class="cart-item-qty">
+                                <div class="cart-qty-control">
+                                    <button type="button" class="cart-qty-btn cart-qty-minus" aria-label="Diminuer">−</button>
+                                    <span class="cart-qty-value">1</span>
+                                    <button type="button" class="cart-qty-btn cart-qty-plus" aria-label="Augmenter">+</button>
+                                </div>
+                            </div>
+                            <p class="cart-item-line-total">2 000 FCFA</p>
+                        </article>
+                    </div>
+
+                    <a href="shop.html" class="btn-continue-shopping">Continuer mes achats</a>
+                </div>
+
+                <aside class="cart-summary" aria-label="Récapitulatif de commande">
+                    <h2 class="cart-summary-title">Récapitulatif</h2>
+
+                    <div class="cart-promo">
+                        <label class="cart-promo-label" for="promoCode">Code promo</label>
+                        <div class="cart-promo-input-wrap">
+                            <input type="text" id="promoCode" class="cart-promo-input" placeholder="Entrer le code">
+                            <i class="fas fa-tag cart-promo-icon" aria-hidden="true"></i>
+                        </div>
+                    </div>
+
+                    <div class="cart-summary-rows">
+                        <div class="cart-summary-row">
+                            <span>Sous-total</span>
+                            <span id="cartSubtotal">9 000 FCFA</span>
+                        </div>
+                        <div class="cart-summary-row">
+                            <span>Livraison</span>
+                            <span id="cartShipping">1 500 FCFA</span>
+                        </div>
+                        <p class="cart-shipping-note">Livraison gratuite à partir de 10 000 FCFA</p>
+                    </div>
+
+                    <div class="cart-summary-total">
+                        <span>Total</span>
+                        <span id="cartGrandTotal">10 500 FCFA</span>
+                    </div>
+
+                    <button type="button" class="btn-cart-checkout">
+                        Passer la commande
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </button>
+
+                    <p class="cart-secure-note"><i class="fas fa-lock" aria-hidden="true"></i> Paiement 100% sécurisé</p>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="img/logo.png" alt="CuisineFacile Logo" class="footer-logo">
+                    </div>
+                    <p class="footer-description">Manger bien et sainement sans effort. Nous livrons des ingrédients de qualité supérieure directement chez vous.</p>
+                    <div class="footer-social">
+                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Liens Rapides</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">Nos Recettes</a></li>
+                        <li><a href="#" class="footer-link">Abonnement</a></li>
+                        <li><a href="#" class="footer-link">Espace Client</a></li>
+                        <li><a href="#" class="footer-link">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Légal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">CGV</a></li>
+                        <li><a href="#" class="footer-link">Politique de confidentialité</a></li>
+                        <li><a href="#" class="footer-link">Mentions Légales</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+2250709302481" class="footer-link"><i class="fas fa-phone"></i> +225 07 09 30 24 81</a></li>
+                        <li><a href="mailto:admin@cuisinefacile.africa" class="footer-link"><i class="fas fa-envelope"></i> admin@cuisinefacile.africa</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-map-marker-alt"></i> Abidjan, Côte d'Ivoire</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 CuisineFacile Africa. Tous droits réservés.</p>
+                    <div class="payment-methods">
+                        <img src="img/visa.png" alt="Visa" class="payment-img">
+                        <img src="img/moov-money.png" alt="Moov Money" class="payment-img">
+                        <img src="img/mtn-money.png" alt="MTN Mobile Money" class="payment-img">
+                        <img src="img/orange-money.jpg" alt="Orange Money" class="payment-img">
+                        <img src="img/wave.webp" alt="Wave" class="payment-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
