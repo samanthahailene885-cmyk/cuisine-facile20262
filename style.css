@@ -303,11 +303,9 @@ ul {
     justify-content: center;
 }
 
-/* ===== Hero Section ===== */
+/* ===== Hero Section (accueil plein écran) ===== */
 .hero {
     position: relative;
-    height: 85vh;
-    min-height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -316,6 +314,103 @@ ul {
     overflow: hidden;
 }
 
+.hero--fullscreen {
+    min-height: calc(100vh - 80px);
+    height: 92vh;
+    min-height: 560px;
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        rgba(0, 0, 0, 0.45),
+        rgba(0, 0, 0, 0.55)
+    );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 900px;
+    padding: var(--spacing-xl) var(--spacing-md);
+}
+
+.hero-badge {
+    display: inline-block;
+    background-color: var(--color-green);
+    color: var(--color-white);
+    padding: 8px 18px;
+    border-radius: 50px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: var(--spacing-lg);
+}
+
+.hero-title {
+    font-family: var(--font-primary);
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    font-weight: 700;
+    margin-bottom: var(--spacing-md);
+    line-height: 1.25;
+    text-transform: lowercase;
+    color: var(--color-white);
+}
+
+.hero-subtitle {
+    font-size: clamp(1rem, 2vw, 1.25rem);
+    font-weight: 400;
+    line-height: 1.5;
+    margin-bottom: var(--spacing-xl);
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.page-home .hero .btn-primary {
+    padding: 12px 28px;
+    border-radius: 8px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+}
+
+.page-home .hero .btn-hero-outline {
+    background-color: transparent;
+    color: var(--color-white);
+    border: 2px solid var(--color-white);
+    padding: 10px 26px;
+    border-radius: 8px;
+    font-size: 0.9375rem;
+    font-weight: 600;
+}
+
+.page-home .hero .btn-hero-outline:hover {
+    background-color: rgba(255, 255, 255, 0.12);
+    color: var(--color-white);
+    transform: translateY(-2px);
+}
+
+/* Slider hero (autres pages si besoin) */
 .hero-slider {
     position: absolute;
     inset: 0;
@@ -333,61 +428,6 @@ ul {
 
 .hero-slide.active {
     opacity: 1;
-}
-
-.hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    z-index: 1;
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-}
-
-.hero-content {
-    max-width: 800px;
-    padding: var(--spacing-md);
-}
-
-.hero-badge {
-    display: inline-block;
-    background-color: var(--color-green);
-    color: var(--color-white);
-    padding: var(--spacing-xs) var(--spacing-md);
-    border-radius: var(--radius-xl);
-    font-size: 0.9rem;
-    font-weight: 600;
-    margin-bottom: var(--spacing-md);
-}
-
-.hero-title {
-    font-family: var(--font-primary);
-    font-size: 2.5rem;
-    font-weight: 600;
-    margin-bottom: var(--spacing-md);
-    line-height: 1.2;
-}
-
-.hero-subtitle {
-    font-size: 1rem;
-    font-weight: 400;
-    line-height: 1.5;
-    margin-bottom: var(--spacing-xl);
-    opacity: 0.95;
-}
-
-.hero-buttons {
-    display: flex;
-    gap: var(--spacing-md);
-    justify-content: center;
-    flex-wrap: wrap;
 }
 
 .btn {
@@ -2579,6 +2619,145 @@ a.btn-add-cart:hover {
     object-fit: cover;
 }
 
+/* ===== Accueil : barre avantages sous le hero ===== */
+.home-features-bar {
+    background: #eceae6;
+    border-top: 1px solid #ddd9d3;
+    border-bottom: 1px solid #ddd9d3;
+}
+
+.home-features-bar-inner {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.home-features-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 22px 24px;
+    border-right: 1px solid #ddd9d3;
+    text-align: left;
+}
+
+.home-features-item:last-child {
+    border-right: none;
+}
+
+.home-features-icon {
+    font-size: 1.125rem;
+    color: #3d3d3d;
+    flex-shrink: 0;
+}
+
+.home-features-title {
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0;
+    line-height: 1.3;
+}
+
+.home-features-detail {
+    font-size: 0.8125rem;
+    color: #5c5c5c;
+    margin: 2px 0 0;
+    line-height: 1.4;
+}
+
+/* ===== Accueil : spotlight & engagement ===== */
+.producers-section-title--left {
+    text-align: left;
+    margin-bottom: 24px;
+}
+
+.home-spotlight-section .producer-spotlight-card--home {
+    max-width: 100%;
+}
+
+.home-spotlight-section .producer-spotlight-card--home .producers-meet-all {
+    display: inline-block;
+    margin-top: 4px;
+}
+
+.home-engagement-section {
+    background: var(--color-white);
+    padding: 56px 0 64px;
+    border-top: 1px solid #ebe6e0;
+}
+
+.home-engagement-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.75rem, 3vw, 2.25rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 16px;
+}
+
+.home-engagement-lead {
+    font-size: 1rem;
+    color: #4a4a4a;
+    line-height: 1.65;
+    text-align: center;
+    max-width: 560px;
+    margin: 0 auto 48px;
+}
+
+.home-engagement-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    max-width: 880px;
+    margin: 0 auto;
+}
+
+.home-engagement-card {
+    text-align: center;
+}
+
+.home-engagement-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 18px;
+    border-radius: 50%;
+    background: #e8f2eb;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--producer-green, #2B663A);
+    font-size: 1.25rem;
+}
+
+.home-engagement-card-title {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 6px;
+}
+
+.home-engagement-card-detail {
+    font-size: 0.875rem;
+    color: #5c5c5c;
+    margin: 0;
+    line-height: 1.45;
+}
+
+.home-engagement-more {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.home-engagement-more a {
+    font-weight: 600;
+    color: var(--producer-green, #2B663A);
+}
+
+.home-engagement-more a:hover {
+    text-decoration: underline;
+}
+
 /* Page liste productrices */
 .productrices-page-intro {
     background: linear-gradient(135deg, #f7f4f0 0%, #faf8f5 100%);
@@ -3196,6 +3375,35 @@ a.btn-add-cart:hover {
     .producers-how-grid {
         grid-template-columns: 1fr;
         gap: 28px;
+    }
+
+    .home-features-bar-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .home-features-item {
+        border-right: none;
+        border-bottom: 1px solid #ddd9d3;
+        justify-content: flex-start;
+    }
+
+    .home-features-item:last-child {
+        border-bottom: none;
+    }
+
+    .home-engagement-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .producer-spotlight-card--home {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .producers-section-title--left {
+        text-align: center;
     }
 
     .producers-flagship-grid {
@@ -4233,52 +4441,401 @@ a.btn-add-cart:hover {
     }
 }
 
-/* ===== Page Notre engagement ===== */
+/* ===== Page Notre engagement (maquette) ===== */
 .page-engagement {
-    --producer-green: #2B663A;
-    --producer-green-mid: #347a4d;
-    --producer-green-light: #e8f2eb;
-    background-color: #f5f3ef;
+    --eng-green: #2B663A;
+    --eng-green-mid: #4a8f62;
+    --eng-green-light: #b8d9c4;
+    --eng-beige: #f4f1ea;
+    font-family: 'Inter', var(--font-primary);
+    background: var(--eng-beige);
 }
 
-.page-engagement .engagement-coops-grid .engagement-coop-card:target {
-    outline: 3px solid var(--producer-green);
-    outline-offset: 4px;
+.page-engagement .eng-page {
+    background: var(--eng-beige);
 }
 
-@media (max-width: 1024px) {
-    .page-engagement .engagement-coops-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
+/* Intro beige */
+.eng-intro {
+    background: var(--eng-beige);
+    padding: 64px 0 56px;
+    text-align: center;
 }
 
-@media (max-width: 600px) {
-    .page-engagement .engagement-coops-grid {
-        grid-template-columns: 1fr;
-    }
+.eng-intro-inner {
+    max-width: 780px;
+    margin: 0 auto;
 }
 
-.engagement-hero {
-    padding: 48px 0 32px;
-    background-color: #f5f3ef;
+.eng-label {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--eng-green);
+    margin-bottom: 24px;
 }
 
-.engagement-hero-inner {
+.eng-intro-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.875rem, 4vw, 2.75rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    line-height: 1.2;
+    margin-bottom: 28px;
+}
+
+.eng-intro-lead {
+    font-size: 1.0625rem;
+    color: #333;
+    line-height: 1.75;
+    max-width: 680px;
+    margin: 0 auto;
+}
+
+/* Mission blanc */
+.eng-mission {
+    background: #fff;
+    padding: 56px 0 64px;
+}
+
+.eng-mission-inner {
+    max-width: 720px;
+}
+
+.eng-mission-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 24px;
+}
+
+.eng-mission-inner p {
+    font-size: 1rem;
+    color: #333;
+    line-height: 1.75;
+    margin-bottom: 20px;
+}
+
+.eng-mission-inner p:last-child {
+    margin-bottom: 0;
+}
+
+/* Trois piliers */
+.eng-pillars {
+    background: #fff;
+    padding: 0 0 64px;
+}
+
+.eng-pillars-heading {
+    font-family: 'Inter', var(--font-primary);
+    font-size: 1.375rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 28px;
+}
+
+.eng-pillars-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     max-width: 900px;
+}
+
+.eng-pillar-row {
+    display: flex;
+    gap: 24px;
+    align-items: flex-start;
+    padding: 28px 32px;
+    background: #fff;
+    border: 1px solid #e8e4df;
+    border-radius: 12px;
+}
+
+.eng-pillar-icon {
+    flex-shrink: 0;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--eng-green);
+    font-size: 1.25rem;
+}
+
+.eng-pillar-content h3 {
+    font-size: 1.0625rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 10px;
+}
+
+.eng-pillar-content p {
+    font-size: 0.9375rem;
+    color: #444;
+    line-height: 1.7;
+    margin: 0;
+}
+
+/* Où va votre argent */
+.eng-money {
+    background: var(--eng-beige);
+    padding: 64px 0;
+}
+
+.eng-money-inner {
+    max-width: 720px;
     margin: 0 auto;
     text-align: center;
 }
 
-.engagement-eyebrow {
-    font-size: 0.75rem;
-    font-weight: 600;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: #8a8a8a;
-    margin-bottom: 16px;
+.eng-money-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 12px;
 }
 
-.engagement-title {
+.eng-money-lead {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 32px;
+}
+
+.eng-money-card {
+    background: #fff;
+    border: 1px solid #e8e4df;
+    border-radius: 16px;
+    padding: 32px 28px 28px;
+    text-align: left;
+}
+
+.eng-money-bar {
+    display: flex;
+    height: 48px;
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 28px;
+}
+
+.eng-money-seg {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: #fff;
+    min-width: 0;
+}
+
+.eng-money-seg--producer {
+    background: var(--eng-green);
+}
+
+.eng-money-seg--logistics {
+    background: var(--eng-green-mid);
+}
+
+.eng-money-seg--brand {
+    background: var(--eng-green-light);
+    color: #1a4a2e;
+}
+
+.eng-money-legend {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.eng-money-legend li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 0.9375rem;
+    color: #333;
+    line-height: 1.5;
+}
+
+.eng-legend-swatch {
+    flex-shrink: 0;
+    width: 14px;
+    height: 14px;
+    border-radius: 3px;
+    margin-top: 4px;
+}
+
+.eng-legend-swatch--producer {
+    background: var(--eng-green);
+}
+
+.eng-legend-swatch--logistics {
+    background: var(--eng-green-mid);
+}
+
+.eng-legend-swatch--brand {
+    background: var(--eng-green-light);
+}
+
+.eng-money-legend strong {
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+/* Impact */
+.eng-impact {
+    background: var(--eng-beige);
+    padding: 0 0 64px;
+}
+
+.eng-impact-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 32px;
+}
+
+.eng-impact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.eng-impact-card {
+    background: #ebe8e3;
+    border-radius: 12px;
+    padding: 32px 20px;
+    text-align: center;
+}
+
+.eng-impact-value {
+    display: block;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(2rem, 4vw, 2.75rem);
+    font-weight: 700;
+    color: var(--eng-green);
+    line-height: 1.1;
+    margin-bottom: 10px;
+}
+
+.eng-impact-label {
+    display: block;
+    font-size: 0.875rem;
+    color: #444;
+    line-height: 1.4;
+}
+
+.eng-impact-note {
+    font-size: 0.9375rem;
+    color: #555;
+    line-height: 1.65;
+    max-width: 640px;
+}
+
+/* CTA vert */
+.eng-cta {
+    background: var(--eng-green);
+    color: #fff;
+    padding: 80px 0;
+    text-align: center;
+}
+
+.eng-cta-inner {
+    max-width: 720px;
+    margin: 0 auto;
+}
+
+.eng-cta-title {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(1.5rem, 3.5vw, 2.25rem);
+    font-weight: 700;
+    line-height: 1.25;
+    margin-bottom: 24px;
+    color: #fff;
+}
+
+.eng-cta-text {
+    font-size: 1rem;
+    line-height: 1.75;
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 36px;
+}
+
+.eng-cta-btn {
+    display: inline-block;
+    padding: 14px 32px;
+    background: #fff;
+    color: var(--eng-green);
+    font-weight: 600;
+    font-size: 0.9375rem;
+    border-radius: 50px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.eng-cta-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    .eng-pillar-row {
+        flex-direction: column;
+        padding: 24px;
+    }
+
+    .eng-impact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .eng-money-seg {
+        font-size: 0.6875rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .eng-money-bar {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .eng-money-seg {
+        width: 100% !important;
+        min-height: 40px;
+    }
+}
+
+/* ===== Page Nos Productrices (carte + coopératives) ===== */
+.page-producers-map {
+    --prod-green: #2B663A;
+    background: #f5f3ef;
+    font-family: 'Inter', var(--font-primary);
+}
+
+.page-producers-map .prod-page {
+    background: #f5f3ef;
+}
+
+.prod-hero {
+    padding: 48px 0 24px;
+    background: #f5f3ef;
+}
+
+.prod-hero-inner {
+    max-width: 960px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.prod-hero-title {
     font-family: 'Playfair Display', Georgia, serif;
     font-size: clamp(1.75rem, 4vw, 2.5rem);
     font-weight: 700;
@@ -4287,7 +4844,7 @@ a.btn-add-cart:hover {
     margin-bottom: 20px;
 }
 
-.engagement-lead {
+.prod-hero-lead {
     font-size: 1rem;
     color: #555;
     line-height: 1.7;
@@ -4295,22 +4852,21 @@ a.btn-add-cart:hover {
     margin: 0 auto 40px;
 }
 
-.engagement-stats {
+.prod-stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 16px;
-    max-width: 960px;
-    margin: 0 auto;
+    margin-bottom: 32px;
 }
 
-.engagement-stat-card {
+.prod-stat-card {
     background: #ebe8e3;
     border-radius: 12px;
     padding: 24px 16px;
     text-align: center;
 }
 
-.engagement-stat-value {
+.prod-stat-value {
     display: block;
     font-family: 'Playfair Display', Georgia, serif;
     font-size: 2.25rem;
@@ -4319,11 +4875,11 @@ a.btn-add-cart:hover {
     line-height: 1.1;
 }
 
-.engagement-stat-highlight {
-    color: var(--color-green);
+.prod-stat-value--highlight {
+    color: var(--prod-green);
 }
 
-.engagement-stat-label {
+.prod-stat-label {
     display: block;
     font-size: 0.8125rem;
     color: #666;
@@ -4331,12 +4887,7 @@ a.btn-add-cart:hover {
     line-height: 1.35;
 }
 
-.engagement-map-section {
-    padding: 24px 0 16px;
-    background-color: #f5f3ef;
-}
-
-.engagement-map-wrap {
+.prod-map-wrap {
     background: #ebe8e3;
     border-radius: 20px;
     padding: 32px 24px;
@@ -4344,42 +4895,245 @@ a.btn-add-cart:hover {
     margin: 0 auto;
 }
 
-.engagement-map-svg {
+.prod-map-svg {
     width: 100%;
     max-width: 420px;
     margin: 0 auto;
     display: block;
 }
 
-.engagement-map-label {
+.prod-map-label {
     font-family: var(--font-primary);
-    font-size: 11px;
+    font-size: 10px;
     font-weight: 600;
     fill: #333;
 }
 
-.engagement-map-marker {
+.prod-map-marker {
     cursor: pointer;
 }
 
-.engagement-map-marker:hover circle {
-    r: 9;
+.prod-map-marker:hover circle {
     fill: #347a4d;
 }
 
-.engagement-map-caption {
+.prod-map-caption {
     text-align: center;
     font-size: 0.8125rem;
     color: #888;
     margin-top: 12px;
 }
 
-.engagement-coops-section {
-    padding: 48px 0 56px;
-    background-color: #f5f3ef;
+.prod-coops-section {
+    padding: 48px 0 40px;
+    background: #faf9f7;
 }
 
-.engagement-section-title {
+.prod-coops-section--featured {
+    background: #fff;
+    border-top: 1px solid #ebe6e0;
+}
+
+.prod-coops-section--all {
+    background: #f5f3ef;
+}
+
+.prod-coops-section--pending {
+    background: #f5f3ef;
+    border-top: 1px solid #ebe6e0;
+}
+
+.prod-coops-intro {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.6;
+    margin: -12px 0 28px;
+    max-width: 640px;
+}
+
+.prod-coops-note {
+    font-size: 0.875rem;
+    color: #666;
+    line-height: 1.6;
+    margin-top: 28px;
+    padding: 16px 20px;
+    background: #ebe8e3;
+    border-radius: 10px;
+}
+
+.prod-coop-card {
+    position: relative;
+}
+
+.prod-coop-card--featured {
+    border-color: #c5dcc9;
+    box-shadow: 0 4px 16px rgba(43, 102, 58, 0.08);
+}
+
+.prod-coop-num {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 1;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    color: #fff;
+    background: var(--prod-green);
+    padding: 4px 10px;
+    border-radius: 50px;
+}
+
+.prod-coop-products--muted {
+    font-style: italic;
+    color: #888;
+    background: #f0f0f0;
+}
+
+.prod-coop-card--listed {
+    position: relative;
+    border-radius: 12px;
+}
+
+.prod-coop-card--listed .prod-coop-num {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    z-index: 2;
+    margin-bottom: 0;
+}
+
+.prod-coop-body--compact {
+    padding: 20px 22px 22px;
+}
+
+.prod-coop-body--compact .prod-coop-name {
+    font-size: 0.9375rem;
+}
+
+.prod-coops-grid--all {
+    grid-template-columns: repeat(2, 1fr);
+}
+
+@media (max-width: 1024px) {
+    .prod-coops-grid--all {
+        grid-template-columns: 1fr;
+    }
+}
+
+.prod-coops-title {
+    font-family: var(--font-primary);
+    font-size: clamp(1.375rem, 2.5vw, 1.75rem);
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 28px;
+}
+
+.prod-coops-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.prod-coop-card {
+    background: #fff;
+    border: 1px solid #ebe8e3;
+    border-radius: 14px;
+    overflow: hidden;
+    transition: box-shadow 0.25s ease, transform 0.25s ease;
+    scroll-margin-top: 100px;
+}
+
+.prod-coop-card:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.06);
+    transform: translateY(-2px);
+}
+
+.prod-coop-card:target {
+    outline: 2px solid var(--prod-green);
+    outline-offset: 2px;
+}
+
+.prod-coop-visual {
+    height: 140px;
+    background: #f5f2ee;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #b8b4ae;
+    font-size: 2.75rem;
+}
+
+.prod-coop-visual--compact {
+    height: 100px;
+    font-size: 2.25rem;
+    border-bottom: 1px solid #ebe8e3;
+}
+
+.prod-coop-body {
+    padding: 18px 20px 20px;
+}
+
+.prod-coop-name {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin: 0 0 10px;
+    line-height: 1.35;
+}
+
+.prod-coop-meta {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 0.8125rem;
+    color: #6b6b6b;
+    margin: 0 0 14px;
+}
+
+.prod-coop-meta i {
+    color: var(--prod-green);
+    font-size: 0.75rem;
+}
+
+.prod-coop-products {
+    margin: 0;
+    padding: 10px 14px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--prod-green);
+    background: #f3efe8;
+    border-radius: 999px;
+    line-height: 1.45;
+}
+
+.prod-coops-more-wrap {
+    text-align: center;
+    margin-top: 36px;
+}
+
+.prod-coops-more-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    background: #fff;
+    border: 1px solid #d5d0c8;
+    border-radius: 50px;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    color: #1a1a1a;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.prod-coops-more-btn:hover {
+    border-color: var(--prod-green);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.prod-pillars-section {
+    padding: 56px 0 64px;
+    background: #f5f3ef;
+}
+
+.prod-pillars-title {
     font-family: 'Playfair Display', Georgia, serif;
     font-size: clamp(1.5rem, 3vw, 2rem);
     font-weight: 700;
@@ -4388,98 +5142,7 @@ a.btn-add-cart:hover {
     margin-bottom: 32px;
 }
 
-.engagement-coops-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-}
-
-.engagement-coop-card {
-    background: var(--color-white);
-    border: 1px solid #e8e4de;
-    border-radius: 16px;
-    overflow: hidden;
-    transition: var(--transition-normal);
-    scroll-margin-top: 100px;
-}
-
-.engagement-coop-card:hover {
-    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-}
-
-.engagement-coop-card:target {
-    outline: 2px solid var(--color-green);
-    outline-offset: 2px;
-}
-
-.engagement-coop-visual {
-    height: 160px;
-    background: #e8e6e2;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #9a9a9a;
-    font-size: 3rem;
-}
-
-.engagement-coop-body {
-    padding: 20px;
-}
-
-.engagement-coop-name {
-    font-size: 1.0625rem;
-    font-weight: 700;
-    color: #1a1a1a;
-    margin-bottom: 8px;
-    line-height: 1.3;
-}
-
-.engagement-coop-meta {
-    font-size: 0.875rem;
-    color: #666;
-    margin-bottom: 12px;
-}
-
-.engagement-coop-meta i {
-    margin-right: 4px;
-    color: var(--color-green);
-}
-
-.engagement-coop-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 6px;
-    margin-bottom: 14px;
-}
-
-.engagement-coop-tags span {
-    font-size: 0.75rem;
-    background: #f0ebe4;
-    color: #4a4a4a;
-    padding: 4px 10px;
-    border-radius: 999px;
-}
-
-.engagement-coop-contact {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--color-green);
-}
-
-.engagement-coop-contact:hover {
-    text-decoration: underline;
-}
-
-.engagement-coop-contact i {
-    margin-right: 6px;
-}
-
-.engagement-pillars-section {
-    padding: 56px 0 0;
-    background-color: #f5f3ef;
-}
-
-.engagement-pillars-grid {
+.prod-pillars-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
@@ -4487,288 +5150,58 @@ a.btn-add-cart:hover {
     margin: 0 auto;
 }
 
-.engagement-pillar-card {
-    background: var(--color-white);
+.prod-pillar-card {
+    background: #fff;
     border: 1px solid #e8e4de;
     border-radius: 16px;
     padding: 32px 24px;
     text-align: center;
 }
 
-.engagement-pillar-icon {
+.prod-pillar-icon {
     width: 48px;
     height: 48px;
     margin: 0 auto 16px;
-    color: var(--color-green);
+    color: var(--prod-green);
     font-size: 1.75rem;
 }
 
-.engagement-pillar-title {
+.prod-pillar-name {
     font-size: 1.0625rem;
     font-weight: 700;
     color: #1a1a1a;
     margin-bottom: 10px;
 }
 
-.engagement-pillar-text {
+.prod-pillar-text {
     font-size: 0.9375rem;
     color: #555;
     line-height: 1.55;
-}
-
-.engagement-brand-strip {
-    background: var(--color-green);
-    color: var(--color-white);
-    padding: 22px 0;
-    margin-top: 56px;
-    text-align: center;
-}
-
-.engagement-brand-strip p {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 1.0625rem;
-    font-weight: 600;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    flex-wrap: wrap;
     margin: 0;
 }
 
 @media (max-width: 1024px) {
-    .engagement-stats {
+    .prod-stats {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .engagement-coops-grid {
+    .prod-coops-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .engagement-pillars-grid {
+    .prod-pillars-grid {
         grid-template-columns: 1fr;
         max-width: 480px;
     }
 }
 
 @media (max-width: 600px) {
-    .engagement-stats {
+    .prod-stats {
         grid-template-columns: 1fr 1fr;
     }
 
-    .engagement-coops-grid {
+    .prod-coops-grid {
         grid-template-columns: 1fr;
-    }
-}
-
-/* Liste des coopératives existantes */
-.engagement-directory-section {
-    padding: 56px 0 64px;
-    background: linear-gradient(180deg, #f5f3ef 0%, #ebe8e3 100%);
-}
-
-.engagement-directory-header {
-    text-align: center;
-    margin-bottom: 32px;
-}
-
-.engagement-directory-lead {
-    font-size: 0.9375rem;
-    color: #666;
-    max-width: 560px;
-    margin: 12px auto 0;
-    line-height: 1.6;
-}
-
-.engagement-directory-table-wrap {
-    background: var(--color-white);
-    border-radius: 20px;
-    box-shadow: 0 12px 40px rgba(26, 77, 62, 0.08);
-    overflow: hidden;
-    border: 1px solid #e0dcd6;
-}
-
-.engagement-directory-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.875rem;
-}
-
-.engagement-directory-table thead tr {
-    background: #1a1a1a;
-    color: var(--color-white);
-}
-
-.engagement-directory-table th {
-    padding: 16px 14px;
-    text-align: left;
-    font-weight: 700;
-    font-size: 0.8125rem;
-    letter-spacing: 0.02em;
-    text-transform: uppercase;
-}
-
-.engagement-directory-table th.col-num {
-    width: 56px;
-    text-align: center;
-}
-
-.engagement-directory-table th.col-contact {
-    width: 130px;
-    text-align: center;
-}
-
-.engagement-directory-table tbody tr {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
-    transition: filter 0.2s ease;
-}
-
-.engagement-directory-table tbody tr:last-child {
-    border-bottom: none;
-}
-
-.engagement-directory-table tbody tr:hover {
-    filter: brightness(0.98);
-}
-
-.engagement-directory-row--featured .col-num {
-    font-weight: 700;
-}
-
-.coop-badge {
-    display: inline-block;
-    background: var(--color-green);
-    color: var(--color-white);
-    font-size: 0.75rem;
-    font-weight: 700;
-    padding: 4px 8px;
-    border-radius: 6px;
-    min-width: 2.5rem;
-    text-align: center;
-}
-
-.coop-badge--inline {
-    vertical-align: middle;
-    margin-right: 6px;
-    font-size: 0.6875rem;
-    padding: 2px 6px;
-}
-
-.engagement-directory-table td {
-    padding: 14px;
-    vertical-align: top;
-    line-height: 1.5;
-}
-
-.engagement-directory-table .col-num {
-    background: #fafafa;
-    text-align: center;
-    font-weight: 600;
-    color: #333;
-}
-
-.engagement-directory-table .col-coop {
-    background: #fde8d8;
-    font-weight: 600;
-    color: #2b1a10;
-}
-
-.engagement-directory-table .col-loc {
-    background: #d4edda;
-    color: #2B663A;
-    font-weight: 500;
-    white-space: nowrap;
-}
-
-.engagement-directory-table .col-prod {
-    background: #e8e8e8;
-    color: #333;
-}
-
-.engagement-directory-table .col-contact {
-    background: #5cb85c;
-    text-align: center;
-    font-weight: 600;
-}
-
-.engagement-directory-table .col-contact a {
-    color: #fff;
-    white-space: nowrap;
-}
-
-.engagement-directory-table .col-contact a:hover {
-    text-decoration: underline;
-}
-
-.engagement-directory-empty {
-    color: #999;
-    font-style: italic;
-}
-
-.engagement-directory-legend {
-    text-align: center;
-    font-size: 0.8125rem;
-    color: #666;
-    margin-top: 20px;
-}
-
-@media (max-width: 900px) {
-    .engagement-directory-table-wrap {
-        border-radius: 16px;
-        overflow: visible;
-        background: transparent;
-        box-shadow: none;
-        border: none;
-    }
-
-    .engagement-directory-table thead {
-        display: none;
-    }
-
-    .engagement-directory-table,
-    .engagement-directory-table tbody,
-    .engagement-directory-table tr,
-    .engagement-directory-table td {
-        display: block;
-        width: 100%;
-    }
-
-    .engagement-directory-table tbody tr {
-        margin-bottom: 16px;
-        border-radius: 16px;
-        overflow: hidden;
-        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
-        border: 1px solid #e0dcd6;
-    }
-
-    .engagement-directory-table td {
-        padding: 12px 16px;
-        text-align: left;
-        border: none;
-    }
-
-    .engagement-directory-table td::before {
-        content: attr(data-label);
-        display: block;
-        font-size: 0.6875rem;
-        font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: 0.06em;
-        opacity: 0.7;
-        margin-bottom: 4px;
-    }
-
-    .engagement-directory-table .col-num {
-        text-align: left;
-        border-radius: 0;
-    }
-
-    .engagement-directory-table .col-contact {
-        text-align: left;
-    }
-
-    .engagement-directory-table .col-contact a {
-        color: #fff;
     }
 }
 
