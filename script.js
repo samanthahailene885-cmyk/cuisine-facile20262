@@ -2,48 +2,72 @@
 // CuisineFacile.africa - JavaScript
 // ============================================
 
+/** Référentiel officiel des coopératives (tableau partenaires CuisineFacile) */
 const COOPERATIVE_CATALOG = {
-    bouake: {
-        name: 'Coopérative de Bouaké',
-        products: ['Sauce graine pure 350g', "Pâte d'arachide pure 350g", 'Sauce arachide prête 350g']
+    'scoops-bene-wende': {
+        name: 'Scoops Béné wende',
+        city: 'Séguéla',
+        products: []
     },
-    abidjan: {
-        name: "Coopérative d'Abidjan",
-        products: ['Attiéké premium Agbodjama 500g']
+    'scoops-caeg': {
+        name: 'Scoops CAEG',
+        city: 'Guéssabo',
+        products: []
     },
-    korhogo: {
-        name: 'Coopérative de Korhogo',
-        products: [
-            'Soumbara en poudre 80g',
-            'Kankankan premium 100g',
-            'Sauce pistache déshydratée 80g',
-            'Mélange kedjenou 80g',
-            'Mélange poisson braisé 80g',
-            'Akpi moulu 60g'
-        ]
+    'femmes-entreprenantes': {
+        name: 'Femmes Entreprenantes du Lôh-Djiboua',
+        city: 'Divo',
+        products: []
     },
-    yamoussoukro: {
-        name: 'Coopérative de Yamoussoukro',
-        products: [
-            'Préparation bissap pur 80g',
-            'Infusion gingembre-citron 60g',
-            'Infusion kinkéliba 50g',
-            'Tamarin instantané 100g',
-            'Bouye/baobab en poudre 100g'
-        ]
+    'pecheurs-sud': {
+        name: 'Société Coopérative Simplifiée des pêcheurs artisanaux du Sud',
+        city: 'Abidjan',
+        products: []
     },
-    'san-pedro': {
-        name: 'Coopérative de San-Pédro',
-        products: ['Tablette chocolat single-origin 70g']
+    'al-bari': {
+        name: 'Al bari',
+        city: 'Divo',
+        products: []
     },
-    daloa: {
-        name: 'Coopérative de Daloa',
-        products: [
-            'Beurre de karité alimentaire 250g',
-            'Miel de campagne 250g',
-            'Confiture bissap-gingembre 220g',
-            'Coffret découverte (3 produits + livret)'
-        ]
+    'scoopan-mba': {
+        name: 'Coop CA Scoopan-MBA',
+        city: "M'Batto",
+        products: []
+    },
+    'femmes-unies': {
+        name: 'CMATPHACI Femmes Unies',
+        city: 'Abidjan',
+        products: []
+    },
+    'mamatchiva': {
+        name: 'Mamatchiva',
+        city: 'Daloa',
+        products: []
+    },
+    'scoop-prokab': {
+        name: 'Scoop Prokab',
+        city: 'Bouna',
+        products: []
+    },
+    'vivriers-san-pedro': {
+        name: 'Société Coopérative des Vivriers de San Pedro',
+        city: 'San Pedro',
+        products: []
+    },
+    'coop-ecapar': {
+        name: 'Coop CA-Ecapar',
+        city: 'Soubré-Méagui',
+        products: []
+    },
+    'coop-attieke': {
+        name: 'Coop attiéké',
+        city: 'Abidjan-Abobo',
+        products: []
+    },
+    'gbinmin': {
+        name: 'Gbinmin',
+        city: 'Kasséré',
+        products: []
     }
 };
 
@@ -62,27 +86,33 @@ function slugifyProductName(name) {
 }
 
 const PRODUCT_LIST = [
-    { fullName: 'Sauce graine pure 350g', name: 'Sauce graine pure', image: 'img/Sauce graine pure.png', price: 3500, format: 'Bocal stérilisé 350g · prête à consommer', category: 'Sauces et bases', fairPct: 60, coop: 'Coopérative de Bouaké', rating: '4,8', reviews: 36 },
-    { fullName: "Pâte d'arachide pure 350g", name: "Pâte d'arachide pure", image: 'img/patte.png', price: 3000, format: 'Bocal verre 350g', category: 'Karité-arachide', fairPct: 55, coop: 'Coopérative de Bouaké', rating: '4,6', reviews: 28 },
-    { fullName: 'Sauce arachide prête 350g', name: 'Sauce arachide prête', image: 'img/Sauce graine pure.png', price: 3200, format: 'Bocal stérilisé 350g', category: 'Sauces et bases', fairPct: 55, coop: 'Coopérative de Bouaké', rating: '4,7', reviews: 31 },
-    { fullName: 'Attiéké premium Agbodjama 500g', name: 'Attiéké premium Agbodjama', image: 'img/attieke.png', price: 2500, format: 'Sous-vide 500g', category: 'Féculents', fairPct: 55, coop: "Coopérative d'Abidjan", rating: '4,8', reviews: 42 },
-    { fullName: 'Soumbara en poudre 80g', name: 'Soumbara en poudre', image: 'img/poudre.png', price: 1800, format: 'Sachet ou pot 80g', category: 'Épices', fairPct: 65, coop: 'Coopérative de Korhogo', rating: '4,6', reviews: 22 },
-    { fullName: 'Kankankan premium 100g', name: 'Kankankan premium', image: 'img/img4.jpg', price: 2200, format: 'Pot verre 100g', category: 'Épices', fairPct: 65, coop: 'Coopérative de Korhogo', rating: '4,7', reviews: 19 },
-    { fullName: 'Sauce pistache déshydratée 80g', name: 'Sauce pistache déshydratée', image: 'img/poudre.png', price: 1500, format: 'Sachet 4 pers. 80g', category: 'Sauces et bases', fairPct: 65, coop: 'Coopérative de Korhogo', rating: '4,7', reviews: 18 },
-    { fullName: 'Mélange kedjenou 80g', name: 'Mélange kedjenou', image: 'img/img4.jpg', price: 1800, format: 'Pot verre 80g', category: 'Épices', fairPct: 65, coop: 'Coopérative de Korhogo', rating: '4,7', reviews: 15 },
-    { fullName: 'Mélange poisson braisé 80g', name: 'Mélange poisson braisé', image: 'img/img4.jpg', price: 1800, format: 'Pot verre 80g', category: 'Épices', fairPct: 65, coop: 'Coopérative de Korhogo', rating: '4,7', reviews: 14 },
-    { fullName: 'Akpi moulu 60g', name: 'Akpi moulu', image: 'img/poudre.png', price: 1500, format: 'Sachet ou pot 60g', category: 'Épices', fairPct: 60, coop: 'Coopérative de Korhogo', rating: '4,7', reviews: 20 },
-    { fullName: 'Préparation bissap pur 80g', name: 'Préparation bissap pur', image: 'img/patte.png', price: 1800, format: 'Sachet kraft 80g', category: 'Boissons', fairPct: 65, coop: 'Coopérative de Yamoussoukro', rating: '4,6', reviews: 25 },
-    { fullName: 'Infusion gingembre-citron 60g', name: 'Infusion gingembre-citron', image: 'img/patte.png', price: 1800, format: 'Sachet kraft 60g', category: 'Boissons', fairPct: 65, coop: 'Coopérative de Yamoussoukro', rating: '4,6', reviews: 17 },
-    { fullName: 'Infusion kinkéliba 50g', name: 'Infusion kinkéliba', image: 'img/patte.png', price: 2000, format: 'Sachet kraft 50g', category: 'Boissons', fairPct: 65, coop: 'Coopérative de Yamoussoukro', rating: '4,7', reviews: 21 },
-    { fullName: 'Tamarin instantané 100g', name: 'Tamarin instantané', image: 'img/huile.png', price: 1500, format: 'Sachet kraft 100g', category: 'Boissons', fairPct: 60, coop: 'Coopérative de Yamoussoukro', rating: '4,7', reviews: 16 },
-    { fullName: 'Bouye/baobab en poudre 100g', name: 'Bouye/baobab en poudre', image: 'img/poudre.png', price: 2200, format: 'Sachet kraft 100g', category: 'Boissons', fairPct: 70, coop: 'Coopérative de Yamoussoukro', rating: '4,8', reviews: 23 },
-    { fullName: 'Tablette chocolat single-origin 70g', name: 'Tablette chocolat single-origin', image: 'img/img2.jpg', price: 3800, format: 'Étui carton 70g', category: 'Karité-arachide', fairPct: 40, coop: 'Coopérative de San-Pédro', rating: '4,9', reviews: 38 },
-    { fullName: 'Beurre de karité alimentaire 250g', name: 'Beurre de karité alimentaire', image: 'img/Beurre de karité.png', price: 4500, format: 'Pot verre 250g', category: 'Karité-arachide', fairPct: 55, coop: 'Coopérative de Daloa', rating: '4,8', reviews: 33 },
-    { fullName: 'Miel de campagne 250g', name: 'Miel de campagne', image: 'img/img9.jpg', price: 3500, format: 'Pot verre 250g', category: 'Karité-arachide', fairPct: 50, coop: 'Coopérative de Daloa', rating: '4,8', reviews: 27 },
-    { fullName: 'Confiture bissap-gingembre 220g', name: 'Confiture bissap-gingembre', image: 'img/img10.jpg', price: 3200, format: 'Pot verre 220g', category: 'Karité-arachide', fairPct: 60, coop: 'Coopérative de Daloa', rating: '4,9', reviews: 29 },
-    { fullName: 'Coffret découverte (3 produits + livret)', name: 'Coffret découverte', image: 'img/img8.jpg', price: 12000, format: 'Boîte carton · 3 produits + livret', category: 'Coffrets', fairPct: 55, coop: 'Coopérative de Daloa', rating: '4,8', reviews: 12 }
+    { fullName: 'Sauce graine pure 350g', name: 'Sauce graine pure', image: 'img/Sauce graine pure.png', price: 3500, format: 'Bocal stérilisé 350g · prête à consommer', category: 'Sauces et bases', fairPct: 60, coopId: 'vivriers-san-pedro', rating: '4,8', reviews: 36 },
+    { fullName: "Pâte d'arachide pure 350g", name: "Pâte d'arachide pure", image: 'img/patte.png', price: 3000, format: 'Bocal verre 350g', category: 'Karité-arachide', fairPct: 55, coopId: 'scoop-prokab', rating: '4,6', reviews: 28 },
+    { fullName: 'Sauce arachide prête 350g', name: 'Sauce arachide prête', image: 'img/Sauce graine pure.png', price: 3200, format: 'Bocal stérilisé 350g', category: 'Sauces et bases', fairPct: 55, coopId: 'scoop-prokab', rating: '4,7', reviews: 31 },
+    { fullName: 'Attiéké premium Agbodjama 500g', name: 'Attiéké premium Agbodjama', image: 'img/attieke.png', price: 2500, format: 'Sous-vide 500g', category: 'Féculents', fairPct: 55, coopId: 'coop-attieke', rating: '4,8', reviews: 42 },
+    { fullName: 'Soumbara en poudre 80g', name: 'Soumbara en poudre', image: 'img/poudre.png', price: 1800, format: 'Sachet ou pot 80g', category: 'Épices', fairPct: 65, coopId: 'scoops-bene-wende', rating: '4,6', reviews: 22 },
+    { fullName: 'Kankankan premium 100g', name: 'Kankankan premium', image: 'img/img4.jpg', price: 2200, format: 'Pot verre 100g', category: 'Épices', fairPct: 65, coopId: 'scoopan-mba', rating: '4,7', reviews: 19 },
+    { fullName: 'Sauce pistache déshydratée 80g', name: 'Sauce pistache déshydratée', image: 'img/poudre.png', price: 1500, format: 'Sachet 4 pers. 80g', category: 'Sauces et bases', fairPct: 65, coopId: 'mamatchiva', rating: '4,7', reviews: 18 },
+    { fullName: 'Mélange kedjenou 80g', name: 'Mélange kedjenou', image: 'img/img4.jpg', price: 1800, format: 'Pot verre 80g', category: 'Épices', fairPct: 65, coopId: 'mamatchiva', rating: '4,7', reviews: 15 },
+    { fullName: 'Mélange poisson braisé 80g', name: 'Mélange poisson braisé', image: 'img/img4.jpg', price: 1800, format: 'Pot verre 80g', category: 'Épices', fairPct: 65, coopId: 'pecheurs-sud', rating: '4,7', reviews: 14 },
+    { fullName: 'Akpi moulu 60g', name: 'Akpi moulu', image: 'img/poudre.png', price: 1500, format: 'Sachet ou pot 60g', category: 'Épices', fairPct: 60, coopId: 'scoops-caeg', rating: '4,7', reviews: 20 },
+    { fullName: 'Préparation bissap pur 80g', name: 'Préparation bissap pur', image: 'img/patte.png', price: 1800, format: 'Sachet kraft 80g', category: 'Boissons', fairPct: 65, coopId: 'scoops-bene-wende', rating: '4,6', reviews: 25 },
+    { fullName: 'Infusion gingembre-citron 60g', name: 'Infusion gingembre-citron', image: 'img/patte.png', price: 1800, format: 'Sachet kraft 60g', category: 'Boissons', fairPct: 65, coopId: 'coop-ecapar', rating: '4,6', reviews: 17 },
+    { fullName: 'Infusion kinkéliba 50g', name: 'Infusion kinkéliba', image: 'img/patte.png', price: 2000, format: 'Sachet kraft 50g', category: 'Boissons', fairPct: 65, coopId: 'scoops-bene-wende', rating: '4,7', reviews: 21 },
+    { fullName: 'Tamarin instantané 100g', name: 'Tamarin instantané', image: 'img/huile.png', price: 1500, format: 'Sachet kraft 100g', category: 'Boissons', fairPct: 60, coopId: 'scoops-bene-wende', rating: '4,7', reviews: 16 },
+    { fullName: 'Bouye/baobab en poudre 100g', name: 'Bouye/baobab en poudre', image: 'img/poudre.png', price: 2200, format: 'Sachet kraft 100g', category: 'Boissons', fairPct: 70, coopId: 'scoops-bene-wende', rating: '4,8', reviews: 23 },
+    { fullName: 'Tablette chocolat single-origin 70g', name: 'Tablette chocolat single-origin', image: 'img/img2.jpg', price: 3800, format: 'Étui carton 70g', category: 'Karité-arachide', fairPct: 40, coopId: 'vivriers-san-pedro', rating: '4,9', reviews: 38 },
+    { fullName: 'Beurre de karité alimentaire 250g', name: 'Beurre de karité alimentaire', image: 'img/Beurre de karité.png', price: 4500, format: 'Pot verre 250g', category: 'Karité-arachide', fairPct: 55, coopId: 'gbinmin', rating: '4,8', reviews: 33 },
+    { fullName: 'Miel de campagne 250g', name: 'Miel de campagne', image: 'img/img9.jpg', price: 3500, format: 'Pot verre 250g', category: 'Karité-arachide', fairPct: 50, coopId: 'scoops-bene-wende', rating: '4,8', reviews: 27 },
+    { fullName: 'Confiture bissap-gingembre 220g', name: 'Confiture bissap-gingembre', image: 'img/img10.jpg', price: 3200, format: 'Pot verre 220g', category: 'Karité-arachide', fairPct: 60, coopId: 'scoop-prokab', rating: '4,9', reviews: 29 },
+    { fullName: 'Coffret découverte (3 produits + livret)', name: 'Coffret découverte', image: 'img/img8.jpg', price: 12000, format: 'Boîte carton · 3 produits + livret', category: 'Coffrets', fairPct: 55, coopId: 'scoops-bene-wende', rating: '4,8', reviews: 12 }
 ];
+
+PRODUCT_LIST.forEach(function(product) {
+    const coop = COOPERATIVE_CATALOG[product.coopId];
+    product.coop = coop ? coop.name : '';
+    if (coop) coop.products.push(product.fullName);
+});
 
 const PRODUCT_CATALOG = {};
 PRODUCT_LIST.forEach(function(product) {
@@ -205,24 +235,47 @@ function initProductDetailPage() {
     const fairBannerText = document.querySelector('.pdp-fair-banner-text');
     if (fairBannerText) {
         fairBannerText.innerHTML = '<i class="fas fa-heart" aria-hidden="true"></i> Sur ce produit, <strong class="pdp-fair-amount">' +
-            formatProductPrice(fairAmount) + '</strong> reviennent à la coopérative ' + product.coop.replace('Coopérative ', '') + '.';
+            formatProductPrice(fairAmount) + '</strong> reviennent à la coopérative <strong>' + product.coop + '</strong>.';
+    }
+
+    const coopMeta = product.coopId ? COOPERATIVE_CATALOG[product.coopId] : null;
+    const producerLocation = document.querySelector('.pdp-producer-location');
+    if (producerLocation && coopMeta) {
+        producerLocation.innerHTML = '<i class="fas fa-map-marker-alt" aria-hidden="true"></i> ' +
+            product.coop + ' — ' + coopMeta.city;
+    }
+    const producerLink = document.querySelector('.pdp-producer-link');
+    if (producerLink) {
+        producerLink.textContent = 'Voir toutes nos coopératives →';
+        producerLink.setAttribute('href', 'producers.html');
     }
 }
 
+function syncProductCardFromCatalog(card) {
+    const nameEl = card.querySelector('.product-name');
+    if (!nameEl) return null;
+    const fullName = nameEl.textContent.trim();
+    const product = PRODUCT_LIST.find(function(p) { return p.fullName === fullName; });
+    if (!product) return null;
+
+    card.dataset.category = productCategoryToSlug(product.category);
+    if (product.coopId) {
+        card.dataset.cooperative = product.coopId;
+    }
+    const coopEl = card.querySelector('.product-coop');
+    if (coopEl) {
+        coopEl.textContent = product.coop;
+    }
+    const img = card.querySelector('.product-image img');
+    if (img && product.image) {
+        img.src = product.image;
+        img.alt = product.fullName;
+    }
+    return product;
+}
+
 function tagShopProductCards() {
-    document.querySelectorAll('#shopProductsGrid .product-card').forEach(function(card) {
-        const nameEl = card.querySelector('.product-name');
-        if (!nameEl) return;
-        const fullName = nameEl.textContent.trim();
-        const product = PRODUCT_LIST.find(function(p) { return p.fullName === fullName; });
-        if (!product) return;
-        card.dataset.category = productCategoryToSlug(product.category);
-        const img = card.querySelector('.product-image img');
-        if (img && product.image) {
-            img.src = product.image;
-            img.alt = product.fullName;
-        }
-    });
+    document.querySelectorAll('#shopProductsGrid .product-card').forEach(syncProductCardFromCatalog);
 }
 
 function initShopFilters() {
@@ -919,15 +972,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }, observerOptions);
 
-    // Page Notre engagement : carte → coopérative
+    // Carte → coopérative (Nos Productrices)
     const mapCityToCoop = {
         'Séguéla': 'coop-seguela',
+        'Guéssabo': 'coop-guessabo',
         'Divo': 'coop-divo',
-        "M'Batto": 'coop-mbatto',
+        'Abidjan': 'coop-pecheurs-sud',
+        'M\'Batto': 'coop-mbatto',
+        'Daloa': 'coop-daloa',
         'Bouna': 'coop-bouna',
+        'San Pedro': 'coop-san-pedro',
+        'Soubré': 'coop-soubre',
+        'Korhogo': 'coop-korhogo',
         'Kasséré': 'coop-kassere'
     };
-    document.querySelectorAll('.engagement-map-marker').forEach(marker => {
+    document.querySelectorAll('.prod-map-marker, .engagement-map-marker').forEach(marker => {
         marker.addEventListener('click', () => {
             const city = marker.getAttribute('data-city');
             const coopId = mapCityToCoop[city];
@@ -948,7 +1007,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Observe product cards and producer cards
-    const animatedElements = document.querySelectorAll('.product-card, .producer-card, .producer-profile-card, .flagship-product-card, .engagement-coop-card, .category-card, .quality-card, .engagement-pillar-card');
+    const animatedElements = document.querySelectorAll('.product-card, .producer-card, .producer-profile-card, .flagship-product-card, .prod-coop-card, .prod-pillar-card, .category-card, .quality-card');
     animatedElements.forEach(el => {
         el.style.opacity = '0';
         el.style.transform = 'translateY(20px)';
@@ -996,10 +1055,10 @@ function getFairPct(productName) {
 }
 
 function formatCoopBadge(coopText) {
-    return coopText
-        .replace(/^Coopérative\s+d'/i, "Coop. d'")
-        .replace(/^Coopérative\s+de\s+/i, 'Coop. de ')
-        .replace(/^Coopérative\s+/i, 'Coop. ');
+    if (!coopText) return '';
+    const text = coopText.trim();
+    if (text.length <= 32) return text;
+    return text.slice(0, 29) + '…';
 }
 
 function extractProductFormat(name) {
@@ -1011,6 +1070,8 @@ function initFlagshipProductCards() {
     document.querySelectorAll('.products-grid--flagship .product-card').forEach(card => {
         if (card.dataset.flagshipInit === '1') return;
         card.dataset.flagshipInit = '1';
+
+        syncProductCardFromCatalog(card);
 
         const nameEl = card.querySelector('.product-name');
         const productName = nameEl ? nameEl.textContent.trim() : '';
