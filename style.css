@@ -6,9 +6,11 @@
 /* ===== Variables CSS ===== */
 :root {
     /* Couleurs principales - Vert dominant */
-    --color-green: #1a4d3e;
-    --color-green-light: #e8f3ef;
-    --color-green-mid: #2d6a4f;
+    --color-green: #2B663A;
+    --color-green-light: #e8f2eb;
+    --color-green-mid: #347a4d;
+    --color-dark-green: #2B663A;
+    --color-natural-green: #2B663A;
     --color-off-white: #fff5ee;
     --color-light-beige: #fef3ed;
 
@@ -2416,7 +2418,7 @@ a.btn-add-cart:hover {
 }
 
 .btn-add-cart-large:hover {
-    background-color: var(--color-dark-green);
+    background-color: var(--color-green-mid);
 }
 
 .product-info-tabs {
@@ -2479,9 +2481,9 @@ a.btn-add-cart:hover {
 
 /* ===== Producers Page (Nos Productrices) ===== */
 .page-producers {
-    --producer-green: #1a4d3e;
-    --producer-green-light: #e8f3ef;
-    --producer-green-mid: #2d6a4f;
+    --producer-green: #2B663A;
+    --producer-green-light: #e8f2eb;
+    --producer-green-mid: #347a4d;
     font-family: 'Inter', var(--font-primary);
 }
 
@@ -3616,9 +3618,9 @@ a.btn-add-cart:hover {
 
 /* ===== Page produit boutique (maquette) ===== */
 .page-product {
-    --pdp-green: #1a4d3e;
-    --pdp-green-mid: #2d6a4f;
-    --pdp-green-light: #e8f3ef;
+    --pdp-green: #2B663A;
+    --pdp-green-mid: #347a4d;
+    --pdp-green-light: #e8f2eb;
     --pdp-beige: #f5f2ee;
     --pdp-bg: #faf8f5;
     background: var(--pdp-bg);
@@ -4233,9 +4235,9 @@ a.btn-add-cart:hover {
 
 /* ===== Page Notre engagement ===== */
 .page-engagement {
-    --producer-green: #1a4d3e;
-    --producer-green-mid: #2d6a4f;
-    --producer-green-light: #e8f3ef;
+    --producer-green: #2B663A;
+    --producer-green-mid: #347a4d;
+    --producer-green-light: #e8f2eb;
     background-color: #f5f3ef;
 }
 
@@ -4362,7 +4364,7 @@ a.btn-add-cart:hover {
 
 .engagement-map-marker:hover circle {
     r: 9;
-    fill: #2d6a4f;
+    fill: #347a4d;
 }
 
 .engagement-map-caption {
@@ -4673,7 +4675,7 @@ a.btn-add-cart:hover {
 
 .engagement-directory-table .col-loc {
     background: #d4edda;
-    color: #1a3d28;
+    color: #2B663A;
     font-weight: 500;
     white-space: nowrap;
 }
