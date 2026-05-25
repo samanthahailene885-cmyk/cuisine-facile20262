@@ -707,7 +707,7 @@ document.addEventListener('DOMContentLoaded', function() {
             } else {
                 this.textContent = 'Ajouté !';
             }
-            this.style.backgroundColor = '#2d6a4f';
+            this.style.backgroundColor = '#2B663A';
             
             const cartCount = document.querySelector('.cart-count');
             if (cartCount) {
@@ -765,7 +765,7 @@ document.addEventListener('DOMContentLoaded', function() {
             
             if (input && button) {
                 button.textContent = 'Inscrit !';
-                button.style.backgroundColor = '#2d6a4f';
+                button.style.backgroundColor = '#2B663A';
                 input.value = '';
                 
                 setTimeout(() => {
