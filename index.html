@@ -5,11 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CuisineFacile.africa - Marketplace de Produits Alimentaires Ivoiriens</title>
     <meta name="description" content="Découvrez nos produits artisanaux transformés par des coopératives féminines locales en Côte d'Ivoire.">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="product-flagship.css">
+    <link rel="stylesheet" href="style.css?v=20260528">
+    <link rel="stylesheet" href="product-flagship.css?v=20260527">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="page-home page-producers">
     <!-- Header / Navigation -->
     <header class="header">
         <div class="container">
@@ -46,20 +49,47 @@
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-slider" aria-hidden="true">
-            <div class="hero-slide active" style="background-image: url('img/img1.png');"></div>
-            <div class="hero-slide" style="background-image: url('img/image.png');"></div>
-            <div class="hero-slide" style="background-image: url('img/image1.png');"></div>
+    <!-- Hero (même présentation que Nos Productrices) -->
+    <section class="producers-hero-split">
+        <div class="container producers-hero-split-inner">
+            <div class="producers-hero-text">
+                <span class="producers-hero-tag">100% transformé par des femmes ivoiriennes</span>
+                <h1>Les saveurs de chez nous, faites par les femmes de chez nous</h1>
+                <p>Des produits dont vous savez d'où ils viennent, qui les fait, et combien la productrice est payée.</p>
+                <div class="producers-hero-actions">
+                    <a href="shop.html" class="btn-producers-primary">Découvrir la boutique</a>
+                    <a href="producers.html" class="btn-producers-link">Nos productrices →</a>
+                </div>
+            </div>
+            <div class="producers-hero-visual">
+                <img src="img/femme1.png" alt="Productrice tenant un produit artisanal">
+            </div>
         </div>
-        <div class="hero-content">
-            <span class="hero-badge">Produits 100% Locaux</span>
-            <h1 class="hero-title">cuisiner ivoirien avec des produits dont on sait d'où ils viennent et qui les fabrique</h1>
-            <p class="hero-subtitle">Mangez bien et sainement </p>
-            <div class="hero-buttons">
-                <a href="shop.html" class="btn btn-primary">Découvrir la Boutique</a>
-                <a href="producers.html" class="btn btn-secondary">Nos Productrices</a>
+    </section>
+
+    <!-- Barre avantages (livraison, paiement, qualité) -->
+    <section class="home-features-bar" aria-label="Nos garanties">
+        <div class="container home-features-bar-inner">
+            <div class="home-features-item">
+                <i class="fas fa-truck home-features-icon" aria-hidden="true"></i>
+                <div>
+                    <p class="home-features-title">Livré en 48-72h</p>
+                    <p class="home-features-detail">partout à Abidjan</p>
+                </div>
+            </div>
+            <div class="home-features-item">
+                <i class="fas fa-mobile-alt home-features-icon" aria-hidden="true"></i>
+                <div>
+                    <p class="home-features-title">Paiement mobile</p>
+                    <p class="home-features-detail">Orange, MTN, Moov, Wave</p>
+                </div>
+            </div>
+            <div class="home-features-item">
+                <i class="fas fa-leaf home-features-icon" aria-hidden="true"></i>
+                <div>
+                    <p class="home-features-title">Qualité tracée</p>
+                    <p class="home-features-detail">sans conservateur</p>
+                </div>
             </div>
         </div>
     </section>
@@ -80,7 +110,7 @@
                     </div>
                     <div class="product-info">
                         <h3 class="product-name">Sauce graine pure 350g</h3>
-                        <p class="product-coop">Coopérative de Bouaké</p>
+                        <p class="product-coop">Société Coopérative des Vivriers de San Pedro</p>
                         <div class="product-rating"><span class="stars">★★★★☆</span></div>
                         <div class="product-footer">
                             <span class="product-price">3 500 FCFA</span>
@@ -95,7 +125,7 @@
                     </div>
                     <div class="product-info">
                         <h3 class="product-name">Attiéké premium Agbodjama 500g</h3>
-                        <p class="product-coop">Coopérative d'Abidjan</p>
+                        <p class="product-coop">Coop attiéké</p>
                         <div class="product-rating"><span class="stars">★★★★☆</span></div>
                         <div class="product-footer">
                             <span class="product-price">2 500 FCFA</span>
@@ -110,7 +140,7 @@
                     </div>
                     <div class="product-info">
                         <h3 class="product-name">Pâte d'arachide pure 350g</h3>
-                        <p class="product-coop">Coopérative de Bouaké</p>
+                        <p class="product-coop">Scoop Prokab</p>
                         <div class="product-rating"><span class="stars">★★★★☆</span></div>
                         <div class="product-footer">
                             <span class="product-price">3 000 FCFA</span>
@@ -125,7 +155,7 @@
                     </div>
                     <div class="product-info">
                         <h3 class="product-name">Soumbara en poudre 80g</h3>
-                        <p class="product-coop">Coopérative de Korhogo</p>
+                        <p class="product-coop">Scoops Béné wende</p>
                         <div class="product-rating"><span class="stars">★★★★☆</span></div>
                         <div class="product-footer">
                             <span class="product-price">1 800 FCFA</span>
@@ -140,7 +170,7 @@
                     </div>
                     <div class="product-info">
                         <h3 class="product-name">Kankankan premium 100g</h3>
-                        <p class="product-coop">Coopérative de Korhogo</p>
+                        <p class="product-coop">Coop CA Scoopan-MBA</p>
                         <div class="product-rating"><span class="stars">★★★★☆</span></div>
                         <div class="product-footer">
                             <span class="product-price">2 200 FCFA</span>
@@ -155,7 +185,7 @@
                     </div>
                     <div class="product-info">
                         <h3 class="product-name">Beurre de karité alimentaire 250g</h3>
-                        <p class="product-coop">Coopérative de Daloa</p>
+                        <p class="product-coop">Gbinmin</p>
                         <div class="product-rating"><span class="stars">★★★★☆</span></div>
                         <div class="product-footer">
                             <span class="product-price">4 500 FCFA</span>
@@ -167,241 +197,50 @@
         </div>
     </section>
 
-    <!-- Catégories -->
-    <section class="section categories-section">
+    <!-- Derrière chaque produit, une femme -->
+    <section class="producers-spotlight-section home-spotlight-section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Nos Catégories</h2>
-                <p class="section-subtitle">Explorez notre gamme de produits</p>
-            </div>
-            
-            <div class="categories-grid">
-                <a href="shop.html?category=sauces" class="category-card" data-category="sauces">
-                    <div class="category-icon">
-                        <img src="img/Sauce graine pure.png" alt="Sauces">
-                    </div>
-                    <h3 class="category-name">Sauces</h3>
-                    <p class="category-count">3 produits</p>
-                </a>
-                
-                <a href="shop.html?category=epices" class="category-card" data-category="epices">
-                    <div class="category-icon">
-                        <img src="img/poudre.png" alt="Épices">
-                    </div>
-                    <h3 class="category-name">Épices</h3>
-                    <p class="category-count">5 produits</p>
-                </a>
-                
-                <a href="shop.html?category=boissons" class="category-card" data-category="boissons">
-                    <div class="category-icon">
-                        <img src="img/huile.png" alt="Boissons">
-                    </div>
-                    <h3 class="category-name">Boissons</h3>
-                    <p class="category-count">5 produits</p>
-                </a>
-                
-                <a href="shop.html?category=karite-arachide" class="category-card" data-category="karite-arachide">
-                    <div class="category-icon">
-                        <img src="img/Beurre de karité.png" alt="Karité-arachide">
-                    </div>
-                    <h3 class="category-name">Karité-arachide</h3>
-                    <p class="category-count">5 produits</p>
-                </a>
-                
-                <a href="shop.html?category=feculents" class="category-card" data-category="feculents">
-                    <div class="category-icon">
-                        <img src="img/attieke.png" alt="Féculents">
-                    </div>
-                    <h3 class="category-name">Féculents</h3>
-                    <p class="category-count">1 produit</p>
-                </a>
-            </div>
+            <h2 class="producers-section-title producers-section-title--left">Derrière chaque produit, une femme</h2>
+            <article class="producer-spotlight-card producer-spotlight-card--home">
+                <div class="producer-spotlight-avatar">
+                    <img src="img/femme1.png" alt="Aminata K.">
+                </div>
+                <div class="producer-spotlight-body">
+                    <h3 class="producer-spotlight-name">Aminata K. <span>— Divo</span></h3>
+                    <blockquote class="producer-spotlight-quote">« Aujourd'hui je suis payée d'avance et à un prix juste. J'ai pu embaucher deux jeunes filles du village. »</blockquote>
+                    <a href="productrices.html" class="producers-meet-all">Rencontrer toutes nos productrices →</a>
+                </div>
+            </article>
         </div>
     </section>
 
-    <!-- Nos Productrices -->
-    <section class="section producers-section">
+    <!-- Notre engagement -->
+    <section class="home-engagement-section">
         <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Nos Productrices</h2>
-                <p class="section-subtitle">Rencontrez les femmes talentueuses qui transforment nos produits avec passion et savoir-faire</p>
+            <h2 class="home-engagement-title">Notre engagement</h2>
+            <p class="home-engagement-lead">Chaque achat fait vivre une coopérative féminine, à un prix juste et en toute transparence.</p>
+            <div class="home-engagement-grid">
+                <article class="home-engagement-card">
+                    <div class="home-engagement-icon"><i class="fas fa-coins" aria-hidden="true"></i></div>
+                    <h3 class="home-engagement-card-title">Prix juste</h3>
+                    <p class="home-engagement-card-detail">+30 à 50% vs marché</p>
+                </article>
+                <article class="home-engagement-card">
+                    <div class="home-engagement-icon"><i class="fas fa-money-bill-wave" aria-hidden="true"></i></div>
+                    <h3 class="home-engagement-card-title">Payé d'avance</h3>
+                    <p class="home-engagement-card-detail">50% à la commande</p>
+                </article>
+                <article class="home-engagement-card">
+                    <div class="home-engagement-icon"><i class="fas fa-eye" aria-hidden="true"></i></div>
+                    <h3 class="home-engagement-card-title">Transparence</h3>
+                    <p class="home-engagement-card-detail">part affichée par produit</p>
+                </article>
             </div>
-
-            <div class="producers-grid">
-                <div class="producer-card">
-                    <div class="producer-image">
-                        <img src="img/img6.jpg" alt="Coopérative de Bouaké">
-                    </div>
-                    <div class="producer-info">
-                        <h3 class="producer-name">Coopérative Femmes de Bouaké</h3>
-                        <p class="producer-region">Région du Centre</p>
-                        <p class="producer-description">Depuis 2015, notre coopérative de 45 femmes produit des sauces traditionnelles ivoiriennes avec amour et passion.</p>
-                        <div class="producer-meta">
-                            <div class="producer-meta-item">
-                                <i class="fas fa-users"></i>
-                                <span>45 membres</span>
-                            </div>
-                            <div class="producer-meta-item">
-                                <i class="fas fa-utensils"></i>
-                                <span>Sauces, Condiments</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="producer-card">
-                    <div class="producer-image">
-                        <img src="img/img7.jpg" alt="Coopérative de Korhogo">
-                    </div>
-                    <div class="producer-info">
-                        <h3 class="producer-name">Coopérative Riz du Nord</h3>
-                        <p class="producer-region">Région du Nord</p>
-                        <p class="producer-description">Nos 60 agricultrices cultivent le riz local selon des méthodes traditionnelles transmises de génération en génération.</p>
-                        <div class="producer-meta">
-                            <div class="producer-meta-item">
-                                <i class="fas fa-users"></i>
-                                <span>60 membres</span>
-                            </div>
-                            <div class="producer-meta-item">
-                                <i class="fas fa-seedling"></i>
-                                <span>Céréales, Riz</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="producer-card">
-                    <div class="producer-image">
-                        <img src="img/img8.jpg" alt="Coopérative de San-Pédro">
-                    </div>
-                    <div class="producer-info">
-                        <h3 class="producer-name">Coopérative Épices du Sud</h3>
-                        <p class="producer-region">Région du Sud</p>
-                        <p class="producer-description">30 femmes productrices spécialisées dans les épices et aromates locaux, cultivés en agriculture biologique.</p>
-                        <div class="producer-meta">
-                            <div class="producer-meta-item">
-                                <i class="fas fa-users"></i>
-                                <span>30 membres</span>
-                            </div>
-                            <div class="producer-meta-item">
-                                <i class="fas fa-pepper-hot"></i>
-                                <span>Épices, Aromates</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="section-link-container">
-                <a href="producers.html" class="section-link">Découvrir toutes nos productrices</a>
-            </div>
+            <p class="home-engagement-more">
+                <a href="engagement.html">En savoir plus sur notre engagement →</a>
+            </p>
         </div>
     </section>
-
-    <!-- Recettes Africaines -->
-    <section class="section recipes-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Recettes Africaines</h2>
-                <p class="section-subtitle">Inspirez-vous de nos recettes authentiques</p>
-                <a href="#" class="section-link">Voir toutes les recettes <i class="fas fa-arrow-right"></i></a>
-            </div>
-            
-            <div class="recipes-grid">
-                <div class="recipe-card">
-                    <div class="recipe-image">
-                        <img src="img/img9.jpg" alt="Poulet Kedjenou">
-                    </div>
-                    <div class="recipe-info">
-                        <h3 class="recipe-title">Poulet Kedjenou</h3>
-                        <div class="recipe-meta">
-                            <span class="recipe-meta-item"><i class="far fa-clock"></i> Temps: 45 min</span>
-                            <span class="recipe-meta-item">Difficulté: <span class="difficulty-badge">Moyen</span></span>
-                        </div>
-                        <a href="#" class="recipe-link">Voir la recette <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                
-                <div class="recipe-card">
-                    <div class="recipe-image">
-                        <img src="img/img10.jpg" alt="Alloco au Poisson">
-                    </div>
-                    <div class="recipe-info">
-                        <h3 class="recipe-title">Alloco au Poisson</h3>
-                        <div class="recipe-meta">
-                            <span class="recipe-meta-item"><i class="far fa-clock"></i> Temps: 30 min</span>
-                            <span class="recipe-meta-item">Difficulté: <span class="difficulty-badge">Facile</span></span>
-                        </div>
-                        <a href="#" class="recipe-link">Voir la recette <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Engagement Qualité -->
-    <section class="section quality-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Notre Engagement Qualité</h2>
-                <a href="engagement.html" class="section-link">En savoir plus</a>
-            </div>
-
-            <div class="quality-grid">
-                <div class="quality-card">
-                    <div class="quality-icon">
-                        <i class="fas fa-leaf"></i>
-                    </div>
-                    <h3 class="quality-title">Produits Locaux</h3>
-                    <p class="quality-description">100% de nos produits sont cultivés et transformés en Côte d'Ivoire par des coopératives locales</p>
-                </div>
-
-                <div class="quality-card">
-                    <div class="quality-icon">
-                        <i class="fas fa-users"></i>
-                    </div>
-                    <h3 class="quality-title">Commerce Équitable</h3>
-                    <p class="quality-description">Nous garantissons une rémunération juste pour toutes les productrices de nos coopératives partenaires</p>
-                </div>
-
-                <div class="quality-card">
-                    <div class="quality-icon">
-                        <i class="fas fa-award"></i>
-                    </div>
-                    <h3 class="quality-title">Production Artisanale</h3>
-                    <p class="quality-description">Nos produits sont fabriqués selon des méthodes traditionnelles transmises de génération en génération</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Témoignages -->
-    <section class="section testimonials-section">
-        <div class="container">
-            <div class="section-header">
-                <h2 class="section-title">Ils Nous Font Confiance</h2>
-                <p class="section-subtitle">Ce que nos clients disent de nous</p>
-            </div>
-            
-            <div class="testimonials-grid">
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">★★★★★</div>
-                    <p class="testimonial-text">"Des produits d'une qualité exceptionnelle ! J'ai retrouvé les saveurs authentiques de mon enfance. La sauce gombo est divine."</p>
-                    <p class="testimonial-author">Aminata K.</p>
-                    <p class="testimonial-location">Abidjan, Côte d'Ivoire</p>
-                </div>
-                
-                <div class="testimonial-card">
-                    <div class="testimonial-rating">★★★★★</div>
-                    <p class="testimonial-text">"Livraison rapide et emballage soigné. Je recommande vivement cette plateforme pour découvrir les trésors culinaires ivoiriens."</p>
-                    <p class="testimonial-author">Jean-Marc D.</p>
-                    <p class="testimonial-location">Paris, France</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-   
 
     <!-- Footer -->
     <footer class="footer">
@@ -511,6 +350,6 @@
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=20260531"></script>
 </body>
 </html>
