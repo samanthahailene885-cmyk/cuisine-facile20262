@@ -511,6 +511,173 @@ function initCartPage() {
     });
 
     updateSummary();
+
+    // Comments section (maquette) - stockées en localStorage
+    const commentsForm = document.getElementById('commentsForm');
+    const commentNameInput = document.getElementById('commentName');
+    const commentMessageInput = document.getElementById('commentMessage');
+    const commentRatingSelect = document.getElementById('commentRating');
+    const commentsList = document.getElementById('cartCommentsList');
+    const commentsEmpty = document.getElementById('cartCommentsEmpty');
+    const commentsStatus = document.getElementById('cartCommentsStatus');
+
+    if (commentsForm && commentMessageInput && commentsList) {
+        const STORAGE_KEY = 'cuisinefacile_client_comments';
+
+        function getStoredComments() {
+            try {
+                const raw = localStorage.getItem(STORAGE_KEY);
+                const parsed = raw ? JSON.parse(raw) : [];
+                return Array.isArray(parsed) ? parsed : [];
+            } catch (e) {
+                return [];
+            }
+        }
+
+        function saveComments(comments) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(comments));
+        }
+
+        function formatCommentDate(isoDate) {
+            try {
+                return new Date(isoDate).toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' });
+            } catch (e) {
+                return '';
+            }
+        }
+
+        function getRatingValue() {
+            const raw = commentRatingSelect ? parseInt(commentRatingSelect.value, 10) : 5;
+            if (!Number.isFinite(raw)) return 5;
+            return Math.max(1, Math.min(5, raw));
+        }
+
+        function createStars(rating) {
+            const starsWrap = document.createElement('div');
+            starsWrap.className = 'cart-comments-stars';
+
+            const safeRating = Math.max(1, Math.min(5, rating));
+            for (let i = 1; i <= 5; i++) {
+                const star = document.createElement('i');
+                const filled = i <= safeRating;
+                star.className = filled
+                    ? 'fas fa-star cart-comment-star cart-comment-star--filled'
+                    : 'far fa-star cart-comment-star cart-comment-star--empty';
+                starsWrap.appendChild(star);
+            }
+            return starsWrap;
+        }
+
+        function renderComments() {
+            const comments = getStoredComments();
+            commentsList.innerHTML = '';
+
+            if (!comments.length) {
+                if (commentsEmpty) commentsEmpty.hidden = false;
+                return;
+            }
+
+            if (commentsEmpty) commentsEmpty.hidden = true;
+
+            comments
+                .slice(0, 30)
+                .forEach(function(c) {
+                    const name = (c && typeof c.name === 'string' && c.name.trim())
+                        ? c.name.trim()
+                        : 'Client';
+                    const message = (c && typeof c.message === 'string' && c.message.trim())
+                        ? c.message.trim()
+                        : '';
+                    const rating = c && Number.isFinite(c.rating) ? c.rating : getRatingValue();
+                    const createdAt = c && c.createdAt ? c.createdAt : '';
+
+                    const card = document.createElement('article');
+                    card.className = 'cart-comment-card';
+
+                    const top = document.createElement('div');
+                    top.className = 'cart-comment-top';
+
+                    const avatar = document.createElement('div');
+                    avatar.className = 'cart-comment-avatar';
+                    avatar.textContent = (name[0] || 'C').toUpperCase();
+
+                    const metaCol = document.createElement('div');
+                    metaCol.style.minWidth = '0';
+
+                    const nameEl = document.createElement('div');
+                    nameEl.className = 'cart-comment-name';
+                    nameEl.textContent = name;
+
+                    top.appendChild(avatar);
+                    metaCol.appendChild(nameEl);
+                    top.appendChild(metaCol);
+                    top.appendChild(createStars(rating));
+
+                    const dateEl = document.createElement('div');
+                    dateEl.className = 'cart-comment-date';
+                    dateEl.textContent = createdAt ? ('Publié le ' + formatCommentDate(createdAt)) : '';
+
+                    const msgEl = document.createElement('div');
+                    msgEl.className = 'cart-comment-message';
+                    msgEl.textContent = message;
+
+                    card.appendChild(top);
+                    card.appendChild(dateEl);
+                    card.appendChild(msgEl);
+
+                    commentsList.appendChild(card);
+                });
+        }
+
+        renderComments();
+
+        commentsForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            if (!commentMessageInput) return;
+
+            const name = commentNameInput && commentNameInput.value.trim()
+                ? commentNameInput.value.trim()
+                : 'Client';
+            const message = commentMessageInput.value.trim();
+            const rating = getRatingValue();
+
+            if (message.length < 3) {
+                if (commentsStatus) {
+                    commentsStatus.textContent = 'Veuillez écrire un commentaire (au moins 3 caractères).';
+                }
+                return;
+            }
+
+            const current = getStoredComments();
+            const next = [
+                {
+                    id: String(Date.now()),
+                    name: name,
+                    message: message,
+                    rating: rating,
+                    createdAt: new Date().toISOString()
+                },
+                ...current
+            ];
+
+            saveComments(next.slice(0, 50));
+
+            // Reset form
+            commentMessageInput.value = '';
+            if (commentNameInput) commentNameInput.value = '';
+            if (commentRatingSelect) commentRatingSelect.value = '5';
+
+            renderComments();
+
+            if (commentsStatus) {
+                commentsStatus.textContent = 'Merci pour votre avis !';
+                setTimeout(function() {
+                    commentsStatus.textContent = '';
+                }, 2500);
+            }
+        });
+    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
