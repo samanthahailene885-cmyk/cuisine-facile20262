@@ -4500,7 +4500,7 @@ a.btn-add-cart:hover {
 }
 
 .eng-mission-inner {
-    max-width: 720px;
+    max-width: 900px;
 }
 
 .eng-mission-title {
@@ -4540,7 +4540,6 @@ a.btn-add-cart:hover {
     display: flex;
     flex-direction: column;
     gap: 20px;
-    max-width: 900px;
 }
 
 .eng-pillar-row {
