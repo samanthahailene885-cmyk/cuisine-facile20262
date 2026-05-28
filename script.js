@@ -87,7 +87,7 @@ function slugifyProductName(name) {
 
 const PRODUCT_LIST = [
     { fullName: 'Sauce graine pure 350g', name: 'Sauce graine pure', image: 'img/Sauce graine pure 350g.png', price: 3500, format: 'Bocal stérilisé 350g · prête à consommer', category: 'Sauces et bases', fairPct: 60, coopId: 'vivriers-san-pedro', rating: '4,8', reviews: 36 },
-    { fullName: "Pâte d'arachide pure 350g", name: "Pâte d'arachide pure", image: 'img/Pâte d'arachide pure 350g.png', price: 3000, format: 'Bocal verre 350g', category: 'Karité-arachide', fairPct: 55, coopId: 'scoop-prokab', rating: '4,6', reviews: 28 },
+    { fullName: "Pâte d'arachide pure 350g", name: "Pâte d'arachide pure", image: "img/Pâte d'arachide pure 350g.png", price: 3000, format: 'Bocal verre 350g', category: 'Karité-arachide', fairPct: 55, coopId: 'scoop-prokab', rating: '4,6', reviews: 28 },
     { fullName: 'Sauce arachide prête 350g', name: 'Sauce arachide prête', image: 'img/Sauce arachide prête 350g.png', price: 3200, format: 'Bocal stérilisé 350g', category: 'Sauces et bases', fairPct: 55, coopId: 'scoop-prokab', rating: '4,7', reviews: 31 },
     { fullName: 'Attiéké premium Agbodjama 500g', name: 'Attiéké premium Agbodjama', image: 'img/Attiéké premium Agbodjama 500g.png', price: 2500, format: 'Sous-vide 500g', category: 'Féculents', fairPct: 55, coopId: 'coop-attieke', rating: '4,8', reviews: 42 },
     { fullName: 'Soumbara en poudre 80g', name: 'Soumbara en poudre', image: 'img/Soumbara en poudre 80g.png', price: 1800, format: 'Sachet ou pot 80g', category: 'Épices', fairPct: 65, coopId: 'scoops-bene-wende', rating: '4,6', reviews: 22 },
@@ -950,13 +950,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Boutique : clic carte → fiche produit
+    // Boutique : clic carte + bouton "Voir le produit" → fiche produit
+    function navigateToProductCard(card) {
+        if (!card) return;
+        const id = card.dataset.productId;
+        window.location.href = id ? getProductPageUrl(id) : (card.dataset.productLink || 'product.html');
+    }
+
     document.querySelectorAll('.product-card[data-product-link]').forEach(card => {
         card.style.cursor = 'pointer';
         card.addEventListener('click', function(e) {
             if (e.target.closest('button, a')) return;
-            const id = this.dataset.productId;
-            window.location.href = id ? getProductPageUrl(id) : (this.dataset.productLink || 'product.html');
+            navigateToProductCard(this);
+        });
+
+        const viewButtons = card.querySelectorAll('.btn-view-product, .btn-view-more, .btn-flagship-view');
+        viewButtons.forEach(function(btn) {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                navigateToProductCard(card);
+            });
         });
     });
 
