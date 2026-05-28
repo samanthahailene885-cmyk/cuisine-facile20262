@@ -104,7 +104,7 @@ const PRODUCT_LIST = [
     { fullName: 'Tablette chocolat single-origin 70g', name: 'Tablette chocolat single-origin', image: 'img/img2.jpg', price: 3800, format: 'Étui carton 70g', category: 'Karité-arachide', fairPct: 40, coopId: 'vivriers-san-pedro', rating: '4,9', reviews: 38 },
     { fullName: 'Beurre de karité alimentaire 250g', name: 'Beurre de karité alimentaire', image: 'img/Beurre de karité alimentaire 250g.png', price: 4500, format: 'Pot verre 250g', category: 'Karité-arachide', fairPct: 55, coopId: 'gbinmin', rating: '4,8', reviews: 33 },
     { fullName: 'Miel de campagne 250g', name: 'Miel de campagne', image: 'img/Miel de campagne 250g.png', price: 3500, format: 'Pot verre 250g', category: 'Karité-arachide', fairPct: 50, coopId: 'scoops-bene-wende', rating: '4,8', reviews: 27 },
-    { fullName: 'Confiture bissap-gingembre 220g', name: 'Confiture bissap-gingembre', image: 'img/img10.jpg', price: 3200, format: 'Pot verre 220g', category: 'Karité-arachide', fairPct: 60, coopId: 'scoop-prokab', rating: '4,9', reviews: 29 },
+    { fullName: 'Confiture bissap-gingembre 220g', name: 'Confiture bissap-gingembre', image: 'img/Confiture bissap-gingembre 220g.png', price: 3200, format: 'Pot verre 220g', category: 'Karité-arachide', fairPct: 60, coopId: 'scoop-prokab', rating: '4,9', reviews: 29 },
     { fullName: 'Coffret découverte (3 produits + livret)', name: 'Coffret découverte', image: 'img/img8.jpg', price: 12000, format: 'Boîte carton · 3 produits + livret', category: 'Coffrets', fairPct: 55, coopId: 'scoops-bene-wende', rating: '4,8', reviews: 12 }
 ];
 
