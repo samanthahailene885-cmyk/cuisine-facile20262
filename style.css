@@ -4074,10 +4074,6 @@ a.btn-add-cart:hover {
     background: var(--pdp-bg);
 }
 
-.page-product > .footer {
-    display: none;
-}
-
 .pdp-breadcrumb-wrap {
     padding: 20px 0 8px;
     background: var(--pdp-bg);
