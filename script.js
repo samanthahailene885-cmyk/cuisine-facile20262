@@ -252,8 +252,6 @@ function initProductDetailPage() {
 
     // Prix dynamique selon quantité sur la fiche produit
     const quantityInput = document.querySelector('.pdp-quantity .quantity-input');
-    const quantityMinus = document.querySelector('.pdp-quantity .quantity-btn:first-child');
-    const quantityPlus = document.querySelector('.pdp-quantity .quantity-btn:last-child');
     const addToCartBtn = document.querySelector('.btn-pdp-add-cart');
     const productSlug = slug && PRODUCT_CATALOG[slug]
         ? slug
@@ -280,8 +278,6 @@ function initProductDetailPage() {
             updateProductTotalPrice();
         });
     }
-    if (quantityMinus) quantityMinus.addEventListener('click', updateProductTotalPrice);
-    if (quantityPlus) quantityPlus.addEventListener('click', updateProductTotalPrice);
 
     if (addToCartBtn) {
         addToCartBtn.dataset.productId = productSlug;
@@ -462,6 +458,199 @@ function formatCartPrice(amount) {
     return amount.toLocaleString('fr-FR') + ' FCFA';
 }
 
+function escapeHtml(value) {
+    return String(value)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+}
+
+function normalizeCartItems(items) {
+    if (!Array.isArray(items)) return [];
+    return items
+        .map(function(item) {
+            const quantityRaw = parseInt(item && item.quantity, 10);
+            const priceRaw = parseInt(item && item.price, 10);
+            const quantity = Number.isFinite(quantityRaw) && quantityRaw > 0 ? quantityRaw : 0;
+            const price = Number.isFinite(priceRaw) && priceRaw >= 0 ? priceRaw : 0;
+            return {
+                id: item && item.id ? String(item.id) : '',
+                name: item && item.name ? String(item.name) : 'Produit',
+                image: item && item.image ? String(item.image) : 'img/patte.png',
+                quantity: quantity,
+                price: price
+            };
+        })
+        .filter(function(item) {
+            return item.id && item.quantity > 0;
+        });
+}
+
+function computeCartTotals(cartItems) {
+    const subtotal = cartItems.reduce(function(sum, item) {
+        return sum + (item.price * item.quantity);
+    }, 0);
+    const shipping = subtotal === 0 || subtotal >= CART_FREE_SHIPPING_THRESHOLD
+        ? 0
+        : CART_SHIPPING_FEE;
+    return {
+        subtotal: subtotal,
+        shipping: shipping,
+        grandTotal: subtotal + shipping
+    };
+}
+
+function updateHeaderCartCount(cartItems) {
+    const cartCount = document.querySelector('.cart-count');
+    if (!cartCount) return;
+    const totalQty = cartItems.reduce(function(sum, item) {
+        return sum + item.quantity;
+    }, 0);
+    cartCount.textContent = String(totalQty);
+}
+
+function initCheckoutPage() {
+    if (!document.body.classList.contains('page-checkout')) {
+        return;
+    }
+
+    const cartItems = normalizeCartItems(getCart());
+    if (!cartItems.length) {
+        window.location.href = 'cart.html';
+        return;
+    }
+
+    const checkoutForm = document.getElementById('checkoutForm');
+    const itemsList = document.getElementById('checkoutItemsList');
+    const subtotalEl = document.getElementById('checkoutSubtotal');
+    const shippingEl = document.getElementById('checkoutShipping');
+    const grandTotalEl = document.getElementById('checkoutGrandTotal');
+    const btnConfirm = document.getElementById('btnConfirmOrder');
+    const acceptTerms = document.getElementById('checkoutAcceptTerms');
+    const paymentExtras = document.querySelectorAll('.checkout-payment-extra');
+    const paymentRadios = document.querySelectorAll('input[name="paymentMethod"]');
+    const paymentOptions = document.querySelectorAll('.checkout-payment-option');
+
+    function renderCheckoutSummary() {
+        const totals = computeCartTotals(cartItems);
+
+        if (itemsList) {
+            itemsList.innerHTML = cartItems.map(function(item) {
+                const lineTotal = item.price * item.quantity;
+                return (
+                    '<li class="checkout-summary-item">' +
+                    '<span class="checkout-summary-item-name">' + escapeHtml(item.name) + ' x' + item.quantity + '</span>' +
+                    '<span class="checkout-summary-item-price">' + formatCartPrice(lineTotal) + '</span>' +
+                    '</li>'
+                );
+            }).join('');
+        }
+
+        if (subtotalEl) subtotalEl.textContent = formatCartPrice(totals.subtotal);
+        if (shippingEl) {
+            if (totals.shipping === 0 && totals.subtotal > 0) {
+                shippingEl.textContent = 'Gratuite';
+                shippingEl.classList.add('checkout-shipping-free');
+            } else {
+                shippingEl.textContent = formatCartPrice(totals.shipping);
+                shippingEl.classList.remove('checkout-shipping-free');
+            }
+        }
+        if (grandTotalEl) grandTotalEl.textContent = formatCartPrice(totals.grandTotal);
+        updateHeaderCartCount(cartItems);
+    }
+
+    function updatePaymentPanels() {
+        const selected = document.querySelector('input[name="paymentMethod"]:checked');
+        const method = selected ? selected.value : 'cod';
+
+        paymentOptions.forEach(function(option) {
+            const input = option.querySelector('input[type="radio"]');
+            option.classList.toggle('checkout-payment-option--selected', input && input.checked);
+        });
+
+        paymentExtras.forEach(function(extra) {
+            const extraMethod = extra.getAttribute('data-payment-extra');
+            extra.hidden = extraMethod !== method;
+        });
+    }
+
+    renderCheckoutSummary();
+    updatePaymentPanels();
+
+    paymentRadios.forEach(function(radio) {
+        radio.addEventListener('change', updatePaymentPanels);
+    });
+
+    if (btnConfirm) {
+        btnConfirm.addEventListener('click', function() {
+            if (checkoutForm && !checkoutForm.checkValidity()) {
+                checkoutForm.reportValidity();
+                return;
+            }
+
+            if (!acceptTerms || !acceptTerms.checked) {
+                alert('Veuillez accepter les conditions générales de vente et la politique de confidentialité.');
+                acceptTerms.focus();
+                return;
+            }
+
+            const selected = document.querySelector('input[name="paymentMethod"]:checked');
+            const method = selected ? selected.value : 'cod';
+
+            if (method === 'card') {
+                const cardNumber = document.getElementById('checkoutCardNumber');
+                const cardExpiry = document.getElementById('checkoutCardExpiry');
+                const cardCvv = document.getElementById('checkoutCardCvv');
+                if (!cardNumber || !cardNumber.value.trim() || !cardExpiry || !cardExpiry.value.trim() || !cardCvv || !cardCvv.value.trim()) {
+                    alert('Veuillez renseigner les informations de votre carte bancaire.');
+                    return;
+                }
+            }
+
+            if (method === 'mobile') {
+                const mobileNumber = document.getElementById('checkoutMobileNumber');
+                if (!mobileNumber || !mobileNumber.value.trim()) {
+                    alert('Veuillez renseigner votre numéro Mobile Money.');
+                    if (mobileNumber) mobileNumber.focus();
+                    return;
+                }
+            }
+
+            const orderRef = 'CF-' + Date.now().toString(36).toUpperCase();
+            try {
+                sessionStorage.setItem('cuisinefacile_last_order', orderRef);
+            } catch (err) {
+                /* ignore */
+            }
+
+            saveCart([]);
+            window.location.href = 'order-confirmation.html?ref=' + encodeURIComponent(orderRef);
+        });
+    }
+}
+
+function initOrderConfirmationPage() {
+    if (!document.body.classList.contains('page-order-confirmation')) return;
+
+    const refEl = document.getElementById('orderRef');
+    if (!refEl) return;
+
+    const params = new URLSearchParams(window.location.search);
+    let ref = params.get('ref');
+    if (!ref) {
+        try {
+            ref = sessionStorage.getItem('cuisinefacile_last_order');
+        } catch (e) {
+            ref = null;
+        }
+    }
+    refEl.textContent = ref || '—';
+    updateHeaderCartCount([]);
+}
+
 function initCartPage() {
     if (!document.body.classList.contains('page-cart')) return;
 
@@ -470,62 +659,16 @@ function initCartPage() {
     const shippingEl = document.getElementById('cartShipping');
     const grandTotalEl = document.getElementById('cartGrandTotal');
 
-    function escapeHtml(value) {
-        return String(value)
-            .replace(/&/g, '&amp;')
-            .replace(/</g, '&lt;')
-            .replace(/>/g, '&gt;')
-            .replace(/"/g, '&quot;')
-            .replace(/'/g, '&#39;');
-    }
-
-    function normalizeCartItems(items) {
-        if (!Array.isArray(items)) return [];
-        return items
-            .map(function(item) {
-                const quantityRaw = parseInt(item && item.quantity, 10);
-                const priceRaw = parseInt(item && item.price, 10);
-                const quantity = Number.isFinite(quantityRaw) && quantityRaw > 0 ? quantityRaw : 0;
-                const price = Number.isFinite(priceRaw) && priceRaw >= 0 ? priceRaw : 0;
-                return {
-                    id: item && item.id ? String(item.id) : '',
-                    name: item && item.name ? String(item.name) : 'Produit',
-                    image: item && item.image ? String(item.image) : 'img/patte.png',
-                    quantity: quantity,
-                    price: price
-                };
-            })
-            .filter(function(item) {
-                return item.id && item.quantity > 0;
-            });
-    }
-
-    function updateHeaderCartCount(cartItems) {
-        const cartCount = document.querySelector('.cart-count');
-        if (!cartCount) return;
-        const totalQty = cartItems.reduce(function(sum, item) {
-            return sum + item.quantity;
-        }, 0);
-        cartCount.textContent = String(totalQty);
-    }
-
     function updateSummary(cartItems) {
-        const subtotal = cartItems.reduce(function(sum, item) {
-            return sum + (item.price * item.quantity);
-        }, 0);
+        const totals = computeCartTotals(cartItems);
 
-        const shipping = subtotal === 0 || subtotal >= CART_FREE_SHIPPING_THRESHOLD
-            ? 0
-            : CART_SHIPPING_FEE;
-        const grandTotal = subtotal + shipping;
-
-        if (subtotalEl) subtotalEl.textContent = formatCartPrice(subtotal);
+        if (subtotalEl) subtotalEl.textContent = formatCartPrice(totals.subtotal);
         if (shippingEl) {
-            shippingEl.textContent = shipping === 0 && subtotal > 0
+            shippingEl.textContent = totals.shipping === 0 && totals.subtotal > 0
                 ? 'Gratuite'
-                : formatCartPrice(shipping);
+                : formatCartPrice(totals.shipping);
         }
-        if (grandTotalEl) grandTotalEl.textContent = formatCartPrice(grandTotal);
+        if (grandTotalEl) grandTotalEl.textContent = formatCartPrice(totals.grandTotal);
         updateHeaderCartCount(cartItems);
     }
 
@@ -583,6 +726,16 @@ function initCartPage() {
     }
 
     renderCartItems(readCart());
+
+    const checkoutBtn = document.getElementById('btnGoCheckout');
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', function(e) {
+            if (!readCart().length) {
+                e.preventDefault();
+                alert('Votre panier est vide. Ajoutez des produits avant de passer commande.');
+            }
+        });
+    }
 
     if (cartList) {
         cartList.addEventListener('click', function(e) {
@@ -791,7 +944,11 @@ document.addEventListener('DOMContentLoaded', function() {
     initShopFilters();
     initHomeCategories();
     initCartPage();
-    if (!document.body.classList.contains('page-cart')) {
+    initCheckoutPage();
+    initOrderConfirmationPage();
+    if (!document.body.classList.contains('page-cart') &&
+        !document.body.classList.contains('page-checkout') &&
+        !document.body.classList.contains('page-order-confirmation')) {
         updateCartUI();
     }
     // Hero background slider (3 images, 5 seconds each)
@@ -955,22 +1112,26 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (minusBtn && plusBtn && input) {
             minusBtn.addEventListener('click', function() {
-                let value = parseInt(input.value);
+                let value = parseInt(input.value, 10);
                 if (value > 1) {
                     input.value = value - 1;
+                    input.dispatchEvent(new Event('input', { bubbles: true }));
                 }
             });
-            
+
             plusBtn.addEventListener('click', function() {
-                let value = parseInt(input.value);
+                let value = parseInt(input.value, 10);
+                if (isNaN(value) || value < 1) value = 1;
                 input.value = value + 1;
+                input.dispatchEvent(new Event('input', { bubbles: true }));
             });
-            
+
             input.addEventListener('change', function() {
-                let value = parseInt(this.value);
+                let value = parseInt(this.value, 10);
                 if (isNaN(value) || value < 1) {
                     this.value = 1;
                 }
+                this.dispatchEvent(new Event('input', { bubbles: true }));
             });
         }
     });
@@ -1120,13 +1281,11 @@ document.addEventListener('DOMContentLoaded', function() {
     // Section productrice (accordéon)
     const storyToggle = document.querySelector('.pdp-story-toggle');
     const producerCard = document.querySelector('.pdp-producer-card');
-    const detailsGrid = document.querySelector('.pdp-details-grid');
     if (storyToggle && producerCard) {
         storyToggle.addEventListener('click', function() {
             const expanded = this.getAttribute('aria-expanded') === 'true';
             this.setAttribute('aria-expanded', expanded ? 'false' : 'true');
             producerCard.hidden = expanded;
-            if (detailsGrid) detailsGrid.hidden = expanded;
             this.querySelector('i').classList.toggle('fa-chevron-down', !expanded);
             this.querySelector('i').classList.toggle('fa-chevron-up', expanded);
         });
