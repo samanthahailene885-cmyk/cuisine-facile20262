@@ -167,6 +167,63 @@ function getProductPageUrl(fullNameOrSlug) {
     return 'product.html?p=' + encodeURIComponent(slug);
 }
 
+function normalizeSearchText(text) {
+    return String(text)
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim();
+}
+
+function performProductSearch(query) {
+    const trimmed = String(query || '').trim();
+    if (!trimmed) return;
+    window.location.href = 'shop.html?q=' + encodeURIComponent(trimmed);
+}
+
+function initHeaderSearch() {
+    document.querySelectorAll('.search-box').forEach(function(box) {
+        const input = box.querySelector('.search-input');
+        const icon = box.querySelector('.search-icon');
+        if (!input) return;
+
+        function submitSearch() {
+            performProductSearch(input.value);
+        }
+
+        input.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter') {
+                e.preventDefault();
+                submitSearch();
+            }
+        });
+
+        if (icon) {
+            icon.style.cursor = 'pointer';
+            icon.setAttribute('role', 'button');
+            icon.setAttribute('aria-label', 'Lancer la recherche');
+            icon.addEventListener('click', submitSearch);
+        }
+    });
+}
+
+function productCardMatchesSearch(card, normalizedQuery) {
+    if (!normalizedQuery) return true;
+
+    const nameEl = card.querySelector('.product-name');
+    const coopEl = card.querySelector('.product-coop');
+    const name = normalizeSearchText(nameEl ? nameEl.textContent : '');
+    const coop = normalizeSearchText(coopEl ? coopEl.textContent : '');
+    const catSlug = card.dataset.category || '';
+    const catLabel = CATEGORY_CATALOG[catSlug]
+        ? normalizeSearchText(CATEGORY_CATALOG[catSlug].label)
+        : '';
+
+    return name.indexOf(normalizedQuery) !== -1 ||
+        coop.indexOf(normalizedQuery) !== -1 ||
+        catLabel.indexOf(normalizedQuery) !== -1;
+}
+
 function formatProductPrice(price) {
     return price.toLocaleString('fr-FR') + ' F';
 }
@@ -328,6 +385,13 @@ function initShopFilters() {
     const params = new URLSearchParams(window.location.search);
     const cooperativeId = params.get('cooperative');
     const urlCategory = params.get('category');
+    const urlSearchQuery = params.get('q') || '';
+    const normalizedSearchQuery = normalizeSearchText(urlSearchQuery);
+
+    const headerSearchInput = document.querySelector('.search-input');
+    if (headerSearchInput && urlSearchQuery) {
+        headerSearchInput.value = urlSearchQuery;
+    }
 
     const coopData = cooperativeId ? COOPERATIVE_CATALOG[cooperativeId] : null;
     const banner = document.getElementById('shopCoopBanner');
@@ -350,7 +414,9 @@ function initShopFilters() {
         if (!resultsCount) return;
         const label = visibleCount > 1 ? 'produits' : 'produit';
         const parts = [visibleCount + ' ' + label];
-        if (categories.length === 1 && CATEGORY_CATALOG[categories[0]]) {
+        if (urlSearchQuery) {
+            parts.push('« ' + urlSearchQuery + ' »');
+        } else if (categories.length === 1 && CATEGORY_CATALOG[categories[0]]) {
             parts.push(CATEGORY_CATALOG[categories[0]].label);
         } else if (coopData) {
             parts.push(coopData.name);
@@ -390,14 +456,17 @@ function initShopFilters() {
         productCards.forEach(function(card) {
             const matchCoop = !cooperativeId || card.dataset.cooperative === cooperativeId;
             const matchCat = !categories.length || categories.indexOf(card.dataset.category) !== -1;
-            const show = matchCoop && matchCat;
+            const matchSearch = productCardMatchesSearch(card, normalizedSearchQuery);
+            const show = matchCoop && matchCat && matchSearch;
             card.style.display = show ? '' : 'none';
             if (show) visibleCount += 1;
         });
 
         if (emptyMessage) {
             emptyMessage.hidden = visibleCount > 0;
-            if (categories.length === 1 && CATEGORY_CATALOG[categories[0]]) {
+            if (urlSearchQuery) {
+                emptyMessage.textContent = 'Aucun produit trouvé pour « ' + urlSearchQuery + ' ».';
+            } else if (categories.length === 1 && CATEGORY_CATALOG[categories[0]]) {
                 emptyMessage.textContent = 'Aucun produit dans la catégorie « ' +
                     CATEGORY_CATALOG[categories[0]].label + ' ».';
             } else if (coopData) {
@@ -405,6 +474,10 @@ function initShopFilters() {
             } else {
                 emptyMessage.textContent = 'Aucun produit ne correspond à vos filtres.';
             }
+        }
+
+        if (pageSubtitle && urlSearchQuery) {
+            pageSubtitle.textContent = 'Résultats de recherche pour « ' + urlSearchQuery + ' »';
         }
 
         updateResultsCount(visibleCount, categories);
@@ -939,6 +1012,7 @@ function initCartPage() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
+    initHeaderSearch();
     initProductDetailPage();
     initFlagshipProductCards();
     initShopFilters();
@@ -1361,20 +1435,6 @@ document.addEventListener('DOMContentLoaded', function() {
                     }, 300);
                 }
             });
-        });
-    }
-
-    // Search Functionality
-    const searchInput = document.querySelector('.search-input');
-    if (searchInput) {
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                const query = this.value.trim();
-                if (query) {
-                    // In a real application, this would redirect to search results
-                    alert('Recherche pour: ' + query);
-                }
-            }
         });
     }
 
