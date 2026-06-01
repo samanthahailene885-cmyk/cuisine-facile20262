@@ -87,13 +87,13 @@ function slugifyProductName(name) {
 
 const PRODUCT_LIST = [
     { fullName: 'Sauce graine pure 350g', name: 'Sauce graine pure', image: 'img/Sauce graine pure 350g.png', price: 3500, format: 'Bocal stérilisé 350g · prête à consommer', category: 'Sauces et bases', fairPct: 60, coopId: 'vivriers-san-pedro', rating: '4,8', reviews: 36 },
-    { fullName: "Pâte d'arachide pure 350g", name: "Pâte d'arachide pure", image: "img/Pâte d'arachide pure 350g.png", price: 3000, format: 'Bocal verre 350g', category: 'Karité-arachide', fairPct: 55, coopId: 'scoop-prokab', rating: '4,6', reviews: 28 },
-    { fullName: 'Sauce arachide prête 350g', name: 'Sauce arachide prête', image: 'img/Sauce arachide prête 350g.png', price: 3200, format: 'Bocal stérilisé 350g', category: 'Sauces et bases', fairPct: 55, coopId: 'scoop-prokab', rating: '4,7', reviews: 31 },
     { fullName: 'Attiéké premium Agbodjama 500g', name: 'Attiéké premium Agbodjama', image: 'img/Attiéké premium Agbodjama 500g.png', price: 2500, format: 'Sous-vide 500g', category: 'Féculents', fairPct: 55, coopId: 'coop-attieke', rating: '4,8', reviews: 42 },
+    { fullName: "Pâte d'arachide pure 350g", name: "Pâte d'arachide pure", image: "img/Pâte d'arachide pure 350g.png", price: 3000, format: 'Bocal verre 350g', category: 'Karité-arachide', fairPct: 55, coopId: 'scoop-prokab', rating: '4,6', reviews: 28 },
     { fullName: 'Soumbara en poudre 80g', name: 'Soumbara en poudre', image: 'img/Soumbara en poudre 80g.png', price: 1800, format: 'Sachet ou pot 80g', category: 'Épices', fairPct: 65, coopId: 'scoops-bene-wende', rating: '4,6', reviews: 22 },
     { fullName: 'Kankankan premium 100g', name: 'Kankankan premium', image: 'img/Kankankan premium 100g.png', price: 2200, format: 'Pot verre 100g', category: 'Épices', fairPct: 65, coopId: 'scoopan-mba', rating: '4,7', reviews: 19 },
+    { fullName: 'Sauce arachide prête 350g', name: 'Sauce arachide prête', image: 'img/Sauce arachide prête 350g.png', price: 3200, format: 'Bocal stérilisé 350g', category: 'Sauces et bases', fairPct: 55, coopId: 'scoop-prokab', rating: '4,7', reviews: 31 },
     { fullName: 'Sauce pistache déshydratée 80g', name: 'Sauce pistache déshydratée', image: 'img/Sauce pistache déshydratée 80g.png', price: 1500, format: 'Sachet 4 pers. 80g', category: 'Sauces et bases', fairPct: 65, coopId: 'mamatchiva', rating: '4,7', reviews: 18 },
-    { fullName: 'Mélange kedjenou 80g', name: 'Mélange kedjenou', image: 'img/Soumbara en poudre 80g.png', price: 1800, format: 'Pot verre 80g', category: 'Épices', fairPct: 65, coopId: 'mamatchiva', rating: '4,7', reviews: 15 },
+    { fullName: 'Mélange kedjenou 80g', name: 'Mélange kedjenou', image: 'img/Mélange kedjenou 80g.png', price: 1800, format: 'Pot verre 80g', category: 'Épices', fairPct: 65, coopId: 'mamatchiva', rating: '4,7', reviews: 15 },
     { fullName: 'Mélange poisson braisé 80g', name: 'Mélange poisson braisé', image: 'img/Mélange poisson braisé 80g.png', price: 1800, format: 'Pot verre 80g', category: 'Épices', fairPct: 65, coopId: 'pecheurs-sud', rating: '4,7', reviews: 14 },
     { fullName: 'Akpi moulu 60g', name: 'Akpi moulu', image: 'img/Akpi moulu 60g.png', price: 1500, format: 'Sachet ou pot 60g', category: 'Épices', fairPct: 60, coopId: 'scoops-caeg', rating: '4,7', reviews: 20 },
     { fullName: 'Préparation bissap pur 80g', name: 'Préparation bissap pur', image: 'img/Préparation bissap pur 80g.png', price: 1800, format: 'Sachet kraft 80g', category: 'Boissons', fairPct: 65, coopId: 'scoops-bene-wende', rating: '4,6', reviews: 25 },
@@ -101,10 +101,10 @@ const PRODUCT_LIST = [
     { fullName: 'Infusion kinkéliba 50g', name: 'Infusion kinkéliba', image: 'img/Infusion kinkéliba 50g.png', price: 2000, format: 'Sachet kraft 50g', category: 'Boissons', fairPct: 65, coopId: 'scoops-bene-wende', rating: '4,7', reviews: 21 },
     { fullName: 'Tamarin instantané 100g', name: 'Tamarin instantané', image: 'img/Tamarin instantané 100g.png', price: 1500, format: 'Sachet kraft 100g', category: 'Boissons', fairPct: 60, coopId: 'scoops-bene-wende', rating: '4,7', reviews: 16 },
     { fullName: 'Bouye/baobab en poudre 100g', name: 'Bouye/baobab en poudre', image: 'img/baobab en poudre 100g.png', price: 2200, format: 'Sachet kraft 100g', category: 'Boissons', fairPct: 70, coopId: 'scoops-bene-wende', rating: '4,8', reviews: 23 },
-    { fullName: 'Tablette chocolat single-origin 70g', name: 'Tablette chocolat single-origin', image: 'img/Tablette chocolat single-origin 70g.png', price: 3800, format: 'Étui carton 70g', category: 'Karité-arachide', fairPct: 40, coopId: 'vivriers-san-pedro', rating: '4,9', reviews: 38 },
     { fullName: 'Beurre de karité alimentaire 250g', name: 'Beurre de karité alimentaire', image: 'img/Beurre de karité alimentaire 250g.png', price: 4500, format: 'Pot verre 250g', category: 'Karité-arachide', fairPct: 55, coopId: 'gbinmin', rating: '4,8', reviews: 33 },
     { fullName: 'Miel de campagne 250g', name: 'Miel de campagne', image: 'img/Miel de campagne 250g.png', price: 3500, format: 'Pot verre 250g', category: 'Karité-arachide', fairPct: 50, coopId: 'scoops-bene-wende', rating: '4,8', reviews: 27 },
     { fullName: 'Confiture bissap-gingembre 220g', name: 'Confiture bissap-gingembre', image: 'img/Confiture bissap-gingembre 220g.png', price: 3200, format: 'Pot verre 220g', category: 'Karité-arachide', fairPct: 60, coopId: 'scoop-prokab', rating: '4,9', reviews: 29 },
+    { fullName: 'Tablette chocolat single-origin 70g', name: 'Tablette chocolat single-origin', image: 'img/Tablette chocolat single-origin 70g.png', price: 3800, format: 'Étui carton 70g', category: 'Karité-arachide', fairPct: 40, coopId: 'vivriers-san-pedro', rating: '4,9', reviews: 38 },
     { fullName: 'Coffret découverte (3 produits + livret)', name: 'Coffret découverte', image: 'img/Coffret découverte (3 produits + livret).png', price: 12000, format: 'Boîte carton · 3 produits + livret', category: 'Coffrets', fairPct: 55, coopId: 'scoops-bene-wende', rating: '4,8', reviews: 12 }
 ];
 
@@ -165,63 +165,6 @@ function getProductPageUrl(fullNameOrSlug) {
         : slugifyProductName(fullNameOrSlug);
     if (!PRODUCT_CATALOG[slug]) return 'product.html';
     return 'product.html?p=' + encodeURIComponent(slug);
-}
-
-function normalizeSearchText(text) {
-    return String(text)
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .trim();
-}
-
-function performProductSearch(query) {
-    const trimmed = String(query || '').trim();
-    if (!trimmed) return;
-    window.location.href = 'shop.html?q=' + encodeURIComponent(trimmed);
-}
-
-function initHeaderSearch() {
-    document.querySelectorAll('.search-box').forEach(function(box) {
-        const input = box.querySelector('.search-input');
-        const icon = box.querySelector('.search-icon');
-        if (!input) return;
-
-        function submitSearch() {
-            performProductSearch(input.value);
-        }
-
-        input.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter') {
-                e.preventDefault();
-                submitSearch();
-            }
-        });
-
-        if (icon) {
-            icon.style.cursor = 'pointer';
-            icon.setAttribute('role', 'button');
-            icon.setAttribute('aria-label', 'Lancer la recherche');
-            icon.addEventListener('click', submitSearch);
-        }
-    });
-}
-
-function productCardMatchesSearch(card, normalizedQuery) {
-    if (!normalizedQuery) return true;
-
-    const nameEl = card.querySelector('.product-name');
-    const coopEl = card.querySelector('.product-coop');
-    const name = normalizeSearchText(nameEl ? nameEl.textContent : '');
-    const coop = normalizeSearchText(coopEl ? coopEl.textContent : '');
-    const catSlug = card.dataset.category || '';
-    const catLabel = CATEGORY_CATALOG[catSlug]
-        ? normalizeSearchText(CATEGORY_CATALOG[catSlug].label)
-        : '';
-
-    return name.indexOf(normalizedQuery) !== -1 ||
-        coop.indexOf(normalizedQuery) !== -1 ||
-        catLabel.indexOf(normalizedQuery) !== -1;
 }
 
 function formatProductPrice(price) {
@@ -309,6 +252,8 @@ function initProductDetailPage() {
 
     // Prix dynamique selon quantité sur la fiche produit
     const quantityInput = document.querySelector('.pdp-quantity .quantity-input');
+    const quantityMinus = document.querySelector('.pdp-quantity .quantity-btn:first-child');
+    const quantityPlus = document.querySelector('.pdp-quantity .quantity-btn:last-child');
     const addToCartBtn = document.querySelector('.btn-pdp-add-cart');
     const productSlug = slug && PRODUCT_CATALOG[slug]
         ? slug
@@ -335,6 +280,8 @@ function initProductDetailPage() {
             updateProductTotalPrice();
         });
     }
+    if (quantityMinus) quantityMinus.addEventListener('click', updateProductTotalPrice);
+    if (quantityPlus) quantityPlus.addEventListener('click', updateProductTotalPrice);
 
     if (addToCartBtn) {
         addToCartBtn.dataset.productId = productSlug;
@@ -385,13 +332,6 @@ function initShopFilters() {
     const params = new URLSearchParams(window.location.search);
     const cooperativeId = params.get('cooperative');
     const urlCategory = params.get('category');
-    const urlSearchQuery = params.get('q') || '';
-    const normalizedSearchQuery = normalizeSearchText(urlSearchQuery);
-
-    const headerSearchInput = document.querySelector('.search-input');
-    if (headerSearchInput && urlSearchQuery) {
-        headerSearchInput.value = urlSearchQuery;
-    }
 
     const coopData = cooperativeId ? COOPERATIVE_CATALOG[cooperativeId] : null;
     const banner = document.getElementById('shopCoopBanner');
@@ -414,9 +354,7 @@ function initShopFilters() {
         if (!resultsCount) return;
         const label = visibleCount > 1 ? 'produits' : 'produit';
         const parts = [visibleCount + ' ' + label];
-        if (urlSearchQuery) {
-            parts.push('« ' + urlSearchQuery + ' »');
-        } else if (categories.length === 1 && CATEGORY_CATALOG[categories[0]]) {
+        if (categories.length === 1 && CATEGORY_CATALOG[categories[0]]) {
             parts.push(CATEGORY_CATALOG[categories[0]].label);
         } else if (coopData) {
             parts.push(coopData.name);
@@ -456,17 +394,14 @@ function initShopFilters() {
         productCards.forEach(function(card) {
             const matchCoop = !cooperativeId || card.dataset.cooperative === cooperativeId;
             const matchCat = !categories.length || categories.indexOf(card.dataset.category) !== -1;
-            const matchSearch = productCardMatchesSearch(card, normalizedSearchQuery);
-            const show = matchCoop && matchCat && matchSearch;
+            const show = matchCoop && matchCat;
             card.style.display = show ? '' : 'none';
             if (show) visibleCount += 1;
         });
 
         if (emptyMessage) {
             emptyMessage.hidden = visibleCount > 0;
-            if (urlSearchQuery) {
-                emptyMessage.textContent = 'Aucun produit trouvé pour « ' + urlSearchQuery + ' ».';
-            } else if (categories.length === 1 && CATEGORY_CATALOG[categories[0]]) {
+            if (categories.length === 1 && CATEGORY_CATALOG[categories[0]]) {
                 emptyMessage.textContent = 'Aucun produit dans la catégorie « ' +
                     CATEGORY_CATALOG[categories[0]].label + ' ».';
             } else if (coopData) {
@@ -474,10 +409,6 @@ function initShopFilters() {
             } else {
                 emptyMessage.textContent = 'Aucun produit ne correspond à vos filtres.';
             }
-        }
-
-        if (pageSubtitle && urlSearchQuery) {
-            pageSubtitle.textContent = 'Résultats de recherche pour « ' + urlSearchQuery + ' »';
         }
 
         updateResultsCount(visibleCount, categories);
@@ -531,199 +462,6 @@ function formatCartPrice(amount) {
     return amount.toLocaleString('fr-FR') + ' FCFA';
 }
 
-function escapeHtml(value) {
-    return String(value)
-        .replace(/&/g, '&amp;')
-        .replace(/</g, '&lt;')
-        .replace(/>/g, '&gt;')
-        .replace(/"/g, '&quot;')
-        .replace(/'/g, '&#39;');
-}
-
-function normalizeCartItems(items) {
-    if (!Array.isArray(items)) return [];
-    return items
-        .map(function(item) {
-            const quantityRaw = parseInt(item && item.quantity, 10);
-            const priceRaw = parseInt(item && item.price, 10);
-            const quantity = Number.isFinite(quantityRaw) && quantityRaw > 0 ? quantityRaw : 0;
-            const price = Number.isFinite(priceRaw) && priceRaw >= 0 ? priceRaw : 0;
-            return {
-                id: item && item.id ? String(item.id) : '',
-                name: item && item.name ? String(item.name) : 'Produit',
-                image: item && item.image ? String(item.image) : 'img/patte.png',
-                quantity: quantity,
-                price: price
-            };
-        })
-        .filter(function(item) {
-            return item.id && item.quantity > 0;
-        });
-}
-
-function computeCartTotals(cartItems) {
-    const subtotal = cartItems.reduce(function(sum, item) {
-        return sum + (item.price * item.quantity);
-    }, 0);
-    const shipping = subtotal === 0 || subtotal >= CART_FREE_SHIPPING_THRESHOLD
-        ? 0
-        : CART_SHIPPING_FEE;
-    return {
-        subtotal: subtotal,
-        shipping: shipping,
-        grandTotal: subtotal + shipping
-    };
-}
-
-function updateHeaderCartCount(cartItems) {
-    const cartCount = document.querySelector('.cart-count');
-    if (!cartCount) return;
-    const totalQty = cartItems.reduce(function(sum, item) {
-        return sum + item.quantity;
-    }, 0);
-    cartCount.textContent = String(totalQty);
-}
-
-function initCheckoutPage() {
-    if (!document.body.classList.contains('page-checkout')) {
-        return;
-    }
-
-    const cartItems = normalizeCartItems(getCart());
-    if (!cartItems.length) {
-        window.location.href = 'cart.html';
-        return;
-    }
-
-    const checkoutForm = document.getElementById('checkoutForm');
-    const itemsList = document.getElementById('checkoutItemsList');
-    const subtotalEl = document.getElementById('checkoutSubtotal');
-    const shippingEl = document.getElementById('checkoutShipping');
-    const grandTotalEl = document.getElementById('checkoutGrandTotal');
-    const btnConfirm = document.getElementById('btnConfirmOrder');
-    const acceptTerms = document.getElementById('checkoutAcceptTerms');
-    const paymentExtras = document.querySelectorAll('.checkout-payment-extra');
-    const paymentRadios = document.querySelectorAll('input[name="paymentMethod"]');
-    const paymentOptions = document.querySelectorAll('.checkout-payment-option');
-
-    function renderCheckoutSummary() {
-        const totals = computeCartTotals(cartItems);
-
-        if (itemsList) {
-            itemsList.innerHTML = cartItems.map(function(item) {
-                const lineTotal = item.price * item.quantity;
-                return (
-                    '<li class="checkout-summary-item">' +
-                    '<span class="checkout-summary-item-name">' + escapeHtml(item.name) + ' x' + item.quantity + '</span>' +
-                    '<span class="checkout-summary-item-price">' + formatCartPrice(lineTotal) + '</span>' +
-                    '</li>'
-                );
-            }).join('');
-        }
-
-        if (subtotalEl) subtotalEl.textContent = formatCartPrice(totals.subtotal);
-        if (shippingEl) {
-            if (totals.shipping === 0 && totals.subtotal > 0) {
-                shippingEl.textContent = 'Gratuite';
-                shippingEl.classList.add('checkout-shipping-free');
-            } else {
-                shippingEl.textContent = formatCartPrice(totals.shipping);
-                shippingEl.classList.remove('checkout-shipping-free');
-            }
-        }
-        if (grandTotalEl) grandTotalEl.textContent = formatCartPrice(totals.grandTotal);
-        updateHeaderCartCount(cartItems);
-    }
-
-    function updatePaymentPanels() {
-        const selected = document.querySelector('input[name="paymentMethod"]:checked');
-        const method = selected ? selected.value : 'cod';
-
-        paymentOptions.forEach(function(option) {
-            const input = option.querySelector('input[type="radio"]');
-            option.classList.toggle('checkout-payment-option--selected', input && input.checked);
-        });
-
-        paymentExtras.forEach(function(extra) {
-            const extraMethod = extra.getAttribute('data-payment-extra');
-            extra.hidden = extraMethod !== method;
-        });
-    }
-
-    renderCheckoutSummary();
-    updatePaymentPanels();
-
-    paymentRadios.forEach(function(radio) {
-        radio.addEventListener('change', updatePaymentPanels);
-    });
-
-    if (btnConfirm) {
-        btnConfirm.addEventListener('click', function() {
-            if (checkoutForm && !checkoutForm.checkValidity()) {
-                checkoutForm.reportValidity();
-                return;
-            }
-
-            if (!acceptTerms || !acceptTerms.checked) {
-                alert('Veuillez accepter les conditions générales de vente et la politique de confidentialité.');
-                acceptTerms.focus();
-                return;
-            }
-
-            const selected = document.querySelector('input[name="paymentMethod"]:checked');
-            const method = selected ? selected.value : 'cod';
-
-            if (method === 'card') {
-                const cardNumber = document.getElementById('checkoutCardNumber');
-                const cardExpiry = document.getElementById('checkoutCardExpiry');
-                const cardCvv = document.getElementById('checkoutCardCvv');
-                if (!cardNumber || !cardNumber.value.trim() || !cardExpiry || !cardExpiry.value.trim() || !cardCvv || !cardCvv.value.trim()) {
-                    alert('Veuillez renseigner les informations de votre carte bancaire.');
-                    return;
-                }
-            }
-
-            if (method === 'mobile') {
-                const mobileNumber = document.getElementById('checkoutMobileNumber');
-                if (!mobileNumber || !mobileNumber.value.trim()) {
-                    alert('Veuillez renseigner votre numéro Mobile Money.');
-                    if (mobileNumber) mobileNumber.focus();
-                    return;
-                }
-            }
-
-            const orderRef = 'CF-' + Date.now().toString(36).toUpperCase();
-            try {
-                sessionStorage.setItem('cuisinefacile_last_order', orderRef);
-            } catch (err) {
-                /* ignore */
-            }
-
-            saveCart([]);
-            window.location.href = 'order-confirmation.html?ref=' + encodeURIComponent(orderRef);
-        });
-    }
-}
-
-function initOrderConfirmationPage() {
-    if (!document.body.classList.contains('page-order-confirmation')) return;
-
-    const refEl = document.getElementById('orderRef');
-    if (!refEl) return;
-
-    const params = new URLSearchParams(window.location.search);
-    let ref = params.get('ref');
-    if (!ref) {
-        try {
-            ref = sessionStorage.getItem('cuisinefacile_last_order');
-        } catch (e) {
-            ref = null;
-        }
-    }
-    refEl.textContent = ref || '—';
-    updateHeaderCartCount([]);
-}
-
 function initCartPage() {
     if (!document.body.classList.contains('page-cart')) return;
 
@@ -732,16 +470,62 @@ function initCartPage() {
     const shippingEl = document.getElementById('cartShipping');
     const grandTotalEl = document.getElementById('cartGrandTotal');
 
-    function updateSummary(cartItems) {
-        const totals = computeCartTotals(cartItems);
+    function escapeHtml(value) {
+        return String(value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#39;');
+    }
 
-        if (subtotalEl) subtotalEl.textContent = formatCartPrice(totals.subtotal);
+    function normalizeCartItems(items) {
+        if (!Array.isArray(items)) return [];
+        return items
+            .map(function(item) {
+                const quantityRaw = parseInt(item && item.quantity, 10);
+                const priceRaw = parseInt(item && item.price, 10);
+                const quantity = Number.isFinite(quantityRaw) && quantityRaw > 0 ? quantityRaw : 0;
+                const price = Number.isFinite(priceRaw) && priceRaw >= 0 ? priceRaw : 0;
+                return {
+                    id: item && item.id ? String(item.id) : '',
+                    name: item && item.name ? String(item.name) : 'Produit',
+                    image: item && item.image ? String(item.image) : 'img/patte.png',
+                    quantity: quantity,
+                    price: price
+                };
+            })
+            .filter(function(item) {
+                return item.id && item.quantity > 0;
+            });
+    }
+
+    function updateHeaderCartCount(cartItems) {
+        const cartCount = document.querySelector('.cart-count');
+        if (!cartCount) return;
+        const totalQty = cartItems.reduce(function(sum, item) {
+            return sum + item.quantity;
+        }, 0);
+        cartCount.textContent = String(totalQty);
+    }
+
+    function updateSummary(cartItems) {
+        const subtotal = cartItems.reduce(function(sum, item) {
+            return sum + (item.price * item.quantity);
+        }, 0);
+
+        const shipping = subtotal === 0 || subtotal >= CART_FREE_SHIPPING_THRESHOLD
+            ? 0
+            : CART_SHIPPING_FEE;
+        const grandTotal = subtotal + shipping;
+
+        if (subtotalEl) subtotalEl.textContent = formatCartPrice(subtotal);
         if (shippingEl) {
-            shippingEl.textContent = totals.shipping === 0 && totals.subtotal > 0
+            shippingEl.textContent = shipping === 0 && subtotal > 0
                 ? 'Gratuite'
-                : formatCartPrice(totals.shipping);
+                : formatCartPrice(shipping);
         }
-        if (grandTotalEl) grandTotalEl.textContent = formatCartPrice(totals.grandTotal);
+        if (grandTotalEl) grandTotalEl.textContent = formatCartPrice(grandTotal);
         updateHeaderCartCount(cartItems);
     }
 
@@ -799,16 +583,6 @@ function initCartPage() {
     }
 
     renderCartItems(readCart());
-
-    const checkoutBtn = document.getElementById('btnGoCheckout');
-    if (checkoutBtn) {
-        checkoutBtn.addEventListener('click', function(e) {
-            if (!readCart().length) {
-                e.preventDefault();
-                alert('Votre panier est vide. Ajoutez des produits avant de passer commande.');
-            }
-        });
-    }
 
     if (cartList) {
         cartList.addEventListener('click', function(e) {
@@ -1012,17 +786,12 @@ function initCartPage() {
 }
 
 document.addEventListener('DOMContentLoaded', function() {
-    initHeaderSearch();
     initProductDetailPage();
     initFlagshipProductCards();
     initShopFilters();
     initHomeCategories();
     initCartPage();
-    initCheckoutPage();
-    initOrderConfirmationPage();
-    if (!document.body.classList.contains('page-cart') &&
-        !document.body.classList.contains('page-checkout') &&
-        !document.body.classList.contains('page-order-confirmation')) {
+    if (!document.body.classList.contains('page-cart')) {
         updateCartUI();
     }
     // Hero background slider (3 images, 5 seconds each)
@@ -1186,26 +955,22 @@ document.addEventListener('DOMContentLoaded', function() {
         
         if (minusBtn && plusBtn && input) {
             minusBtn.addEventListener('click', function() {
-                let value = parseInt(input.value, 10);
+                let value = parseInt(input.value);
                 if (value > 1) {
                     input.value = value - 1;
-                    input.dispatchEvent(new Event('input', { bubbles: true }));
                 }
             });
-
+            
             plusBtn.addEventListener('click', function() {
-                let value = parseInt(input.value, 10);
-                if (isNaN(value) || value < 1) value = 1;
+                let value = parseInt(input.value);
                 input.value = value + 1;
-                input.dispatchEvent(new Event('input', { bubbles: true }));
             });
-
+            
             input.addEventListener('change', function() {
-                let value = parseInt(this.value, 10);
+                let value = parseInt(this.value);
                 if (isNaN(value) || value < 1) {
                     this.value = 1;
                 }
-                this.dispatchEvent(new Event('input', { bubbles: true }));
             });
         }
     });
@@ -1355,11 +1120,13 @@ document.addEventListener('DOMContentLoaded', function() {
     // Section productrice (accordéon)
     const storyToggle = document.querySelector('.pdp-story-toggle');
     const producerCard = document.querySelector('.pdp-producer-card');
+    const detailsGrid = document.querySelector('.pdp-details-grid');
     if (storyToggle && producerCard) {
         storyToggle.addEventListener('click', function() {
             const expanded = this.getAttribute('aria-expanded') === 'true';
             this.setAttribute('aria-expanded', expanded ? 'false' : 'true');
             producerCard.hidden = expanded;
+            if (detailsGrid) detailsGrid.hidden = expanded;
             this.querySelector('i').classList.toggle('fa-chevron-down', !expanded);
             this.querySelector('i').classList.toggle('fa-chevron-up', expanded);
         });
@@ -1435,6 +1202,20 @@ document.addEventListener('DOMContentLoaded', function() {
                     }, 300);
                 }
             });
+        });
+    }
+
+    // Search Functionality
+    const searchInput = document.querySelector('.search-input');
+    if (searchInput) {
+        searchInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                const query = this.value.trim();
+                if (query) {
+                    // In a real application, this would redirect to search results
+                    alert('Recherche pour: ' + query);
+                }
+            }
         });
     }
 
