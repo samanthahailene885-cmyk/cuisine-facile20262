@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recette - CuisineFacile.africa</title>
+    <meta name="description" content="Recette traditionnelle et produits CuisineFacile pour la réussir.">
+    <link rel="stylesheet" href="style.css?v=20260602">
+    <link rel="stylesheet" href="product-flagship.css?v=20260602">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+</head>
+<body class="page-recette-detail">
+    <header class="header">
+        <div class="container">
+            <nav class="nav">
+                <a href="index.html" class="logo">
+                    <img src="img/LOGO C.png" alt="CuisineFacile Logo" class="header-logo">
+                </a>
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="index.html" class="nav-link">Accueil</a></li>
+                    <li><a href="shop.html" class="nav-link">Boutique</a></li>
+                    <li><a href="producers.html" class="nav-link">Nos Productrices</a></li>
+                    <li><a href="engagement.html" class="nav-link">Notre engagement</a></li>
+                    <li><a href="recettes.html" class="nav-link active">Recettes</a></li>
+                </ul>
+                <div class="nav-actions">
+                    <div class="search-box">
+                        <input type="text" class="search-input" placeholder="Rechercher un produit...">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                    <button class="user-btn" type="button" aria-label="Mon compte"><i class="fas fa-user"></i></button>
+                    <a href="cart.html" class="cart-btn" aria-label="Voir le panier">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="cart-count">0</span>
+                    </a>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Menu"><i class="fas fa-bars"></i></button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <main class="recette-detail-page">
+        <div class="container">
+            <a href="recettes.html" class="recette-detail-back"><i class="fas fa-arrow-left" aria-hidden="true"></i> Retour aux recettes</a>
+
+            <!-- En-tête recette -->
+            <section class="recette-detail-hero">
+                <div class="recette-detail-hero-image">
+                    <img id="recetteHeroImg" src="" alt="">
+                    <span class="recette-detail-difficulty-badge" id="recetteDifficultyBadge">Moyen</span>
+                </div>
+                <div class="recette-detail-hero-info">
+                    <span class="recette-detail-category" id="recetteCategory">Sauces</span>
+                    <h1 class="recette-detail-title" id="recetteTitle">Sauce Arachide</h1>
+                    <p class="recette-detail-intro" id="recetteDesc"></p>
+                    <div class="recette-detail-stats">
+                        <div class="recette-detail-stat">
+                            <i class="far fa-clock" aria-hidden="true"></i>
+                            <div>
+                                <strong id="recetteTime">95 min</strong>
+                                <span>Préparation</span>
+                            </div>
+                        </div>
+                        <div class="recette-detail-stat">
+                            <i class="fas fa-user-friends" aria-hidden="true"></i>
+                            <div>
+                                <strong id="recettePortions">6 pers.</strong>
+                                <span>Portions</span>
+                            </div>
+                        </div>
+                        <div class="recette-detail-stat">
+                            <i class="fas fa-hat-chef" aria-hidden="true"></i>
+                            <div>
+                                <strong id="recetteDifficulty">Moyen</strong>
+                                <span>Niveau</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <div class="recette-detail-layout">
+                <div class="recette-detail-main">
+                    <section class="recette-detail-block">
+                        <h2>Ingrédients</h2>
+                        <ul class="recette-detail-ingredients" id="recetteIngredientsList"></ul>
+                    </section>
+
+                    <section class="recette-detail-block">
+                        <h2>Préparation</h2>
+                        <ol class="recette-detail-steps" id="recetteStepsList"></ol>
+                    </section>
+
+                    <aside class="recette-detail-tip">
+                        <i class="fas fa-hat-chef" aria-hidden="true"></i>
+                        <div>
+                            <h3>Astuce du chef</h3>
+                            <p id="recetteTip"></p>
+                        </div>
+                    </aside>
+                </div>
+
+                <aside class="recette-detail-sidebar">
+                    <div class="recette-shop-box">
+                        <div class="recette-shop-box-header">
+                            <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+                            <h3>Achetez les produits CuisineFacile</h3>
+                        </div>
+                        <div class="recette-shop-list" id="recetteShopProducts"></div>
+                        <a href="shop.html" class="recette-shop-all">Voir tous les produits</a>
+                    </div>
+
+                    <div class="recette-newsletter-box">
+                        <span class="recette-newsletter-badge">Offre spéciale</span>
+                        <p><strong>-10%</strong> sur votre première commande. Inscrivez-vous à notre newsletter.</p>
+                        <a href="register.html" class="recette-newsletter-btn">Je m'inscris</a>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <img src="img/LOGO C.png" alt="CuisineFacile Logo" class="footer-logo">
+                    </div>
+                    <p class="footer-description">Les saveurs de chez nous, faites par les femmes de chez nous.</p>
+                    <div class="footer-social">
+                        <a href="https://www.instagram.com/cuisine_facile_africa/" class="social-link"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/CuisineFacileAfrica1/" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com/@cuisine.facile.af?_t=8f1cqdY7nc5&_r=1" class="social-link"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h4 class="footer-title">Liens Rapides</h4>
+                    <ul class="footer-links">
+                        <li><a href="recettes.html" class="footer-link">Nos Recettes</a></li>
+                        <li><a href="#" class="footer-link">Espace Client</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Légal</h4>
+                    <ul class="footer-links">
+                        <li><a href="#" class="footer-link">CGV</a></li>
+                        <li><a href="#" class="footer-link">Politique de confidentialité</a></li>
+                        <li><a href="#" class="footer-link">Mentions Légales</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="footer-title">Contact</h4>
+                    <ul class="footer-links">
+                        <li><a href="tel:+2250709302481" class="footer-link"><i class="fas fa-phone"></i> +225 07 09 30 24 81</a></li>
+                        <li><a href="mailto:admin@cuisinefacile.africa" class="footer-link"><i class="fas fa-envelope"></i> admin@cuisinefacile.africa</a></li>
+                        <li><a href="#" class="footer-link"><i class="fas fa-map-marker-alt"></i> Abidjan, Côte d'Ivoire</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <p>&copy; 2026 CuisineFacile Africa. Tous droits réservés.</p>
+                    <div class="payment-methods">
+                        <img src="img/visa.png" alt="Visa" class="payment-img">
+                        <img src="img/moov-money.png" alt="Moov Money" class="payment-img">
+                        <img src="img/mtn-money.png" alt="MTN Mobile Money" class="payment-img">
+                        <img src="img/orange-money.jpg" alt="Orange Money" class="payment-img">
+                        <img src="img/wave.webp" alt="Wave" class="payment-img">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="modal" id="loginModal">
+        <div class="modal-overlay" id="modalOverlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+            <div class="modal-header">
+                <h2>Connexion</h2>
+                <p>Bienvenue sur CuisineFacile</p>
+            </div>
+            <form class="login-form">
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Mot de passe</label>
+                    <input type="password" id="password" name="password" placeholder="••••••••" required>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Se connecter</button>
+                <p class="modal-footer-text">Pas encore de compte ? <a href="register.html" class="register-link">S'inscrire</a></p>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js?v=20260604"></script>
+    <script src="js/recettes-data.js"></script>
+    <script src="js/recette-page.js?v=20260604"></script>
+</body>
+</html>
