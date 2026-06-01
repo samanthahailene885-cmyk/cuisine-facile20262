@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Finaliser la commande - CuisineFacile.africa</title>
-    <meta name="description" content="Finalisez votre commande sur CuisineFacile.africa">
-    <link rel="stylesheet" href="style.css">
+    <meta name="description" content="Finalisez votre commande CuisineFacile : livraison et paiement sécurisé.">
+    <link rel="stylesheet" href="style.css?v=20260605">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,30 +18,24 @@
                 <a href="index.html" class="logo">
                     <img src="img/LOGO C.png" alt="CuisineFacile Logo" class="header-logo">
                 </a>
-
                 <ul class="nav-links" id="navLinks">
                     <li><a href="index.html" class="nav-link">Accueil</a></li>
                     <li><a href="shop.html" class="nav-link">Boutique</a></li>
                     <li><a href="producers.html" class="nav-link">Nos Productrices</a></li>
                     <li><a href="engagement.html" class="nav-link">Notre engagement</a></li>
-                    <li><a href="#" class="nav-link">Recettes</a></li>
+                    <li><a href="recettes.html" class="nav-link">Recettes</a></li>
                 </ul>
-
                 <div class="nav-actions">
                     <div class="search-box">
                         <input type="text" class="search-input" placeholder="Rechercher un produit...">
                         <i class="fas fa-search search-icon"></i>
                     </div>
-                    <button class="user-btn" type="button" aria-label="Compte">
-                        <i class="fas fa-user"></i>
-                    </button>
+                    <button class="user-btn" type="button" aria-label="Compte"><i class="fas fa-user"></i></button>
                     <a href="cart.html" class="cart-btn" aria-label="Voir le panier">
                         <i class="fas fa-shopping-cart"></i>
                         <span class="cart-count">0</span>
                     </a>
-                    <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Menu">
-                        <i class="fas fa-bars"></i>
-                    </button>
+                    <button class="mobile-menu-btn" id="mobileMenuBtn" type="button" aria-label="Menu"><i class="fas fa-bars"></i></button>
                 </div>
             </nav>
         </div>
@@ -49,127 +43,124 @@
 
     <main class="checkout-section">
         <div class="container">
-            <div class="checkout-page-header">
-                <a href="cart.html" class="checkout-back-link">
-                    <i class="fas fa-arrow-left" aria-hidden="true"></i>
-                    Retour au panier
-                </a>
-                <h1 class="checkout-page-title">Finaliser la commande</h1>
-            </div>
+            <a href="cart.html" class="checkout-back"><i class="fas fa-arrow-left" aria-hidden="true"></i> Retour au panier</a>
+            <h1 class="checkout-page-title">Finaliser la commande</h1>
 
-            <div class="checkout-page">
+            <div class="checkout-layout">
                 <div class="checkout-main">
-                    <form id="checkoutForm" class="checkout-form-wrap" novalidate>
-                        <section class="checkout-card">
-                            <h2 class="checkout-card-title">Informations de livraison</h2>
-                            <div class="checkout-form">
-                                <div class="checkout-form-row checkout-form-row--2">
-                                    <div class="checkout-field">
-                                        <label for="checkoutFirstname">Prénom <span class="required">*</span></label>
-                                        <input type="text" id="checkoutFirstname" name="firstname" placeholder="Votre prénom" required autocomplete="given-name">
-                                    </div>
-                                    <div class="checkout-field">
-                                        <label for="checkoutLastname">Nom <span class="required">*</span></label>
-                                        <input type="text" id="checkoutLastname" name="lastname" placeholder="Votre nom" required autocomplete="family-name">
-                                    </div>
+                    <form id="checkoutForm" class="checkout-form" novalidate>
+                        <!-- Livraison -->
+                        <section class="checkout-block" aria-labelledby="checkout-delivery-title">
+                            <h2 id="checkout-delivery-title" class="checkout-block-title">Informations de livraison</h2>
+                            <div class="checkout-fields-grid checkout-fields-grid--2">
+                                <div class="checkout-field">
+                                    <label for="checkoutFirstName">Prénom <span class="required">*</span></label>
+                                    <input type="text" id="checkoutFirstName" name="firstName" required placeholder="Votre prénom" autocomplete="given-name">
                                 </div>
                                 <div class="checkout-field">
+                                    <label for="checkoutLastName">Nom <span class="required">*</span></label>
+                                    <input type="text" id="checkoutLastName" name="lastName" required placeholder="Votre nom" autocomplete="family-name">
+                                </div>
+                            </div>
+                            <div class="checkout-fields-grid checkout-fields-grid--2">
+                                <div class="checkout-field">
                                     <label for="checkoutEmail">Email <span class="required">*</span></label>
-                                    <input type="email" id="checkoutEmail" name="email" placeholder="votre@email.com" required autocomplete="email">
+                                    <input type="email" id="checkoutEmail" name="email" required placeholder="votre@email.com" autocomplete="email">
                                 </div>
                                 <div class="checkout-field">
                                     <label for="checkoutPhone">Téléphone <span class="required">*</span></label>
-                                    <input type="tel" id="checkoutPhone" name="phone" placeholder="+225 XX XX XX XX XX" required autocomplete="tel">
+                                    <input type="tel" id="checkoutPhone" name="phone" required placeholder="+225 XX XX XX XX XX" autocomplete="tel">
+                                </div>
+                            </div>
+                            <div class="checkout-field">
+                                <label for="checkoutAddress">Adresse <span class="required">*</span></label>
+                                <input type="text" id="checkoutAddress" name="address" required placeholder="Rue, numéro" autocomplete="street-address">
+                            </div>
+                            <div class="checkout-fields-grid checkout-fields-grid--2">
+                                <div class="checkout-field">
+                                    <label for="checkoutCity">Ville <span class="required">*</span></label>
+                                    <input type="text" id="checkoutCity" name="city" required placeholder="Ville" autocomplete="address-level2">
                                 </div>
                                 <div class="checkout-field">
-                                    <label for="checkoutAddress">Adresse <span class="required">*</span></label>
-                                    <input type="text" id="checkoutAddress" name="address" placeholder="Rue, numéro" required autocomplete="street-address">
+                                    <label for="checkoutPostal">Code postal</label>
+                                    <input type="text" id="checkoutPostal" name="postal" placeholder="Code postal" autocomplete="postal-code">
                                 </div>
-                                <div class="checkout-form-row checkout-form-row--2">
-                                    <div class="checkout-field">
-                                        <label for="checkoutCity">Ville <span class="required">*</span></label>
-                                        <input type="text" id="checkoutCity" name="city" placeholder="Ville" required autocomplete="address-level2">
-                                    </div>
-                                    <div class="checkout-field">
-                                        <label for="checkoutZip">Code postal</label>
-                                        <input type="text" id="checkoutZip" name="zip" placeholder="Code postal" autocomplete="postal-code">
-                                    </div>
-                                </div>
-                                <div class="checkout-field">
-                                    <label for="checkoutNotes">Notes de livraison (optionnel)</label>
-                                    <textarea id="checkoutNotes" name="notes" rows="3" placeholder="Instructions spéciales pour la livraison"></textarea>
-                                </div>
+                            </div>
+                            <div class="checkout-field">
+                                <label for="checkoutNotes">Notes de livraison (optionnel)</label>
+                                <textarea id="checkoutNotes" name="notes" rows="3" placeholder="Instructions spéciales pour la livraison"></textarea>
                             </div>
                         </section>
 
-                        <section class="checkout-card checkout-card--payment">
-                            <h2 class="checkout-card-title">Mode de paiement</h2>
+                        <!-- Paiement -->
+                        <section class="checkout-block" aria-labelledby="checkout-payment-title">
+                            <h2 id="checkout-payment-title" class="checkout-block-title">Mode de paiement</h2>
 
                             <div class="checkout-payment-options" role="radiogroup" aria-label="Choisir un mode de paiement">
-                                <div class="checkout-payment-block">
-                                    <label class="checkout-payment-option">
-                                        <input type="radio" name="paymentMethod" value="card">
-                                        <span class="checkout-payment-radio" aria-hidden="true"></span>
-                                        <i class="fas fa-credit-card checkout-payment-icon" aria-hidden="true"></i>
-                                        <span class="checkout-payment-label">Carte bancaire</span>
-                                    </label>
-                                    <div id="checkoutCardFields" class="checkout-payment-extra" data-payment-extra="card" hidden>
-                                        <div class="checkout-field">
-                                            <label for="checkoutCardNumber">Numéro de carte</label>
-                                            <input type="text" id="checkoutCardNumber" name="cardNumber" placeholder="1234 5678 9012 3456" inputmode="numeric" maxlength="19" autocomplete="cc-number">
-                                        </div>
-                                        <div class="checkout-form-row checkout-form-row--2">
-                                            <div class="checkout-field">
-                                                <label for="checkoutCardExpiry">Date d'expiration</label>
-                                                <input type="text" id="checkoutCardExpiry" name="cardExpiry" placeholder="MM/AA" maxlength="5" autocomplete="cc-exp">
-                                            </div>
-                                            <div class="checkout-field">
-                                                <label for="checkoutCardCvv">CVV</label>
-                                                <input type="text" id="checkoutCardCvv" name="cardCvv" placeholder="123" maxlength="4" inputmode="numeric" autocomplete="cc-csc">
-                                            </div>
-                                        </div>
+                                <label class="checkout-payment-option">
+                                    <input type="radio" name="paymentMethod" value="card" checked>
+                                    <span class="checkout-payment-radio" aria-hidden="true"></span>
+                                    <i class="fas fa-credit-card checkout-payment-icon" aria-hidden="true"></i>
+                                    <span class="checkout-payment-label">Carte bancaire</span>
+                                </label>
+
+                                <label class="checkout-payment-option">
+                                    <input type="radio" name="paymentMethod" value="mobile">
+                                    <span class="checkout-payment-radio" aria-hidden="true"></span>
+                                    <i class="fas fa-mobile-alt checkout-payment-icon" aria-hidden="true"></i>
+                                    <span class="checkout-payment-label">Mobile Money (Orange Money, MTN, Moov)</span>
+                                </label>
+
+                                <label class="checkout-payment-option">
+                                    <input type="radio" name="paymentMethod" value="cod">
+                                    <span class="checkout-payment-radio" aria-hidden="true"></span>
+                                    <i class="fas fa-money-bill-wave checkout-payment-icon" aria-hidden="true"></i>
+                                    <span class="checkout-payment-label">Paiement à la livraison</span>
+                                </label>
+                            </div>
+
+                            <!-- Carte bancaire -->
+                            <div class="checkout-payment-panel" id="panelCard" data-payment-panel="card">
+                                <div class="checkout-field">
+                                    <label for="checkoutCardNumber">Numéro de carte</label>
+                                    <input type="text" id="checkoutCardNumber" name="cardNumber" inputmode="numeric" autocomplete="cc-number" placeholder="1234 5678 9012 3456" maxlength="19">
+                                </div>
+                                <div class="checkout-fields-grid checkout-fields-grid--2">
+                                    <div class="checkout-field">
+                                        <label for="checkoutCardExpiry">Date d'expiration</label>
+                                        <input type="text" id="checkoutCardExpiry" name="cardExpiry" inputmode="numeric" autocomplete="cc-exp" placeholder="MM/AA" maxlength="5">
+                                    </div>
+                                    <div class="checkout-field">
+                                        <label for="checkoutCardCvv">CVV</label>
+                                        <input type="text" id="checkoutCardCvv" name="cardCvv" inputmode="numeric" autocomplete="cc-csc" placeholder="123" maxlength="4">
                                     </div>
                                 </div>
+                            </div>
 
-                                <div class="checkout-payment-block">
-                                    <label class="checkout-payment-option">
-                                        <input type="radio" name="paymentMethod" value="mobile">
-                                        <span class="checkout-payment-radio" aria-hidden="true"></span>
-                                        <i class="fas fa-mobile-alt checkout-payment-icon" aria-hidden="true"></i>
-                                        <span class="checkout-payment-label">Mobile Money (Orange Money, MTN, Moov)</span>
-                                    </label>
-                                    <div id="checkoutMobileFields" class="checkout-payment-extra" data-payment-extra="mobile" hidden>
-                                        <div class="checkout-field">
-                                            <label for="checkoutMobileNumber">Numéro Mobile Money</label>
-                                            <input type="tel" id="checkoutMobileNumber" name="mobileNumber" placeholder="+225 XX XX XX XX XX" autocomplete="tel">
-                                        </div>
-                                    </div>
+                            <!-- Mobile Money -->
+                            <div class="checkout-payment-panel checkout-payment-panel--hidden" id="panelMobile" data-payment-panel="mobile" hidden>
+                                <div class="checkout-field">
+                                    <label for="checkoutMobileNumber">Numéro Mobile Money</label>
+                                    <input type="tel" id="checkoutMobileNumber" name="mobileNumber" placeholder="+225 XX XX XX XX XX" autocomplete="tel">
                                 </div>
+                            </div>
 
-                                <div class="checkout-payment-block">
-                                    <label class="checkout-payment-option">
-                                        <input type="radio" name="paymentMethod" value="cod" checked>
-                                        <span class="checkout-payment-radio" aria-hidden="true"></span>
-                                        <i class="fas fa-money-bill-wave checkout-payment-icon" aria-hidden="true"></i>
-                                        <span class="checkout-payment-label">Paiement à la livraison</span>
-                                    </label>
-                                </div>
+                            <!-- Paiement à la livraison -->
+                            <div class="checkout-payment-panel checkout-payment-panel--hidden" id="panelCod" data-payment-panel="cod" hidden>
+                                <label class="checkout-terms">
+                                    <input type="checkbox" id="checkoutTerms" name="terms">
+                                    <span>J'accepte les <a href="#">conditions générales de vente</a> et la <a href="#">politique de confidentialité</a></span>
+                                </label>
                             </div>
                         </section>
 
-                        <div class="checkout-terms-card">
-                            <label class="checkout-terms-label">
-                                <input type="checkbox" id="checkoutAcceptTerms" required>
-                                <span>J'accepte les <a href="#">conditions générales de vente</a> et la <a href="#">politique de confidentialité</a></span>
-                            </label>
-                        </div>
+                        <p id="checkoutFormError" class="checkout-form-error" role="alert" hidden></p>
                     </form>
                 </div>
 
                 <aside class="checkout-summary" aria-label="Récapitulatif de commande">
                     <h2 class="checkout-summary-title">Récapitulatif de commande</h2>
-                    <ul class="checkout-summary-items" id="checkoutItemsList"></ul>
-
+                    <ul class="checkout-summary-items" id="checkoutSummaryItems"></ul>
                     <div class="checkout-summary-rows">
                         <div class="checkout-summary-row">
                             <span>Sous-total</span>
@@ -177,30 +168,21 @@
                         </div>
                         <div class="checkout-summary-row">
                             <span>Livraison</span>
-                            <span id="checkoutShipping" class="checkout-shipping-free">Gratuite</span>
+                            <span id="checkoutShipping">0 FCFA</span>
                         </div>
                     </div>
-
                     <div class="checkout-summary-total">
                         <span>Total</span>
                         <span id="checkoutGrandTotal">0 FCFA</span>
                     </div>
-
-                    <div class="checkout-secure-banner">
+                    <div class="checkout-secure-badge">
                         <i class="fas fa-shield-alt" aria-hidden="true"></i>
                         Paiement 100% sécurisé
                     </div>
-
-                    <button type="button" class="btn-checkout-confirm" id="btnConfirmOrder">
+                    <button type="submit" form="checkoutForm" class="btn-checkout-confirm" id="checkoutConfirmBtn">
                         Confirmer la commande
                     </button>
-
                     <p class="checkout-legal-note">En confirmant votre commande, vous acceptez nos conditions générales de vente</p>
-
-                    <a href="cart.html" class="checkout-back-cart-secondary">
-                        <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-                        Modifier mon panier
-                    </a>
                 </aside>
             </div>
         </div>
@@ -208,57 +190,15 @@
 
     <footer class="footer">
         <div class="container">
-            <div class="footer-grid">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <img src="img/LOGO C.png" alt="CuisineFacile Logo" class="footer-logo">
-                    </div>
-                    <p class="footer-description">Les saveurs de chez nous, faites par les femmes de chez nous.</p>
-                    <div class="footer-social">
-                        <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="social-link"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="footer-title">Liens Rapides</h4>
-                    <ul class="footer-links">
-                        <li><a href="#" class="footer-link">Nos Recettes</a></li>
-                        <li><a href="#" class="footer-link">Espace Client</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="footer-title">Légal</h4>
-                    <ul class="footer-links">
-                        <li><a href="#" class="footer-link">CGV</a></li>
-                        <li><a href="#" class="footer-link">Politique de confidentialité</a></li>
-                        <li><a href="#" class="footer-link">Mentions Légales</a></li>
-                    </ul>
-                </div>
-                <div>
-                    <h4 class="footer-title">Contact</h4>
-                    <ul class="footer-links">
-                        <li><a href="tel:+2250709302481" class="footer-link"><i class="fas fa-phone"></i> +225 07 09 30 24 81</a></li>
-                        <li><a href="mailto:admin@cuisinefacile.africa" class="footer-link"><i class="fas fa-envelope"></i> admin@cuisinefacile.africa</a></li>
-                        <li><a href="#" class="footer-link"><i class="fas fa-map-marker-alt"></i> Abidjan, Côte d'Ivoire</a></li>
-                    </ul>
-                </div>
-            </div>
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
                     <p>&copy; 2026 CuisineFacile Africa. Tous droits réservés.</p>
-                    <div class="payment-methods">
-                        <img src="img/visa.png" alt="Visa" class="payment-img">
-                        <img src="img/moov-money.png" alt="Moov Money" class="payment-img">
-                        <img src="img/mtn-money.png" alt="MTN Mobile Money" class="payment-img">
-                        <img src="img/orange-money.jpg" alt="Orange Money" class="payment-img">
-                        <img src="img/wave.webp" alt="Wave" class="payment-img">
-                    </div>
                 </div>
             </div>
         </div>
     </footer>
 
-    <script src="script.js?v=20260531"></script>
+    <script src="script.js?v=20260605"></script>
+    <script src="js/checkout-page.js?v=20260605"></script>
 </body>
 </html>
