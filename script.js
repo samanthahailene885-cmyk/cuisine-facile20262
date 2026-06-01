@@ -250,7 +250,7 @@ function initProductDetailPage() {
         producerLink.setAttribute('href', 'producers.html');
     }
 
-    // Prix dynamique selon quantité sur la fiche produit
+    // Prix dynamique selon quantité sur la fiche produit (gestion dédiée, hors sélecteur global)
     const quantityInput = document.querySelector('.pdp-quantity .quantity-input');
     const quantityMinus = document.querySelector('.pdp-quantity .quantity-btn:first-child');
     const quantityPlus = document.querySelector('.pdp-quantity .quantity-btn:last-child');
@@ -258,30 +258,65 @@ function initProductDetailPage() {
     const productSlug = slug && PRODUCT_CATALOG[slug]
         ? slug
         : slugifyProductName(product.fullName);
+    const unitPrice = product.price;
 
-    function getQuantity() {
+    function getPdpQuantity() {
         if (!quantityInput) return 1;
         const value = parseInt(quantityInput.value, 10);
         if (!Number.isFinite(value) || value < 1) return 1;
         return value;
     }
 
-    function updateProductTotalPrice() {
-        if (!priceEl) return;
-        const qty = getQuantity();
-        priceEl.textContent = formatProductPrice(product.price * qty);
+    function setPdpQuantity(qty) {
+        const safeQty = Math.max(1, qty);
+        if (quantityInput) quantityInput.value = String(safeQty);
+        return safeQty;
     }
 
-    if (quantityInput) {
-        quantityInput.addEventListener('input', updateProductTotalPrice);
-        quantityInput.addEventListener('change', function() {
-            const qty = getQuantity();
-            quantityInput.value = String(qty);
-            updateProductTotalPrice();
+    function updatePdpPrices() {
+        const qty = getPdpQuantity();
+        const lineTotal = unitPrice * qty;
+        const fairTotal = Math.round(lineTotal * product.fairPct / 100);
+
+        if (priceEl) {
+            priceEl.textContent = formatProductPrice(lineTotal);
+            priceEl.setAttribute('aria-label', 'Prix total pour ' + qty + ' article' + (qty > 1 ? 's' : ''));
+        }
+
+        document.querySelectorAll('.pdp-fair-amount').forEach(function (el) {
+            el.textContent = formatProductPrice(fairTotal);
         });
     }
-    if (quantityMinus) quantityMinus.addEventListener('click', updateProductTotalPrice);
-    if (quantityPlus) quantityPlus.addEventListener('click', updateProductTotalPrice);
+
+    function changePdpQuantity(delta) {
+        setPdpQuantity(getPdpQuantity() + delta);
+        updatePdpPrices();
+    }
+
+    if (quantityMinus) {
+        quantityMinus.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            changePdpQuantity(-1);
+        });
+    }
+    if (quantityPlus) {
+        quantityPlus.addEventListener('click', function (e) {
+            e.preventDefault();
+            e.stopImmediatePropagation();
+            changePdpQuantity(1);
+        });
+    }
+    if (quantityInput) {
+        quantityInput.addEventListener('input', function () {
+            setPdpQuantity(getPdpQuantity());
+            updatePdpPrices();
+        });
+        quantityInput.addEventListener('change', function () {
+            setPdpQuantity(getPdpQuantity());
+            updatePdpPrices();
+        });
+    }
 
     if (addToCartBtn) {
         addToCartBtn.dataset.productId = productSlug;
@@ -290,7 +325,7 @@ function initProductDetailPage() {
         addToCartBtn.dataset.productPrice = String(product.price);
     }
 
-    updateProductTotalPrice();
+    updatePdpPrices();
 }
 
 function syncProductCardFromCatalog(card) {
@@ -583,6 +618,18 @@ function initCartPage() {
     }
 
     renderCartItems(readCart());
+
+    const checkoutBtn = document.querySelector('.btn-cart-checkout');
+    if (checkoutBtn) {
+        checkoutBtn.addEventListener('click', function () {
+            const items = readCart();
+            if (!items.length) {
+                alert('Votre panier est vide. Ajoutez des produits avant de passer commande.');
+                return;
+            }
+            window.location.href = 'checkout.html';
+        });
+    }
 
     if (cartList) {
         cartList.addEventListener('click', function(e) {
@@ -946,8 +993,8 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
 
-    // Quantity Selector
-    const quantitySelectors = document.querySelectorAll('.quantity-selector');
+    // Quantity Selector (hors fiche produit — géré par initProductDetailPage)
+    const quantitySelectors = document.querySelectorAll('.quantity-selector:not(.pdp-quantity)');
     quantitySelectors.forEach(selector => {
         const minusBtn = selector.querySelector('.quantity-btn:first-child');
         const plusBtn = selector.querySelector('.quantity-btn:last-child');
