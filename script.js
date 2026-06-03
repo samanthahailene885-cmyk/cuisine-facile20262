@@ -326,6 +326,208 @@ function initProductDetailPage() {
     }
 
     updatePdpPrices();
+    initProductReviews(productSlug, product);
+}
+
+const PRODUCT_REVIEWS_STORAGE_KEY = 'cuisinefacile_product_reviews';
+
+function getProductReviewsStore() {
+    try {
+        const raw = localStorage.getItem(PRODUCT_REVIEWS_STORAGE_KEY);
+        const parsed = raw ? JSON.parse(raw) : {};
+        return parsed && typeof parsed === 'object' ? parsed : {};
+    } catch (e) {
+        return {};
+    }
+}
+
+function saveProductReviewsStore(store) {
+    localStorage.setItem(PRODUCT_REVIEWS_STORAGE_KEY, JSON.stringify(store));
+}
+
+function getReviewsForProduct(productSlug) {
+    const store = getProductReviewsStore();
+    const reviews = store[productSlug];
+    return Array.isArray(reviews) ? reviews : [];
+}
+
+function saveReviewsForProduct(productSlug, reviews) {
+    const store = getProductReviewsStore();
+    store[productSlug] = reviews;
+    saveProductReviewsStore(store);
+}
+
+function formatReviewDate(isoDate) {
+    try {
+        return new Date(isoDate).toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' });
+    } catch (e) {
+        return '';
+    }
+}
+
+function createReviewStars(rating) {
+    const starsWrap = document.createElement('div');
+    starsWrap.className = 'cart-comments-stars';
+
+    const safeRating = Math.max(1, Math.min(5, rating));
+    for (let i = 1; i <= 5; i += 1) {
+        const star = document.createElement('i');
+        star.className = i <= safeRating
+            ? 'fas fa-star cart-comment-star cart-comment-star--filled'
+            : 'far fa-star cart-comment-star cart-comment-star--empty';
+        starsWrap.appendChild(star);
+    }
+    return starsWrap;
+}
+
+function updateProductRatingSummary(product, userReviews) {
+    const ratingText = document.querySelector('.pdp-rating-text');
+    if (!ratingText || !product) return;
+
+    const baseCount = product.reviews || 0;
+    const baseRating = parseFloat(String(product.rating).replace(',', '.')) || 0;
+    const userCount = userReviews.length;
+    const totalCount = baseCount + userCount;
+
+    if (!userCount) {
+        ratingText.textContent = product.rating + ' · ' + baseCount + ' avis';
+        return;
+    }
+
+    const userSum = userReviews.reduce(function(sum, review) {
+        return sum + (Number.isFinite(review.rating) ? review.rating : 5);
+    }, 0);
+    const avgRating = (baseRating * baseCount + userSum) / totalCount;
+    ratingText.textContent = avgRating.toFixed(1).replace('.', ',') + ' · ' + totalCount + ' avis';
+}
+
+function initProductReviews(productSlug, product) {
+    if (!document.body.classList.contains('page-product')) return;
+
+    const commentsForm = document.getElementById('pdpCommentsForm');
+    const commentNameInput = document.getElementById('pdpCommentName');
+    const commentMessageInput = document.getElementById('pdpCommentMessage');
+    const commentRatingSelect = document.getElementById('pdpCommentRating');
+    const commentsList = document.getElementById('pdpCommentsList');
+    const commentsEmpty = document.getElementById('pdpCommentsEmpty');
+    const commentsStatus = document.getElementById('pdpCommentsStatus');
+    const reviewsSubtitle = document.getElementById('pdpReviewsSubtitle');
+
+    if (!commentsForm || !commentMessageInput || !commentsList || !productSlug) return;
+
+    if (reviewsSubtitle && product) {
+        reviewsSubtitle.textContent = 'Partagez votre expérience avec « ' + product.name + ' ».';
+    }
+
+    function getRatingValue() {
+        const raw = commentRatingSelect ? parseInt(commentRatingSelect.value, 10) : 5;
+        if (!Number.isFinite(raw)) return 5;
+        return Math.max(1, Math.min(5, raw));
+    }
+
+    function renderComments() {
+        const comments = getReviewsForProduct(productSlug);
+        commentsList.innerHTML = '';
+
+        if (!comments.length) {
+            if (commentsEmpty) commentsEmpty.hidden = false;
+            updateProductRatingSummary(product, comments);
+            return;
+        }
+
+        if (commentsEmpty) commentsEmpty.hidden = true;
+
+        comments.slice(0, 30).forEach(function(c) {
+            const name = (c && typeof c.name === 'string' && c.name.trim())
+                ? c.name.trim()
+                : 'Client';
+            const message = (c && typeof c.message === 'string' && c.message.trim())
+                ? c.message.trim()
+                : '';
+            const rating = c && Number.isFinite(c.rating) ? c.rating : 5;
+            const createdAt = c && c.createdAt ? c.createdAt : '';
+
+            const card = document.createElement('article');
+            card.className = 'cart-comment-card';
+
+            const top = document.createElement('div');
+            top.className = 'cart-comment-top';
+
+            const avatar = document.createElement('div');
+            avatar.className = 'cart-comment-avatar';
+            avatar.textContent = (name[0] || 'C').toUpperCase();
+
+            const metaCol = document.createElement('div');
+            metaCol.style.minWidth = '0';
+
+            const nameEl = document.createElement('div');
+            nameEl.className = 'cart-comment-name';
+            nameEl.textContent = name;
+
+            top.appendChild(avatar);
+            metaCol.appendChild(nameEl);
+            top.appendChild(metaCol);
+            top.appendChild(createReviewStars(rating));
+
+            const dateEl = document.createElement('div');
+            dateEl.className = 'cart-comment-date';
+            dateEl.textContent = createdAt ? ('Publié le ' + formatReviewDate(createdAt)) : '';
+
+            const msgEl = document.createElement('div');
+            msgEl.className = 'cart-comment-message';
+            msgEl.textContent = message;
+
+            card.appendChild(top);
+            card.appendChild(dateEl);
+            card.appendChild(msgEl);
+            commentsList.appendChild(card);
+        });
+
+        updateProductRatingSummary(product, comments);
+    }
+
+    renderComments();
+
+    commentsForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+
+        const name = commentNameInput && commentNameInput.value.trim()
+            ? commentNameInput.value.trim()
+            : 'Client';
+        const message = commentMessageInput.value.trim();
+        const rating = getRatingValue();
+
+        if (message.length < 3) {
+            if (commentsStatus) {
+                commentsStatus.textContent = 'Veuillez écrire un commentaire (au moins 3 caractères).';
+            }
+            return;
+        }
+
+        const current = getReviewsForProduct(productSlug);
+        const next = [{
+            id: String(Date.now()),
+            name: name,
+            message: message,
+            rating: rating,
+            createdAt: new Date().toISOString()
+        }].concat(current);
+
+        saveReviewsForProduct(productSlug, next.slice(0, 50));
+
+        commentMessageInput.value = '';
+        if (commentNameInput) commentNameInput.value = '';
+        if (commentRatingSelect) commentRatingSelect.value = '5';
+
+        renderComments();
+
+        if (commentsStatus) {
+            commentsStatus.textContent = 'Merci pour votre avis !';
+            setTimeout(function() {
+                commentsStatus.textContent = '';
+            }, 2500);
+        }
+    });
 }
 
 function syncProductCardFromCatalog(card) {
@@ -348,11 +550,100 @@ function syncProductCardFromCatalog(card) {
         img.src = product.image;
         img.alt = product.fullName;
     }
+    const slug = slugifyProductName(product.fullName);
+    if (PRODUCT_CATALOG[slug]) {
+        card.dataset.productId = slug;
+    }
     return product;
 }
 
 function tagShopProductCards() {
     document.querySelectorAll('#shopProductsGrid .product-card').forEach(syncProductCardFromCatalog);
+}
+
+function normalizeSearchQuery(str) {
+    return String(str || '')
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '')
+        .trim();
+}
+
+function getProductCardSearchText(card) {
+    const parts = [];
+    const nameEl = card.querySelector('.product-name');
+    const coopEl = card.querySelector('.product-coop');
+    if (nameEl) parts.push(nameEl.textContent);
+    if (coopEl) parts.push(coopEl.textContent);
+    if (card.dataset.category && CATEGORY_CATALOG[card.dataset.category]) {
+        parts.push(CATEGORY_CATALOG[card.dataset.category].label);
+    }
+    const fullName = nameEl ? nameEl.textContent.trim() : '';
+    const product = PRODUCT_LIST.find(function(p) { return p.fullName === fullName; });
+    if (product) {
+        parts.push(product.fullName, product.name, product.category);
+    }
+    return parts.join(' ');
+}
+
+function cardMatchesSearchQuery(card, query) {
+    if (!query) return true;
+    const haystack = normalizeSearchQuery(getProductCardSearchText(card));
+    const terms = normalizeSearchQuery(query).split(/\s+/).filter(Boolean);
+    return terms.every(function(term) {
+        return haystack.indexOf(term) !== -1;
+    });
+}
+
+function getProductSearchUrl(query) {
+    const trimmed = String(query || '').trim();
+    if (!trimmed) return 'shop.html';
+    return 'shop.html?q=' + encodeURIComponent(trimmed);
+}
+
+function initHeaderSearch() {
+    const searchInput = document.querySelector('.search-input');
+    if (!searchInput) return;
+
+    const searchBox = searchInput.closest('.search-box');
+    const searchIcon = searchBox ? searchBox.querySelector('.search-icon') : null;
+    const isShopPage = document.body.classList.contains('page-shop');
+
+    function submitSearch() {
+        const query = searchInput.value.trim();
+        if (isShopPage) {
+            document.dispatchEvent(new CustomEvent('shop-search-change'));
+            return;
+        }
+        window.location.href = getProductSearchUrl(query);
+    }
+
+    searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter') {
+            e.preventDefault();
+            submitSearch();
+        }
+    });
+
+    if (searchIcon) {
+        searchIcon.style.cursor = 'pointer';
+        searchIcon.setAttribute('role', 'button');
+        searchIcon.setAttribute('tabindex', '0');
+        searchIcon.setAttribute('aria-label', 'Rechercher');
+        searchIcon.addEventListener('click', submitSearch);
+        searchIcon.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                submitSearch();
+            }
+        });
+    }
+
+    if (isShopPage) {
+        searchInput.addEventListener('input', debounce(function() {
+            document.dispatchEvent(new CustomEvent('shop-search-change'));
+        }, 250));
+    }
 }
 
 function initShopFilters() {
@@ -367,6 +658,11 @@ function initShopFilters() {
     const params = new URLSearchParams(window.location.search);
     const cooperativeId = params.get('cooperative');
     const urlCategory = params.get('category');
+    const urlSearchQuery = params.get('q') || '';
+    const searchInput = document.querySelector('.search-input');
+    if (searchInput && urlSearchQuery) {
+        searchInput.value = urlSearchQuery;
+    }
 
     const coopData = cooperativeId ? COOPERATIVE_CATALOG[cooperativeId] : null;
     const banner = document.getElementById('shopCoopBanner');
@@ -385,11 +681,18 @@ function initShopFilters() {
             .map(function(cb) { return cb.dataset.category; });
     }
 
+    function getSearchQuery() {
+        return searchInput ? searchInput.value.trim() : urlSearchQuery;
+    }
+
     function updateResultsCount(visibleCount, categories) {
         if (!resultsCount) return;
         const label = visibleCount > 1 ? 'produits' : 'produit';
+        const searchQuery = getSearchQuery();
         const parts = [visibleCount + ' ' + label];
-        if (categories.length === 1 && CATEGORY_CATALOG[categories[0]]) {
+        if (searchQuery) {
+            parts.push('pour « ' + searchQuery + ' »');
+        } else if (categories.length === 1 && CATEGORY_CATALOG[categories[0]]) {
             parts.push(CATEGORY_CATALOG[categories[0]].label);
         } else if (coopData) {
             parts.push(coopData.name);
@@ -425,18 +728,22 @@ function initShopFilters() {
     function applyFilters() {
         let visibleCount = 0;
         const categories = getActiveCategoriesFromCheckboxes();
+        const searchQuery = getSearchQuery();
 
         productCards.forEach(function(card) {
             const matchCoop = !cooperativeId || card.dataset.cooperative === cooperativeId;
             const matchCat = !categories.length || categories.indexOf(card.dataset.category) !== -1;
-            const show = matchCoop && matchCat;
+            const matchSearch = cardMatchesSearchQuery(card, searchQuery);
+            const show = matchCoop && matchCat && matchSearch;
             card.style.display = show ? '' : 'none';
             if (show) visibleCount += 1;
         });
 
         if (emptyMessage) {
             emptyMessage.hidden = visibleCount > 0;
-            if (categories.length === 1 && CATEGORY_CATALOG[categories[0]]) {
+            if (searchQuery) {
+                emptyMessage.textContent = 'Aucun produit ne correspond à « ' + searchQuery + ' ».';
+            } else if (categories.length === 1 && CATEGORY_CATALOG[categories[0]]) {
                 emptyMessage.textContent = 'Aucun produit dans la catégorie « ' +
                     CATEGORY_CATALOG[categories[0]].label + ' ».';
             } else if (coopData) {
@@ -446,8 +753,24 @@ function initShopFilters() {
             }
         }
 
+        if (pageSubtitle && !searchQuery && !coopData && categories.length !== 1) {
+            pageSubtitle.textContent = 'Découvrez notre sélection de produits ivoiriens authentiques';
+        }
+
+        const url = new URL(window.location.href);
+        if (searchQuery) {
+            url.searchParams.set('q', searchQuery);
+        } else {
+            url.searchParams.delete('q');
+        }
+        window.history.replaceState({}, '', url.pathname + url.search);
+
         updateResultsCount(visibleCount, categories);
         updateBanner(categories);
+
+        if (pageSubtitle && searchQuery) {
+            pageSubtitle.textContent = 'Résultats pour « ' + searchQuery + ' »';
+        }
     }
 
     if (urlCategory && CATEGORY_CATALOG[urlCategory]) {
@@ -477,6 +800,8 @@ function initShopFilters() {
             window.location.href = 'shop.html';
         });
     }
+
+    document.addEventListener('shop-search-change', applyFilters);
 }
 
 function initHomeCategories() {
@@ -663,179 +988,13 @@ function initCartPage() {
             }
         });
     }
-
-    // Comments section (maquette) - stockées en localStorage
-    const commentsForm = document.getElementById('commentsForm');
-    const commentNameInput = document.getElementById('commentName');
-    const commentMessageInput = document.getElementById('commentMessage');
-    const commentRatingSelect = document.getElementById('commentRating');
-    const commentsList = document.getElementById('cartCommentsList');
-    const commentsEmpty = document.getElementById('cartCommentsEmpty');
-    const commentsStatus = document.getElementById('cartCommentsStatus');
-
-    if (commentsForm && commentMessageInput && commentsList) {
-        const STORAGE_KEY = 'cuisinefacile_client_comments';
-
-        function getStoredComments() {
-            try {
-                const raw = localStorage.getItem(STORAGE_KEY);
-                const parsed = raw ? JSON.parse(raw) : [];
-                return Array.isArray(parsed) ? parsed : [];
-            } catch (e) {
-                return [];
-            }
-        }
-
-        function saveComments(comments) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(comments));
-        }
-
-        function formatCommentDate(isoDate) {
-            try {
-                return new Date(isoDate).toLocaleDateString('fr-FR', { day: '2-digit', month: 'short', year: 'numeric' });
-            } catch (e) {
-                return '';
-            }
-        }
-
-        function getRatingValue() {
-            const raw = commentRatingSelect ? parseInt(commentRatingSelect.value, 10) : 5;
-            if (!Number.isFinite(raw)) return 5;
-            return Math.max(1, Math.min(5, raw));
-        }
-
-        function createStars(rating) {
-            const starsWrap = document.createElement('div');
-            starsWrap.className = 'cart-comments-stars';
-
-            const safeRating = Math.max(1, Math.min(5, rating));
-            for (let i = 1; i <= 5; i++) {
-                const star = document.createElement('i');
-                const filled = i <= safeRating;
-                star.className = filled
-                    ? 'fas fa-star cart-comment-star cart-comment-star--filled'
-                    : 'far fa-star cart-comment-star cart-comment-star--empty';
-                starsWrap.appendChild(star);
-            }
-            return starsWrap;
-        }
-
-        function renderComments() {
-            const comments = getStoredComments();
-            commentsList.innerHTML = '';
-
-            if (!comments.length) {
-                if (commentsEmpty) commentsEmpty.hidden = false;
-                return;
-            }
-
-            if (commentsEmpty) commentsEmpty.hidden = true;
-
-            comments
-                .slice(0, 30)
-                .forEach(function(c) {
-                    const name = (c && typeof c.name === 'string' && c.name.trim())
-                        ? c.name.trim()
-                        : 'Client';
-                    const message = (c && typeof c.message === 'string' && c.message.trim())
-                        ? c.message.trim()
-                        : '';
-                    const rating = c && Number.isFinite(c.rating) ? c.rating : getRatingValue();
-                    const createdAt = c && c.createdAt ? c.createdAt : '';
-
-                    const card = document.createElement('article');
-                    card.className = 'cart-comment-card';
-
-                    const top = document.createElement('div');
-                    top.className = 'cart-comment-top';
-
-                    const avatar = document.createElement('div');
-                    avatar.className = 'cart-comment-avatar';
-                    avatar.textContent = (name[0] || 'C').toUpperCase();
-
-                    const metaCol = document.createElement('div');
-                    metaCol.style.minWidth = '0';
-
-                    const nameEl = document.createElement('div');
-                    nameEl.className = 'cart-comment-name';
-                    nameEl.textContent = name;
-
-                    top.appendChild(avatar);
-                    metaCol.appendChild(nameEl);
-                    top.appendChild(metaCol);
-                    top.appendChild(createStars(rating));
-
-                    const dateEl = document.createElement('div');
-                    dateEl.className = 'cart-comment-date';
-                    dateEl.textContent = createdAt ? ('Publié le ' + formatCommentDate(createdAt)) : '';
-
-                    const msgEl = document.createElement('div');
-                    msgEl.className = 'cart-comment-message';
-                    msgEl.textContent = message;
-
-                    card.appendChild(top);
-                    card.appendChild(dateEl);
-                    card.appendChild(msgEl);
-
-                    commentsList.appendChild(card);
-                });
-        }
-
-        renderComments();
-
-        commentsForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-
-            if (!commentMessageInput) return;
-
-            const name = commentNameInput && commentNameInput.value.trim()
-                ? commentNameInput.value.trim()
-                : 'Client';
-            const message = commentMessageInput.value.trim();
-            const rating = getRatingValue();
-
-            if (message.length < 3) {
-                if (commentsStatus) {
-                    commentsStatus.textContent = 'Veuillez écrire un commentaire (au moins 3 caractères).';
-                }
-                return;
-            }
-
-            const current = getStoredComments();
-            const next = [
-                {
-                    id: String(Date.now()),
-                    name: name,
-                    message: message,
-                    rating: rating,
-                    createdAt: new Date().toISOString()
-                },
-                ...current
-            ];
-
-            saveComments(next.slice(0, 50));
-
-            // Reset form
-            commentMessageInput.value = '';
-            if (commentNameInput) commentNameInput.value = '';
-            if (commentRatingSelect) commentRatingSelect.value = '5';
-
-            renderComments();
-
-            if (commentsStatus) {
-                commentsStatus.textContent = 'Merci pour votre avis !';
-                setTimeout(function() {
-                    commentsStatus.textContent = '';
-                }, 2500);
-            }
-        });
-    }
 }
 
 document.addEventListener('DOMContentLoaded', function() {
     initProductDetailPage();
     initFlagshipProductCards();
     initShopFilters();
+    initHeaderSearch();
     initHomeCategories();
     initCartPage();
     if (!document.body.classList.contains('page-cart')) {
@@ -1252,20 +1411,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Search Functionality
-    const searchInput = document.querySelector('.search-input');
-    if (searchInput) {
-        searchInput.addEventListener('keypress', function(e) {
-            if (e.key === 'Enter') {
-                const query = this.value.trim();
-                if (query) {
-                    // In a real application, this would redirect to search results
-                    alert('Recherche pour: ' + query);
-                }
-            }
-        });
-    }
-
     // Filtres catégories : gérés par initShopFilters() sur shop.html
 
     // Sort Select
@@ -1384,6 +1529,11 @@ document.addEventListener('DOMContentLoaded', function() {
         el.style.transform = 'translateY(20px)';
         el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
         observer.observe(el);
+    });
+
+    // Numérotation séquentielle des coopératives (1, 2, 3… sur toute la page)
+    document.querySelectorAll('.page-producers .prod-coop-num').forEach(function (el, index) {
+        el.textContent = 'N° ' + (index + 1);
     });
 
     // Console message
