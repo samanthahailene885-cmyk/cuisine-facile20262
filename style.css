@@ -4064,6 +4064,14 @@ a.btn-add-cart:hover {
     }
 }
 
+.page-product .pdp-reviews-wrap {
+    padding: 0 0 56px;
+}
+
+.page-product .pdp-reviews-wrap .cart-comments-section {
+    margin-top: 0;
+}
+
 /* ===== Page produit boutique (maquette) ===== */
 .page-product {
     --pdp-green: #2B663A;
