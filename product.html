@@ -174,64 +174,71 @@
                 </div>
                 <a href="producers.html" class="pdp-producer-link">Voir la page complète d'Aminata →</a>
             </article>
-
-            <div class="pdp-details-grid">
-                <div class="pdp-detail-block">
-                    <h3>Composition</h3>
-                    <p>Pulpe de noix de palme (90%), oignons, tomates fraîches, ail, gingembre, feuille de kablé, sel marin. Sans conservateur, sans colorant, sans glutamate.</p>
-                </div>
-                <div class="pdp-detail-block">
-                    <h3>Comment l'utiliser</h3>
-                    <p>Réchauffez, ajoutez votre viande ou poisson, laissez mijoter 20 min. Servez avec riz, foutou ou placali. Une recette complète vous est proposée ci-dessous.</p>
-                </div>
-            </div>
         </div>
     </section>
 
-    <!-- Recette -->
-    <section class="pdp-recipe-section">
+    <!-- Avis clients -->
+    <section class="pdp-reviews-wrap" aria-label="Avis sur le produit">
         <div class="container">
-            <div class="pdp-recipe-bar">
-                <div class="pdp-recipe-icon"><i class="fas fa-hat-chef" aria-hidden="true"></i></div>
-                <div class="pdp-recipe-text">
-                    <strong>Recette : sauce graine au poisson fumé</strong>
-                    <span>25 min · 4 personnes · facile</span>
+            <div class="cart-comments-section">
+                <div class="cart-comments-header">
+                    <span class="cart-comments-badge">
+                        <i class="fas fa-comment-dots" aria-hidden="true"></i>
+                        Avis clients
+                    </span>
+                    <h2 class="cart-comments-title">Ce que disent nos clients</h2>
+                    <p class="cart-comments-subtitle" id="pdpReviewsSubtitle">Partagez votre expérience avec ce produit.</p>
                 </div>
-                <a href="#" class="pdp-recipe-link">Voir →</a>
-            </div>
-        </div>
-    </section>
 
-    <!-- Souvent achetés ensemble -->
-    <section class="pdp-bought-together">
-        <div class="container">
-            <h2 class="pdp-bought-title">Souvent achetés ensemble</h2>
-            <div class="pdp-bought-grid">
-                <a href="product.html?p=attieke-premium-agbodjama-500g" class="pdp-bought-card">
-                    <div class="pdp-bought-visual">
-                        <img src="img/attieke.png" alt="Attiéké premium">
+                <div class="cart-comments-grid">
+                    <div class="cart-comments-panel">
+                        <h3 class="cart-comments-panel-title">
+                            <i class="fas fa-pen" aria-hidden="true"></i>
+                            Laisser un avis
+                        </h3>
+
+                        <form id="pdpCommentsForm" class="cart-comments-form">
+                            <div class="cart-comments-form-row">
+                                <label for="pdpCommentName" class="cart-comments-label">Nom (optionnel)</label>
+                                <input id="pdpCommentName" name="commentName" type="text" class="cart-comments-input" placeholder="Ex: Awa">
+                            </div>
+
+                            <div class="cart-comments-form-row">
+                                <label for="pdpCommentRating" class="cart-comments-label">Note</label>
+                                <select id="pdpCommentRating" name="commentRating" class="cart-comments-select">
+                                    <option value="5" selected>5 - Excellent</option>
+                                    <option value="4">4 - Très bien</option>
+                                    <option value="3">3 - Bien</option>
+                                    <option value="2">2 - Moyen</option>
+                                    <option value="1">1 - À améliorer</option>
+                                </select>
+                            </div>
+
+                            <div class="cart-comments-form-row">
+                                <label for="pdpCommentMessage" class="cart-comments-label">Votre avis</label>
+                                <textarea id="pdpCommentMessage" name="commentMessage" class="cart-comments-textarea" rows="4" placeholder="Écrivez votre commentaire..."></textarea>
+                                <p class="cart-comments-help">Au moins 3 caractères.</p>
+                            </div>
+
+                            <div class="cart-comments-form-actions">
+                                <button type="submit" class="cart-comments-submit">
+                                    Envoyer mon avis
+                                    <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                                </button>
+                                <p id="pdpCommentsStatus" class="cart-comments-status" aria-live="polite"></p>
+                            </div>
+                        </form>
                     </div>
-                    <div class="pdp-bought-info">
-                        <span class="pdp-bought-name">Attiéké premium</span>
-                        <span class="pdp-bought-price">2 500 F</span>
+
+                    <div class="cart-comments-panel cart-comments-list-panel">
+                        <h3 class="cart-comments-panel-title">
+                            <i class="fas fa-star" aria-hidden="true"></i>
+                            Avis publiés
+                        </h3>
+                        <div id="pdpCommentsList" class="cart-comments-list"></div>
+                        <p id="pdpCommentsEmpty" class="cart-comments-empty">Aucun avis pour ce produit. Soyez le premier !</p>
                     </div>
-                </a>
-                <a href="product.html?p=akpi-moulu-60g" class="pdp-bought-card">
-                    </div>
-                    <div class="pdp-bought-info">
-                        <span class="pdp-bought-name">Akpi moulu</span>
-                        <span class="pdp-bought-price">1 500 F</span>
-                    </div>
-                </a>
-                <a href="product.html?p=kankankan-premium-100g" class="pdp-bought-card">
-                    <div class="pdp-bought-visual">
-                        <img src="img/img4.jpg" alt="Kankankan premium">
-                    </div>
-                    <div class="pdp-bought-info">
-                        <span class="pdp-bought-name">Kankankan premium</span>
-                        <span class="pdp-bought-price">2 200 F</span>
-                    </div>
-                </a>
+                </div>
             </div>
         </div>
     </section>
@@ -277,7 +284,7 @@
                     <h4 class="footer-title">Contact</h4>
                     <ul class="footer-links">
                         <li><a href="tel:+2250709302481" class="footer-link"><i class="fas fa-phone"></i> +225 07 09 30 24 81</a></li>
-                        <li><a href="mailto:admin@cuisinefacile.africa" class="footer-link"><i class="fas fa-envelope"></i> admin@cuisinefacile.africa</a></li>
+                        <li><a href="mailto:info@cuisinefacile.africa" class="footer-link"><i class="fas fa-envelope"></i> info@cuisinefacile.africa</a></li>
                         <li><a href="#" class="footer-link"><i class="fas fa-map-marker-alt"></i> Abidjan, Côte d'Ivoire</a></li>
                     </ul>
                 </div>
@@ -342,6 +349,6 @@
         </div>
     </div>
 
-    <script src="script.js?v=20260605b"></script>
+    <script src="script.js?v=20260603d"></script>
 </body>
 </html>
