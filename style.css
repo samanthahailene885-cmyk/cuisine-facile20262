@@ -5160,6 +5160,14 @@ a.btn-add-cart:hover {
     fill: #347a4d;
 }
 
+.prod-map-region {
+    transition: fill 0.2s ease;
+}
+
+.prod-map-region:hover {
+    fill: #a0d0b8;
+}
+
 .prod-map-caption {
     text-align: center;
     font-size: 0.8125rem;
