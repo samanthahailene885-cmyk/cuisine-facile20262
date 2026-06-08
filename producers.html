@@ -149,10 +149,6 @@
                            id="CI-SV" class="prod-map-region" fill="#c8d5ba" stroke="#9bc4ad" stroke-width="1"/>
                         
                         <!-- Markers for cities with adjusted coordinates -->
-                        <g class="prod-map-marker" data-city="Séguéla">
-                            <circle cx="350" cy="350" r="8" fill="#2B663A"/>
-                            <text x="350" y="335" text-anchor="middle" class="prod-map-label" font-size="12">Séguéla</text>
-                        </g>
                         <g class="prod-map-marker" data-city="Korhogo">
                             <circle cx="500" cy="150" r="8" fill="#2B663A"/>
                             <text x="500" y="135" text-anchor="middle" class="prod-map-label" font-size="12">Korhogo</text>
@@ -169,14 +165,6 @@
                             <circle cx="300" cy="450" r="8" fill="#2B663A"/>
                             <text x="300" y="435" text-anchor="middle" class="prod-map-label" font-size="12">Daloa</text>
                         </g>
-                        <g class="prod-map-marker" data-city="Kasséré">
-                            <circle cx="300" cy="250" r="8" fill="#2B663A"/>
-                            <text x="300" y="235" text-anchor="middle" class="prod-map-label" font-size="12">Kasséré</text>
-                        </g>
-                        <g class="prod-map-marker" data-city="Soubré">
-                            <circle cx="250" cy="550" r="8" fill="#2B663A"/>
-                            <text x="250" y="535" text-anchor="middle" class="prod-map-label" font-size="12">Soubré</text>
-                        </g>
                         <g class="prod-map-marker" data-city="M'Batto">
                             <circle cx="550" cy="450" r="8" fill="#2B663A"/>
                             <text x="550" y="435" text-anchor="middle" class="prod-map-label" font-size="12">M'Batto</text>
@@ -189,9 +177,21 @@
                             <circle cx="550" cy="700" r="8" fill="#2B663A"/>
                             <text x="550" y="685" text-anchor="middle" class="prod-map-label" font-size="12">Abidjan</text>
                         </g>
-                        <g class="prod-map-marker" data-city="San Pedro">
+                        <g class="prod-map-marker" data-city="San-Pedro">
                             <circle cx="200" cy="750" r="8" fill="#2B663A"/>
-                            <text x="200" y="735" text-anchor="middle" class="prod-map-label" font-size="12">San Pedro</text>
+                            <text x="200" y="735" text-anchor="middle" class="prod-map-label" font-size="12">San-Pedro</text>
+                        </g>
+                        <g class="prod-map-marker" data-city="Bouaké">
+                            <circle cx="480" cy="380" r="8" fill="#2B663A"/>
+                            <text x="480" y="365" text-anchor="middle" class="prod-map-label" font-size="12">Bouaké</text>
+                        </g>
+                        <g class="prod-map-marker" data-city="Yamoussoukro">
+                            <circle cx="420" cy="480" r="8" fill="#2B663A"/>
+                            <text x="420" y="465" text-anchor="middle" class="prod-map-label" font-size="12">Yamoussoukro</text>
+                        </g>
+                        <g class="prod-map-marker" data-city="Duékoué">
+                            <circle cx="180" cy="420" r="8" fill="#2B663A"/>
+                            <text x="180" y="405" text-anchor="middle" class="prod-map-label" font-size="12">Duékoué</text>
                         </g>
                     </svg>
                 </div>
@@ -199,123 +199,77 @@
             </div>
         </section>
 
-        <!-- Les 5 premières coopératives -->
-        <section class="prod-coops-section prod-coops-section--featured" id="cooperatives">
+        <!-- Coopératives existantes -->
+        <section class="prod-coops-section prod-coops-section--all" id="cooperatives">
             <div class="container">
-                <h2 class="prod-coops-title">Les 5 premières coopératives sur le site</h2>
-                <p class="prod-coops-intro">Ces coopératives sont déjà référencées dans notre boutique avec leurs produits du terroir.</p>
-                <div class="prod-coops-grid">
-                    <article class="prod-coop-card prod-coop-card--featured" id="coop-seguela">
-                        <span class="prod-coop-num">N° 1</span>
-                        <div class="prod-coop-visual" aria-hidden="true"><i class="fas fa-users"></i></div>
-                        <div class="prod-coop-body">
-                            <h3 class="prod-coop-name">Scoops Béné wende</h3>
-                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Séguéla</span></p>
-                            <p class="prod-coop-products">Poudre de baobab · miel · poudre de soumbara · bissap · kinkeliba</p>
-                        </div>
-                    </article>
-                    <article class="prod-coop-card prod-coop-card--featured" id="coop-divo">
-                        <span class="prod-coop-num">N° 3</span>
-                        <div class="prod-coop-visual" aria-hidden="true"><i class="fas fa-users"></i></div>
-                        <div class="prod-coop-body">
-                            <h3 class="prod-coop-name">Femmes Entreprenantes du Lôh-Djiboua</h3>
-                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Divo</span></p>
-                            <p class="prod-coop-products">Akpi · graine · pistache</p>
-                        </div>
-                    </article>
-                    <article class="prod-coop-card prod-coop-card--featured" id="coop-mbatto">
-                        <span class="prod-coop-num">N° 6</span>
-                        <div class="prod-coop-visual" aria-hidden="true"><i class="fas fa-users"></i></div>
-                        <div class="prod-coop-body">
-                            <h3 class="prod-coop-name">Coop CA Scoopan-MBA</h3>
-                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>M'Batto</span></p>
-                            <p class="prod-coop-products">Kankankan · pistache · akpi · citron · gingembre</p>
-                        </div>
-                    </article>
-                    <article class="prod-coop-card prod-coop-card--featured" id="coop-bouna">
-                        <span class="prod-coop-num">N° 9</span>
-                        <div class="prod-coop-visual" aria-hidden="true"><i class="fas fa-users"></i></div>
-                        <div class="prod-coop-body">
-                            <h3 class="prod-coop-name">Scoop Prokab</h3>
-                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Bouna</span></p>
-                            <p class="prod-coop-products">Soumbara · sauce arachide · bissap</p>
-                        </div>
-                    </article>
-                    <article class="prod-coop-card prod-coop-card--featured" id="coop-kassere">
-                        <span class="prod-coop-num">N° 13</span>
-                        <div class="prod-coop-visual" aria-hidden="true"><i class="fas fa-users"></i></div>
-                        <div class="prod-coop-body">
-                            <h3 class="prod-coop-name">Gbinmin</h3>
-                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Kasséré</span></p>
-                            <p class="prod-coop-products">Beurre de karité alimentaire</p>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <!-- Les 13 coopératives -->
-        <section class="prod-coops-section prod-coops-section--all" id="toutes-cooperatives">
-            <div class="container">
-                <h2 class="prod-coops-title">Toutes nos coopératives partenaires</h2>
-                <p class="prod-coops-intro">13 coopératives féminines réparties sur tout le territoire ivoirien.</p>
+                <h2 class="prod-coops-title">Coopératives existantes</h2>
+                <p class="prod-coops-intro">11 coopératives déjà structurées et actives dans le réseau CuisineFacile.</p>
                 <div class="prod-coops-grid prod-coops-grid--all">
-                    <article class="prod-coop-card prod-coop-card--listed" id="coop-seguela-list">
-                        <span class="prod-coop-num">N° 1</span>
-                        <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
-                        <div class="prod-coop-body prod-coop-body--compact">
-                            <h3 class="prod-coop-name">Scoops Béné wende</h3>
-                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Séguéla</span></p>
-                            <p class="prod-coop-products">Poudre de baobab · miel · poudre de soumbara · bissap · kinkeliba</p>
-                        </div>
-                    </article>
                     <article class="prod-coop-card prod-coop-card--listed" id="coop-guessabo">
-                        <span class="prod-coop-num">N° 2</span>
+                        <span class="prod-coop-num">N° 1</span>
                         <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
                         <div class="prod-coop-body prod-coop-body--compact">
                             <h3 class="prod-coop-name">Scoops CAEG</h3>
                             <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Guéssabo</span></p>
-                            <p class="prod-coop-products">Akpi · gingembre</p>
+                            <p class="prod-coop-products">Akpi · Gingembre</p>
                         </div>
                     </article>
-                    <article class="prod-coop-card prod-coop-card--listed" id="coop-divo-list">
-                        <span class="prod-coop-num">N° 3</span>
+                    <article class="prod-coop-card prod-coop-card--listed" id="coop-divo">
+                        <span class="prod-coop-num">N° 2</span>
                         <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
                         <div class="prod-coop-body prod-coop-body--compact">
                             <h3 class="prod-coop-name">Femmes Entreprenantes du Lôh-Djiboua</h3>
                             <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Divo</span></p>
-                            <p class="prod-coop-products">Akpi · graine · pistache</p>
-                        </div>
-                    </article>
-                    <article class="prod-coop-card prod-coop-card--listed" id="coop-pecheurs-sud">
-                        <span class="prod-coop-num">N° 4</span>
-                        <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
-                        <div class="prod-coop-body prod-coop-body--compact">
-                            <h3 class="prod-coop-name">Société Coopérative Simplifiée des pêcheurs artisanaux du Sud</h3>
-                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Abidjan</span></p>
-                            <p class="prod-coop-products">Poisson</p>
+                            <p class="prod-coop-products">Akpi · Graine · Pistache</p>
                         </div>
                     </article>
                     <article class="prod-coop-card prod-coop-card--listed" id="coop-al-bari">
-                        <span class="prod-coop-num">N° 5</span>
+                        <span class="prod-coop-num">N° 3</span>
                         <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
                         <div class="prod-coop-body prod-coop-body--compact">
                             <h3 class="prod-coop-name">Al bari</h3>
                             <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Divo</span></p>
-                            <p class="prod-coop-products">Graine · gingembre</p>
+                            <p class="prod-coop-products">Graine · Gingembre</p>
                         </div>
                     </article>
-                    <article class="prod-coop-card prod-coop-card--listed" id="coop-mbatto-list">
-                        <span class="prod-coop-num">N° 6</span>
+                    <article class="prod-coop-card prod-coop-card--listed" id="coop-daloa">
+                        <span class="prod-coop-num">N° 4</span>
+                        <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
+                        <div class="prod-coop-body prod-coop-body--compact">
+                            <h3 class="prod-coop-name">Mamatchiva</h3>
+                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Daloa</span></p>
+                            <p class="prod-coop-products">Pistache · Gingembre</p>
+                        </div>
+                    </article>
+                    <article class="prod-coop-card prod-coop-card--listed" id="coop-mbatto">
+                        <span class="prod-coop-num">N° 5</span>
                         <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
                         <div class="prod-coop-body prod-coop-body--compact">
                             <h3 class="prod-coop-name">Coop CA Scoopan-MBA</h3>
                             <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>M'Batto</span></p>
-                            <p class="prod-coop-products">Kankankan · pistache · akpi · citron · gingembre</p>
+                            <p class="prod-coop-products">Sauce graine · Kankankan · Pistache · Akpi · Citron · Bissap · Gingembre · Tamarin</p>
+                        </div>
+                    </article>
+                    <article class="prod-coop-card prod-coop-card--listed" id="coop-korhogo">
+                        <span class="prod-coop-num">N° 6</span>
+                        <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
+                        <div class="prod-coop-body prod-coop-body--compact">
+                            <h3 class="prod-coop-name">Union des Coopératives du Vivrier des Savanes (UCOVISA)</h3>
+                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Korhogo</span></p>
+                            <p class="prod-coop-products">Bissap · Soumbara · Citron · Sauce arachide · Beurre de karité · Kinkeliba</p>
+                        </div>
+                    </article>
+                    <article class="prod-coop-card prod-coop-card--listed" id="coop-san-pedro">
+                        <span class="prod-coop-num">N° 7</span>
+                        <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
+                        <div class="prod-coop-body prod-coop-body--compact">
+                            <h3 class="prod-coop-name">Société Coopérative des Vivriers de San Pedro</h3>
+                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>San-Pedro</span></p>
+                            <p class="prod-coop-products">Sauce graine · Akpi</p>
                         </div>
                     </article>
                     <article class="prod-coop-card prod-coop-card--listed" id="coop-femmes-unies">
-                        <span class="prod-coop-num">N° 7</span>
+                        <span class="prod-coop-num">N° 8</span>
                         <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
                         <div class="prod-coop-body prod-coop-body--compact">
                             <h3 class="prod-coop-name">CMATPHACI Femmes Unies</h3>
@@ -323,163 +277,153 @@
                             <p class="prod-coop-products">Poisson</p>
                         </div>
                     </article>
-                    <article class="prod-coop-card prod-coop-card--listed" id="coop-daloa">
-                        <span class="prod-coop-num">N° 8</span>
-                        <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
-                        <div class="prod-coop-body prod-coop-body--compact">
-                            <h3 class="prod-coop-name">Mamatchiva</h3>
-                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Daloa</span></p>
-                            <p class="prod-coop-products">Pistache · gingembre</p>
-                        </div>
-                    </article>
-                    <article class="prod-coop-card prod-coop-card--listed" id="coop-bouna-list">
+                    <article class="prod-coop-card prod-coop-card--listed" id="coop-bouna">
                         <span class="prod-coop-num">N° 9</span>
                         <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
                         <div class="prod-coop-body prod-coop-body--compact">
                             <h3 class="prod-coop-name">Scoop Prokab</h3>
                             <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Bouna</span></p>
-                            <p class="prod-coop-products">Soumbara · sauce arachide · bissap</p>
+                            <p class="prod-coop-products">Beurre de karité · Soumbara · Tamarin · Pistache · Sauce arachide</p>
                         </div>
                     </article>
-                    <article class="prod-coop-card prod-coop-card--listed" id="coop-san-pedro">
+                    <article class="prod-coop-card prod-coop-card--listed" id="coop-coopan">
                         <span class="prod-coop-num">N° 10</span>
                         <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
                         <div class="prod-coop-body prod-coop-body--compact">
-                            <h3 class="prod-coop-name">Société Coopérative des Vivriers de San Pedro</h3>
-                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>San Pedro</span></p>
-                            <p class="prod-coop-products">Sauce graine · akpi</p>
+                            <h3 class="prod-coop-name">Coop-CA Coopan</h3>
+                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Duékoué</span></p>
+                            <p class="prod-coop-products">Gingembre · Miel · Bissap</p>
                         </div>
                     </article>
-                    <article class="prod-coop-card prod-coop-card--listed" id="coop-soubre">
+                    <article class="prod-coop-card prod-coop-card--listed" id="coop-chocovi">
                         <span class="prod-coop-num">N° 11</span>
                         <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
                         <div class="prod-coop-body prod-coop-body--compact">
-                            <h3 class="prod-coop-name">Coop CA-Ecapar</h3>
-                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Soubré-Méagui</span></p>
-                            <p class="prod-coop-products">Gingembre</p>
-                        </div>
-                    </article>
-                    <article class="prod-coop-card prod-coop-card--listed" id="coop-korhogo">
-                        <span class="prod-coop-num">N° 12</span>
-                        <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
-                        <div class="prod-coop-body prod-coop-body--compact">
-                            <h3 class="prod-coop-name">Union des Coopératives du Vivrier des Savanes (UCOVISA)</h3>
-                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Korhogo</span></p>
-                            <p class="prod-coop-products prod-coop-products--muted">Produits à venir</p>
-                        </div>
-                    </article>
-                    <article class="prod-coop-card prod-coop-card--listed" id="coop-kassere-list">
-                        <span class="prod-coop-num">N° 13</span>
-                        <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
-                        <div class="prod-coop-body prod-coop-body--compact">
-                            <h3 class="prod-coop-name">Gbinmin</h3>
-                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Kasséré</span></p>
-                            <p class="prod-coop-products">Beurre de karité alimentaire</p>
+                            <h3 class="prod-coop-name">Chocovi (PME)</h3>
+                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Abidjan</span></p>
+                            <p class="prod-coop-products">Tablette chocolat single-origin 70g</p>
                         </div>
                     </article>
                 </div>
-               
             </div>
         </section>
 
-        <!-- Coopératives en cours de création -->
+        <!-- Coopératives en cours de mobilisation -->
         <section class="prod-coops-section prod-coops-section--pending" id="cooperatives-en-cours">
             <div class="container">
-                <h2 class="prod-coops-title">Liste des Coopératives en cours de mobilisation</h2>
-                <p class="prod-coops-intro">Ces coopératives féminines sont en phase de structuration et rejoindront progressivement le réseau CuisineFacile.</p>
+                <h2 class="prod-coops-title">Coopératives en cours de mobilisation</h2>
+                <p class="prod-coops-intro">12 coopératives féminines en phase de structuration qui rejoignent progressivement le réseau.</p>
                 <div class="prod-coops-grid prod-coops-grid--all">
                     <article class="prod-coop-card prod-coop-card--listed" id="coop-wognon">
-                        <span class="prod-coop-num">N° 1</span>
+                        <span class="prod-coop-num">N° 12</span>
                         <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
                         <div class="prod-coop-body prod-coop-body--compact">
                             <h3 class="prod-coop-name">Wognon</h3>
                             <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Kouto</span></p>
-                            <p class="prod-coop-products">Soumbara · sauce arachide · beurre de karité alimentaire</p>
+                            <p class="prod-coop-products">Soumbara · Sauce arachide · Beurre de karité alimentaire</p>
                         </div>
                     </article>
-                    <article class="prod-coop-card prod-coop-card--listed" id="coop-wolpinnin">
-                        <span class="prod-coop-num">N° 2</span>
+                    <article class="prod-coop-card prod-coop-card--listed" id="coop-wolpinin">
+                        <span class="prod-coop-num">N° 13</span>
                         <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
                         <div class="prod-coop-body prod-coop-body--compact">
-                            <h3 class="prod-coop-name">Wolpinnin</h3>
+                            <h3 class="prod-coop-name">Wolpinin</h3>
                             <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Gbalo</span></p>
-                            <p class="prod-coop-products">Soumbara · sauce arachide · beurre de karité alimentaire</p>
+                            <p class="prod-coop-products">Beurre de karité alimentaire</p>
                         </div>
                     </article>
-                    <article class="prod-coop-card prod-coop-card--listed" id="coop-tenewere">
-                        <span class="prod-coop-num">N° 3</span>
+                    <article class="prod-coop-card prod-coop-card--listed" id="coop-teninhouele">
+                        <span class="prod-coop-num">N° 14</span>
                         <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
                         <div class="prod-coop-body prod-coop-body--compact">
-                            <h3 class="prod-coop-name">Tènèwèrè</h3>
+                            <h3 class="prod-coop-name">Téninhouelé</h3>
                             <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Boundiali</span></p>
-                            <p class="prod-coop-products">Soumbara · sauce arachide · bissap · beurre de karité</p>
+                            <p class="prod-coop-products">Soumbara · Sauce arachide · Bissap · Kinkéliba · Pistache</p>
                         </div>
                     </article>
-                    <article class="prod-coop-card prod-coop-card--listed" id="coop-attieke">
-                        <span class="prod-coop-num">N° 4</span>
+                    <article class="prod-coop-card prod-coop-card--listed" id="coop-badeya">
+                        <span class="prod-coop-num">N° 15</span>
                         <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
                         <div class="prod-coop-body prod-coop-body--compact">
-                            <h3 class="prod-coop-name">Coop attiéké</h3>
-                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Abidjan-Abobo</span></p>
-                            <p class="prod-coop-products">Attiéké</p>
+                            <h3 class="prod-coop-name">Badeya</h3>
+                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Madiana</span></p>
+                            <p class="prod-coop-products">Beurre de karité · Soumbara</p>
                         </div>
                     </article>
                     <article class="prod-coop-card prod-coop-card--listed" id="coop-soutra">
-                        <span class="prod-coop-num">N° 5</span>
+                        <span class="prod-coop-num">N° 16</span>
                         <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
                         <div class="prod-coop-body prod-coop-body--compact">
                             <h3 class="prod-coop-name">Soutra</h3>
-                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Tengrela</span></p>
-                            <p class="prod-coop-products">Soumbara · sauce arachide · beurre de karité alimentaire · kinkéliba · poudre de baobab</p>
+                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Tengréla</span></p>
+                            <p class="prod-coop-products">Soumbara · Sauce arachide · Beurre de karité alimentaire · Kinkéliba · Poudre de baobab</p>
                         </div>
                     </article>
-                    <article class="prod-coop-card prod-coop-card--listed" id="coop-yatchana">
-                        <span class="prod-coop-num">N° 6</span>
+                    <article class="prod-coop-card prod-coop-card--listed" id="coop-wolokoro">
+                        <span class="prod-coop-num">N° 17</span>
                         <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
                         <div class="prod-coop-body prod-coop-body--compact">
-                            <h3 class="prod-coop-name">Yatchana</h3>
+                            <h3 class="prod-coop-name">Wolokoro</h3>
                             <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Korhogo</span></p>
-                            <p class="prod-coop-products">Soumbara · sauce arachide · beurre de karité alimentaire · kinkéliba</p>
+                            <p class="prod-coop-products">Soumbara · Sauce arachide · Beurre de karité alimentaire · Kinkéliba</p>
                         </div>
                     </article>
-                    <article class="prod-coop-card prod-coop-card--listed" id="coop-espoir-lacs">
-                        <span class="prod-coop-num">N° 7</span>
+                    <article class="prod-coop-card prod-coop-card--listed" id="coop-abodjama">
+                        <span class="prod-coop-num">N° 18</span>
                         <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
                         <div class="prod-coop-body prod-coop-body--compact">
-                            <h3 class="prod-coop-name">Espoir des lacs</h3>
-                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Yamoussoukro</span></p>
-                            <p class="prod-coop-products">Manioc</p>
+                            <h3 class="prod-coop-name">Abodjama</h3>
+                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Adzopé</span></p>
+                            <p class="prod-coop-products">Attiéké premium Abodjama · Transformation du manioc</p>
                         </div>
                     </article>
-                    <article class="prod-coop-card prod-coop-card--listed" id="coop-panier-menagere">
-                        <span class="prod-coop-num">N° 8</span>
+                    <article class="prod-coop-card prod-coop-card--listed" id="coop-klanman">
+                        <span class="prod-coop-num">N° 19</span>
                         <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
                         <div class="prod-coop-body prod-coop-body--compact">
-                            <h3 class="prod-coop-name">Panier de la ménagère</h3>
+                            <h3 class="prod-coop-name">Klanman</h3>
                             <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Toumodi</span></p>
-                            <p class="prod-coop-products">Manioc</p>
+                            <p class="prod-coop-products">Agropastoral · Transformation de produits agricoles</p>
                         </div>
                     </article>
-                    <article class="prod-coop-card prod-coop-card--listed" id="coop-braves-femmes">
-                        <span class="prod-coop-num">N° 9</span>
+                    <article class="prod-coop-card prod-coop-card--listed" id="coop-niaman">
+                        <span class="prod-coop-num">N° 20</span>
                         <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
                         <div class="prod-coop-body prod-coop-body--compact">
-                            <h3 class="prod-coop-name">Braves femmes</h3>
+                            <h3 class="prod-coop-name">Niaman</h3>
                             <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Bouaké</span></p>
-                            <p class="prod-coop-products">Manioc</p>
+                            <p class="prod-coop-products">Agropastoral · Produits du terroir baoulé</p>
                         </div>
                     </article>
-                    <article class="prod-coop-card prod-coop-card--listed" id="coop-amazones-vivrier">
-                        <span class="prod-coop-num">N° 10</span>
+                    <article class="prod-coop-card prod-coop-card--listed" id="coop-aniwa">
+                        <span class="prod-coop-num">N° 21</span>
                         <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
                         <div class="prod-coop-body prod-coop-body--compact">
-                            <h3 class="prod-coop-name">Amazones du vivrier</h3>
-                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Duekoué</span></p>
-                            <p class="prod-coop-products prod-coop-products--muted">Produits à venir</p>
+                            <h3 class="prod-coop-name">Aniwa</h3>
+                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Yamoussoukro</span></p>
+                            <p class="prod-coop-products">Agropastoral · Transformation de produits agricoles</p>
+                        </div>
+                    </article>
+                    <article class="prod-coop-card prod-coop-card--listed" id="coop-wehon">
+                        <span class="prod-coop-num">N° 22</span>
+                        <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
+                        <div class="prod-coop-body prod-coop-body--compact">
+                            <h3 class="prod-coop-name">Wêhon</h3>
+                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Duékoué</span></p>
+                            <p class="prod-coop-products">Agropastoral · Valorisation du terroir de l'Ouest</p>
+                        </div>
+                    </article>
+                    <article class="prod-coop-card prod-coop-card--listed" id="coop-heresira">
+                        <span class="prod-coop-num">N° 23</span>
+                        <div class="prod-coop-visual prod-coop-visual--compact" aria-hidden="true"><i class="fas fa-users"></i></div>
+                        <div class="prod-coop-body prod-coop-body--compact">
+                            <h3 class="prod-coop-name">Hèrèsira</h3>
+                            <p class="prod-coop-meta"><i class="fas fa-map-marker-alt" aria-hidden="true"></i><span>Madiana Sokourani</span></p>
+                            <p class="prod-coop-products">Soumbara · Sauce arachide · Bissap · Kinkeliba · Poudre de baobab · Beurre</p>
                         </div>
                     </article>
                 </div>
-              
+            </div>
         </section>
 
         <!-- Trois engagements -->
