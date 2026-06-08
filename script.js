@@ -1490,17 +1490,17 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Carte → coopérative (Nos Productrices)
     const mapCityToCoop = {
-        'Séguéla': 'coop-seguela',
         'Guéssabo': 'coop-guessabo',
         'Divo': 'coop-divo',
-        'Abidjan': 'coop-pecheurs-sud',
+        'Abidjan': 'coop-femmes-unies',
         'M\'Batto': 'coop-mbatto',
         'Daloa': 'coop-daloa',
         'Bouna': 'coop-bouna',
-        'San Pedro': 'coop-san-pedro',
-        'Soubré': 'coop-soubre',
+        'San-Pedro': 'coop-san-pedro',
         'Korhogo': 'coop-korhogo',
-        'Kasséré': 'coop-kassere'
+        'Bouaké': 'coop-niaman',
+        'Yamoussoukro': 'coop-aniwa',
+        'Duékoué': 'coop-coopan'
     };
     document.querySelectorAll('.prod-map-marker, .engagement-map-marker').forEach(marker => {
         marker.addEventListener('click', () => {
