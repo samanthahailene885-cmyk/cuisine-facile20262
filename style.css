@@ -4740,30 +4740,250 @@ a.btn-add-cart:hover {
 /* Mission blanc */
 .eng-mission {
     background: #fff;
-    padding: 56px 0 64px;
+    padding: 64px 0 88px;
+    border-top: 1px solid #ebe6e0;
+    overflow: hidden;
 }
 
-.eng-mission-inner {
-    max-width: 900px;
+.eng-mission-panel {
+    max-width: 820px;
+    margin: 0;
+    text-align: left;
+    padding: clamp(32px, 5vw, 52px) clamp(28px, 5vw, 56px);
+    background: linear-gradient(145deg, #faf7f2 0%, #f3efe6 100%);
+    border: 1px solid #e6dfd3;
+    border-radius: 24px;
+    box-shadow:
+        0 24px 64px rgba(43, 102, 58, 0.08),
+        inset 0 1px 0 rgba(255, 255, 255, 0.85);
+    position: relative;
+}
+
+.eng-mission-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 100%;
+    border-radius: 24px 0 0 24px;
+    background: linear-gradient(180deg, var(--eng-green) 0%, #4a8f62 55%, var(--eng-green-light) 100%);
+}
+
+.eng-mission-header {
+    margin-bottom: 32px;
+    padding-left: 8px;
+}
+
+.eng-mission-label {
+    display: inline-block;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #fff;
+    margin-bottom: 20px;
+    padding: 9px 16px;
+    background: var(--eng-green);
+    border-radius: 999px;
+    box-shadow: 0 4px 14px rgba(43, 102, 58, 0.25);
 }
 
 .eng-mission-title {
     font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-size: clamp(1.75rem, 3.5vw, 2.25rem);
     font-weight: 700;
-    color: #1a1a1a;
-    margin-bottom: 24px;
+    color: #141414;
+    line-height: 1.15;
+    margin: 0;
+    letter-spacing: -0.02em;
 }
 
-.eng-mission-inner p {
+.eng-mission-title::after {
+    content: '';
+    display: block;
+    width: 64px;
+    height: 3px;
+    margin-top: 16px;
+    background: linear-gradient(90deg, var(--eng-green) 0%, rgba(43, 102, 58, 0.15) 100%);
+    border-radius: 2px;
+}
+
+.eng-mission-body {
+    padding-left: 8px;
+}
+
+.eng-mission-intro {
+    margin: 0 0 20px;
     font-size: 1rem;
-    color: #333;
-    line-height: 1.75;
-    margin-bottom: 20px;
+    font-weight: 500;
+    color: #2a2a2a;
+    line-height: 1.7;
+    letter-spacing: -0.01em;
 }
 
-.eng-mission-inner p:last-child {
-    margin-bottom: 0;
+.eng-mission-promises {
+    list-style: none;
+    margin: 0 0 28px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.eng-mission-promise {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 14px 18px;
+    background: #fff;
+    border: 1px solid #ebe4d8;
+    border-radius: 16px;
+    box-shadow: 0 8px 28px rgba(43, 102, 58, 0.06);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.eng-mission-promise:hover {
+    transform: translateX(6px);
+    box-shadow: 0 12px 36px rgba(43, 102, 58, 0.1);
+}
+
+.eng-mission-promise-num {
+    flex-shrink: 0;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.125rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--eng-green);
+    opacity: 0.35;
+    min-width: 1.75rem;
+}
+
+.eng-mission-promise-text {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: #1f1f1f;
+    line-height: 1.5;
+    letter-spacing: -0.01em;
+}
+
+.eng-mission-promise-text em {
+    font-style: normal;
+    font-weight: 700;
+    color: var(--eng-green);
+    background: linear-gradient(180deg, transparent 62%, rgba(184, 217, 196, 0.55) 62%);
+    padding: 0 2px;
+}
+
+.eng-mission-outro {
+    margin: 0;
+    padding: 14px 18px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 400;
+    color: #3d3d3d;
+    line-height: 1.6;
+    border-left: 3px solid var(--eng-green-light);
+    background: rgba(255, 255, 255, 0.55);
+    border-radius: 0 12px 12px 0;
+}
+
+.eng-mission-conviction {
+    margin: 36px 0 0;
+    padding: clamp(24px, 4vw, 32px) clamp(24px, 4vw, 36px);
+    background: var(--eng-green);
+    border: none;
+    border-radius: 18px;
+    box-shadow: 0 16px 48px rgba(43, 102, 58, 0.22);
+    position: relative;
+    overflow: hidden;
+}
+
+.eng-mission-conviction::before {
+    content: '\201C';
+    position: absolute;
+    top: -8px;
+    right: 24px;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 8rem;
+    line-height: 1;
+    color: rgba(255, 255, 255, 0.08);
+    pointer-events: none;
+}
+
+.eng-mission-conviction p {
+    margin: 0;
+    position: relative;
+    z-index: 1;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1rem;
+    font-style: italic;
+    font-weight: 400;
+    color: rgba(255, 255, 255, 0.95);
+    line-height: 1.65;
+}
+
+.eng-mission-conviction-label {
+    display: block;
+    margin-bottom: 10px;
+    font-family: 'Inter', var(--font-primary);
+    font-size: 0.6875rem;
+    font-style: normal;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.eng-mission-points {
+    list-style: none;
+    margin: 32px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.eng-mission-point {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 20px 18px;
+    background: #fff;
+    border: 1px solid #ebe4d8;
+    border-radius: 16px;
+    box-shadow: 0 6px 20px rgba(43, 102, 58, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.eng-mission-point:hover {
+    transform: translateY(-3px);
+    border-color: var(--eng-green-light);
+    box-shadow: 0 12px 32px rgba(43, 102, 58, 0.12);
+}
+
+.eng-mission-point-icon {
+    flex-shrink: 0;
+    width: 46px;
+    height: 46px;
+    border-radius: 14px;
+    background: linear-gradient(135deg, var(--eng-green) 0%, #4a8f62 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.0625rem;
+    box-shadow: 0 6px 16px rgba(43, 102, 58, 0.25);
+}
+
+.eng-mission-point-text {
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: #1a1a1a;
+    line-height: 1.4;
+    letter-spacing: -0.01em;
 }
 
 /* Trois piliers */
@@ -5030,6 +5250,20 @@ a.btn-add-cart:hover {
 }
 
 @media (max-width: 768px) {
+    .eng-mission-panel {
+        padding: 28px 22px 32px;
+        border-radius: 18px;
+    }
+
+    .eng-mission-points {
+        grid-template-columns: 1fr;
+    }
+
+    .eng-mission-promise {
+        padding: 16px 18px;
+        gap: 14px;
+    }
+
     .eng-pillar-row {
         flex-direction: column;
         padding: 24px;
